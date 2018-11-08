@@ -1,0 +1,175 @@
+%\documentclass[a4paper]{report}
+\documentclass[a4paper]{report}
+
+%BEFORE SUBMISSION DO THESE:
+% * deactivate all \includeonly
+% * ensure \doneit set to nothing
+% * ensure numbering CONTINUOUS from title page on through
+% * activate the includes of license, ack, etc
+% * check through for question mark errors in render
+% * make sure the bibliog doesn't have ugly urls in
+
+\usepackage[left=40mm,right=30mm]{geometry}
+
+\usepackage[printonlyused]{acronym}
+\usepackage{ifdraft}
+\usepackage{mathtools}
+\usepackage{braket}
+\usepackage{tgtermes} % font
+\usepackage{comment}
+\usepackage{amssymb}
+\usepackage{bm}%bold math symbols
+\usepackage{rotating}
+\usepackage[hidelinks]{hyperref}
+\usepackage{textcomp}
+\usepackage{gensymb} % degree symbol etc
+\usepackage{subfig} % apparently subfig is the one to use not subfigure
+\usepackage[toc,page]{appendix}
+\usepackage{tipa}
+\usepackage{clrscode}
+\usepackage{setspace}
+\usepackage[absolute]{textpos}
+\usepackage[super,sort&compress,comma]{natbib} 
+%\makeatletter %\renewcommand\@biblabel[1]{#1.} %\makeatother %uncomment these for "1." style bib
+\usepackage{array,booktabs} %tables
+\usepackage{arydshln}
+\usepackage{multirow}
+\usepackage{pdflscape}
+\usepackage{titlesec}
+\usepackage{siunitx}
+\usepackage{notoccite} %stops citations in captions ruining everything
+\usepackage{float}
+\usepackage[version=4]{mhchem} %chemistry formulae
+\usepackage{epigraph}
+\usepackage[nottoc,numbib]{tocbibind}
+\titleformat{\chapter}[block]
+  {\normalfont\huge\bfseries}{\thechapter}{1em}{\huge}
+\titlespacing*{\chapter}{0pt}{*0}{2em}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter{} #1}{}}
+\lhead{\leftmark}
+\chead{}
+\lfoot{}
+\cfoot{}
+\rhead{\thepage}
+
+\def\szero{S$_{0}$}
+\def\sone{S$_{1}$}
+\def\stwo{S$_{2}$}
+\def\sthree{S$_{3}$}
+\def\pipistar{$\pi\pi^{\ast}$}
+\def\pistar{$\pi^{\ast}$}
+\def\npistar{$n\pi^{\ast}$}
+\def\Estar{E$^\ast$}
+\def\Kstar{K$^\ast$}
+\DeclareTextCompositeCommand{\r}{OT1}{A}{% Angstrom!
+  \leavevmode\vbox{%
+    \offinterlineskip
+    \ialign{\hfil##\hfil\cr\char23\cr\noalign{\kern-1.15ex}A\cr}%
+  }%
+}
+\def\highlevel{TD-$\omega$BX-D/6-311++G(d,p)}
+\def\lowlevel{TD-$\omega$BX-D/6-31G(d)}
+
+
+\linespread{1.5}
+\begin{document}
+
+\setlength{\TPHorizModule}{200mm} 
+\setlength{\TPVertModule}{100mm} 
+\textblockorigin{61mm}{19mm}
+
+
+%%%%% thanks alex mclean for super-useful onscreen reading tip:
+%\usepackage[top=0.1in, bottom=0.1in, left=0.3in, right=0.3in, paperwidth=11in, paperheight=7in]{geometry} % activate for ONSCREEN reading shape AT HOME
+%\usepackage[top=0.1in, bottom=0.1in, left=0.3in, right=0.3in, paperwidth=11in, paperheight=8.5in]{geometry} % activate for ONSCREEN reading shape AT WORK
+
+
+
+% activate the appropriate shortcut, whether or not to show this in titles
+%	\providecommand{\doneit}{DONE: }
+%	\providecommand{\doneit}{}
+
+% Some specific notations used:
+\providecommand{\OT}[1]{\operatorname{\Theta}\bigl(#1\bigr)}
+\providecommand{\OOm}[1]{\operatorname{\Omega}\bigl(#1\bigr)}
+%\newcommand{\concat}{{\,++\,}}
+
+% numbering starts from here:
+\pagenumbering{arabic}
+
+% titlepage stuff
+\title{\huge
+\textbf{Design Rules for Solid State Fluorescence Exploiting Excited State Intramolecular Proton Transfer}}
+\author{Michael Dommett \\
+%\\
+%PhD Thesis\\
+\\
+School of Biological and Chemical Sciences\\
+Queen Mary University of London\\
+\\
+Submitted in partial fulfillment of the requirements\\ of the Degree of Doctor of Philosophy}
+
+\date{2018}
+
+
+\maketitle
+
+%%%% qmul rules say abstract must be FIRST after title page
+
+\include{abstract}  
+
+\setcounter{page}{3}
+
+%\include{license}%
+%\include{acknowledgements}
+%\include{epigraph}
+\tableofcontents
+\listoffigures
+\listoftables
+\include{zabbreviations}
+\include{1Intro/intro}
+\include{2Theory/theory}
+%\include{3nonradiativedecay/3Nonradiativedecay}
+%\include{4IntraInterInteractions/intrainterinteractions}
+%\include{5ConnectingCrystalStructure/5Connecting}
+\bibliographystyle{rsc}
+\bibliography{Thesis}
+%%%%%%%%%%%%%%
+% APPENDICES
+%%%%%%%%%%%%%%
+\appendix
+\appendixpage
+\setcounter{figure}{0} \renewcommand{\thefigure}{A\arabic{figure}}
+\section*{Appendix A}
+\label{appendix1}
+\begin{figure}[H]
+\centering
+  \includegraphics[width=0.9\linewidth]{Misc/HC_1_1413orbitals.pdf}
+  \caption{CASSCF space used in Chapter \ref{chapter:NRdecay}.}
+  \label{figure: CASSCF_Orbitals}
+\end{figure}
+\section*{Appendix B}
+\label{appendix3}
+\begin{figure}[H]
+\centering
+  \includegraphics[width=0.9\linewidth]{Misc/2HC_energies_vac_TDDFT_SB.pdf}
+  \caption[The vacuum PES of \textbf{HC1} \& \textbf{HC5} with (TD-)$\omega$BX-D/6-31G(d) ]{The critical points on the \ac{PES} of \textbf{HC1} \& \textbf{HC5} obtained at (TD-)$\omega$BX-D/6-31G(d) in vacuum.}
+  \label{figure: HC_TDDFT_VAC_SB}
+\end{figure}
+
+\section*{Appendix C}
+\label{appendix2}
+\begin{figure}[H]
+\centering
+  \includegraphics[width=0.9\linewidth]{Misc/CAS_ORBITALS.pdf}
+  \caption[CASSCF and CASPT2 space used in Chapter \ref{chapter: Connecting}.]{HP orbitals in the active space for the CASSSCF and CASPT2 calculations, where the active space consists of 12 electrons in 11 orbitals. Orbitals shown for each of the Franck-Condon (FC), keto \sone{} (KS\textsubscript{1}) and minimum energy conical intersection (MECI) calculations.}
+  \label{figure: HP_CASSCF_Orbitals}
+\end{figure}
+%%%%%%%%%%%%%%
+% APPENDICES
+%%%%%%%%%%%%%%
+
+\end{document}
