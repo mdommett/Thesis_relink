@@ -79,7 +79,6 @@
 
 \linespread{1.6}
 \begin{document}
-
 \setlength{\TPHorizModule}{200mm} 
 \setlength{\TPVertModule}{100mm} 
 \textblockorigin{61mm}{19mm}
@@ -100,8 +99,7 @@
 \providecommand{\OOm}[1]{\operatorname{\Omega}\bigl(#1\bigr)}
 %\newcommand{\concat}{{\,++\,}}
 
-% numbering starts from here:
-\pagenumbering{arabic}
+
 
 % titlepage stuff
 \title{\huge
@@ -115,24 +113,20 @@ Queen Mary University of London\\
 \\
 Submitted in partial fulfillment of the requirements\\ of the Degree of Doctor of Philosophy}
 
-\date{2018}
+\date{January 2018}
 
-
+\pagenumbering{arabic}
 \maketitle
 
-%%%% qmul rules say abstract must be FIRST after title page
-
 \include{abstract}  
-
-\setcounter{page}{3}
-
-\include{license}%
+\setcounter{page}{2}
+\include{declaration}
 \include{acknowledgements}
-\include{epigraph}
 \tableofcontents
 \listoffigures
 \listoftables
 \include{zabbreviations}
+\include{epigraph}
 \include{1Intro/intro}
 \include{2Theory/theory}
 \include{3nonradiativedecay/3Nonradiativedecay}
