@@ -17,7 +17,7 @@ In this Chapter the scope of the study is extended as the design rules establish
 
 Herein we investigate the factors which mediate the increased fluorescence activity for \textbf{HP} compared to \textbf{HC} systems. In the following sections each of the three above steps are addressed in turn to show how the \acp{HP} systems show an increased potency at each point compared to their \acp{HC} counterparts, resulting in increased fluorescence in the solid state. Particular focus will be given to \textbf{HC1}, \textbf{HC5}, and \textbf{HP1}, which will act as exemplar systems due to their differing fluorescence behaviour.
 
-After outlining the computational methods used, the \acp{PES} of \textbf{HP1}-\textbf{4} are explored in vacuum, to map the nonradiative decay channels as for the \textbf{HC} compounds and to guage the substituent effects. Then, the crystal structures of the eleven systems are analysed with particular attention paid to the dimer motifs present. Next, we examine how the dimer motifs mediate the excitonic coupling between molecular sites in the crystal and afford localisation of the excited state. An exciton hopping model based on Marcus Theory is applied to examine the different hopping rates in the enol state and examine the competition between localisation and exciton diffusion. Following this, we examine in detail the propensity for ESIPT in the \ac{HP} systems compared with their \ac{HP} counterparts. Finally, the solid state \ac{PES}  of \ac{HP}\textbf{1} is mapped, where the energy of the \ac{MECI} is shown to be prohibitively high. All calculations and analyses were performed by myself except the implementation of the Voronoi cells, which was done by Miguel Rivera.
+After outlining the computational methods used, the \acp{PES} of \textbf{HP1}-\textbf{4} are explored in vacuum, to map the nonradiative decay channels as for the \textbf{HC} compounds and to guage the substituent effects. Then, the crystal structures of the eleven systems are analysed with particular attention paid to the dimer motifs present. Next, we examine how the dimer motifs mediate the excitonic coupling between molecular sites in the crystal and afford localisation of the excited state. We then calculated the reorganisation energies and the Huang-Rhys factors to assess the \ac{FGR-RIM} interpretation of \ac{AIE}. Following this, an exciton hopping model based on Marcus Theory is applied to examine the different hopping rates in the enol state and examine the competition between localisation and exciton diffusion. Finally, the solid state \ac{PES}  of \ac{HP}\textbf{1} is mapped, where the energy of the \ac{MECI} is shown to be prohibitively high. All calculations and analyses were performed by myself except the implementation of the Voronoi cells, which was done by Miguel Rivera.
 
 %%%%%%%%%%%%%%%%%%%%% 
 %%%%%%%%%%%%%%%%%%%%% 
@@ -30,7 +30,7 @@ Crystal structures of all \ac{HC} and \ac{HP} compounds were optimised using Qua
 
 Exciton couplings \textit{J} were calculated for dimers in each optimised crystal structure. A 2x2x2 supercell was constructed for each system and a dimer was defined as any molecular pair with an interatomic distance less than or equal to the van der Waals radii of the atoms, plus a damping factor of 1.5\AA. This selection criterion has previously been used in similar applications.\cite{Campbell2017} 
 
-To calculate solid state reorganisation energies in the adiabatic approximation ($\lambda_{A}$) for each compound we generated cluster models based on the 2x2x2 supercell, where all molecules which lay within 20{\AA} of the central monomer chromophore were included in the cluster. Geometries were optimised for all eleven clusters in \sone{} and \szero{} states within the ONIOM protocol at $\omega$B97X-D/6-31G(d):UFF using electronic embedding. MM charges were derived automatically using the QEq method.\cite{Rappe2007} The UFF forecefield was chosen here due to the automatic charge assignment, allowing the highthroughput generation of structures and input files. In the cases of \ac{HC}\textbf{1}-\textbf{4} and \ac{HC}\textbf{6}-\textbf{7}, $\lambda_{A}$ was calculated for both enol and keto pathways. For \textbf{HC5} and \textbf{HP1}-\textbf{4}, only the $\lambda_{A}$ associated with keto relaxation was used since no \Estar{} minimum was located in the monomer QM:MM relaxation. Reorganisation energies in the normal-mode approximation ($\lambda_{NM}$) were calculated using the DUSHIN program for \textbf{HC5} and \textbf{HP1} using a reduced cluster with the 3-21G* basis set to reduce the computational cost of calculating QM:MM excited state frequencies.\cite{Reimers2001}
+To calculate solid state reorganisation energies in the adiabatic approximation ($\lambda_{A}$) for each compound we generated cluster models based on the 2x2x2 supercell, where all molecules which lay within 20{\AA} of the central monomer chromophore were included in the cluster. Geometries were optimised for all eleven clusters in \sone{} and \szero{} states within the ONIOM protocol at $\omega$B97X-D/6-31G(d):UFF using electrostatic embedding. MM charges were derived automatically using the QEq method.\cite{Rappe2007} The UFF forecefield was chosen here due to the automatic charge assignment, allowing the highthroughput generation of structures and input files. In the cases of \ac{HC}\textbf{1}-\textbf{4} and \ac{HC}\textbf{6}-\textbf{7}, $\lambda_{A}$ was calculated for both enol and keto pathways. For \textbf{HC5} and \textbf{HP1}-\textbf{4}, only the $\lambda_{A}$ associated with keto relaxation was used since no \Estar{} minimum was located in the monomer QM:MM relaxation. Reorganisation energies in the normal-mode approximation ($\lambda_{NM}$) were calculated using the DUSHIN program for \textbf{HC1}, \textbf{HC5} and \textbf{HP1}.\cite{Reimers2001} Frequencies for an ONIOM-optimised monomer chromophore were calculated in an array of point charges representing the molecular crystal, at TD-$\omega$B97X-D/6-31G(d) level. This lead to one imaginary frequency in each case.
 
 As the exemplar parent \ac{HP} compound, the full excited state decay mechanism of \ac{HP}\textbf{1} was established through QM:MM cluster models using density functional and multireference methods. A monomer and trimer chromophore at the centroid of the 20{\AA} cluster were optimised in the ground and excited states at ONIOM((TD-)$\omega$B97X-D/6-31G(d):AMBER) level of theory. The \sone/\szero{} MECI in both monomer and trimer cluster models were calculated using a modified version of the CIOpt algorithm.\cite{Levine2008} 
 
@@ -43,25 +43,30 @@ To analyse the spatial environment for the monomers at the centre of the cluster
 %%%%%%%%%%%%%%%%%
 \subsection{Potential Energy Surfaces of \textbf{HP} Derivatives} \label{section: Connecting_Vacuum}
 The \acf{HP} compounds synthesised by Tang \textit{et al.} show remarkable \ac{AIE} behaviour.  Before studying the root of their fluorescence in the solid state, in this section the \acp{PES} are mapped in vacuum at (TD-)DFT level. This enables the isolation of the substituent effect and to understand the effect of removing an aryl ring from the \ac{HC} structure. 
-\begin{figure}[H]
+\begin{figure}[t]
 \centering
   \includegraphics[width=0.8\linewidth]{5ConnectingCrystalStructure/2HP_energies_vac.pdf}
   \caption[The vacuum PES of HP\textbf{1}-\textbf{4} with TDDFT]{The critical points on the \ac{PES} for \textbf{HP}\textbf{1}-\textbf{4} obtained at (TD-)$\omega$BX-D/6-311++G(d,p) in vacuum. Also shown are the optimised geometries at each point for \textbf{HP1}.}
   \label{figure: HP_energies_vac}
 \end{figure}
-In Figure \ref{figure: HP_energies_vac}, the energy levels of the key regions of the \ac{PES} are shown for \textbf{HP1}-\textbf{4}. Vertical excitation to \sone{} in vacuum is predicted at 4.16 eV for \textbf{HP1}, a blue shift of 0.51 eV compared to \textbf{HC1}.  There is a blue shift of 0.09 eV for \textbf{HP2} and a red shift of 0.18 for \textbf{HP4} compared to \textbf{HP1}. These excitations are all  bright and HOMO-LUMO in character. The difference density plots show that density is lost from the phenol oxygen and donated to the C=O carboynl, as for \sone{} in \textbf{HC5} (Figure \ref{figure: monomer_excitations}). In \textbf{HP2} and \textbf{HP3}, there is some donation from the amino N. In \textbf{4}, electron density is lost from the fluorine. The experimental absorption in DCM is centred at 3.43 eV for \textbf{1}, and thus the TDDFT excitation energies are largely overestimated. When a solvent cavity is introduced through the \ac{PCM} model, the \sone{} energy is red shifted to 4.01 eV - an improvement but still largely overestimated compared to experiment. It is for reason that in the solid state calculations, the CASPT2 method is applied to determine the energetic pathways.
 
-\begin{figure}[H]
+
+In Figure \ref{figure: HP_energies_vac}, the energy levels of the key regions of the \ac{PES} are shown for \textbf{HP1}-\textbf{4}. Vertical excitation to \sone{} in vacuum is predicted at 4.16 eV for \textbf{HP1}, a blue shift of 0.51 eV compared to \textbf{HC1}.  There is a blue shift of 0.09 eV for \textbf{HP2} and a red shift of 0.18 for \textbf{HP4} compared to \textbf{HP1}. These excitations are all  bright and HOMO-LUMO in character. The difference density plots show that density is lost from the phenol oxygen and donated to the C=O carboynl, as for \sone{} in \textbf{HC5} (Figure \ref{figure: monomer_excitations}). Results from Chapter \ref{chapter:NRdecay} show that this electronic structure promotes ESIPT. In \textbf{HP2} and \textbf{HP3}, there is some donation from the amino N. In \textbf{4}, electron density is lost from the fluorine. 
+
+The experimental absorption in DCM is centred at 3.43 eV for \textbf{1}, and thus the TDDFT excitation energies are largely overestimated. When a solvent cavity is introduced through the \ac{PCM} model, the \sone{} energy is red shifted to 4.01 eV - an improvement but still largely overestimated compared to experiment. It is for reason that in the solid state calculations, the CASPT2 method is applied to determine the energetic pathways.
+\begin{figure}[b]
 \centering
   \includegraphics[width=0.9\linewidth]{5ConnectingCrystalStructure/monomer_excitations.pdf}
   \caption[Electron density difference maps for the first three excitations of \textbf{HP1}.]{Electron density difference maps for the first three excitations of \textbf{HP1}. Blue regions represent electron density loss from the ground state and red represent electron density gain in the excited state, with isovalue of 0.002. Calculated at TD-$\omega$B97X-D/6-311++G(d,p) in vacuum.}
   \label{figure: monomer_excitations}
 \end{figure}
+
+
 In the enol channel relaxation is not \textit{via} rotation about $\theta_{tor}$, instead occuring through partial cis-trans isomerisation about the carbon-carbon double bond. Fluorescence from this state is dipole forbidden with negligible oscillator strength. The conical intersection on the enol channel is inaccessible, with a distortion of the carbonyl group.
 
 The relative energetic stability of the keto channel is expected to result in a large bias and high population. As for the \textbf{HC} systems, relaxation is \textit{via} rotation about $\theta_{tor}$ and is heavily favoured, as shown by the relaxed geometry scan of $\theta_{tor}$ in Figure \ref{figure: HP_scan_vac}. There is destablisation of the ground state through the rotation but the keto state remains stable through 180\degree{}. We shall return to this concept in Section \ref{section: Connecting_Bias}. Full isomerisation is not expected due to the high energy of the trans-keto state in both \sone{} and \szero{} compared to the cis-keto conformer. The conical intersection is energetically accessible in vacuum, with the substituent effects relatively minor. This is to be expected, since experimental results show that both absorption and emission energies show only minor (\textless{} 0.15 eV) substituent dependence. 
 
-\begin{figure}[H]
+\begin{figure}[t]
 \centering
   \includegraphics[width=0.9\linewidth]{5ConnectingCrystalStructure/2HP_scan_vac.pdf}
   \caption[Relaxed geometry scan of $theta_{tor}$ for \textbf{HP} derivatives]{Relaxed geometry scan of $theta_{tor}$ for \textbf{HP1}-\textbf{4}, calculated at TD-$\omega$B97X-D/6-31G(d) level of theory in vacuum.}
@@ -72,54 +77,63 @@ The relative energetic stability of the keto channel is expected to result in a 
 \subsection{Crystal Packing Motifs} \label{section: Connecting_Motifs}
 %%%%%%%%%
 %%%%%%%%%
-In this section we use several techniques to analyse the crystal structures of the eleven compounds of Table \ref{table: chalcones}. First, the crystalline environment of each crystal is examined initially from the perspective of a monomeric chromophore. To this end, we use Voronoi cell volumes $V_{cell}$ and van der Waals volumes $V_{vdW}$ to determine a Voronoi index $V_{i}=V_{cell}/V_{vdW}$, a metric for the spatial environment for a monomer in the crystal. $V_{i}$ values (Figure \ref{figure: voronoi_index}) range from 1.29-1.48, showing that despite the substituent and packing differences, the  normalised spatial volume is comparable for all systems under investigation.  The $V_{i}$ values are such that there is little difference between the systems in terms of accessible volume for each chromophore when encapsulated by its neighbouring molecules.
-\begin{figure}[H]
+In this section we use several techniques to analyse the crystal structures of the eleven compounds of Table \ref{table: chalcones}. The crystalline environment of each crystal is examined initially from the perspective of a monomeric chromophore. To this end, we use Voronoi cell volumes $V_{cell}$ and van der Waals volumes $V_{vdW}$ to determine a Voronoi index $V_{i}=V_{cell}/V_{vdW}$, a metric indicating the normalised accessible volume for a monomer in the crystal. $V_{i}$ values (Figure \ref{figure: voronoi_index}) range from 1.29-1.48, showing that despite the substituent and packing differences, the each monomer in the system has between 30\%-50\% of its van der Waals volume to freely vibrate, rotate or translate. For the \textbf{HC} systems, the average $V_{i}$ is 1.36$\pm$0.06, and 1.30$\pm$0.01 for the \textbf{HP} systems. The accessible volume for the \textbf{HC} systems shows greater variation but is overall slightly higher than for the less varied \textbf{HP} systems. The increased volume for the \textbf{HC} systems theoretically allow for greater nuclear relaxation in the excited state. However, reorganisation eneergies (Section \ref{section: Connecting_Marcus}) for the \textbf{HP} systems are larger than for \textbf{HC}, showing the importance of the electronic effects over geometric considerations. 
+\begin{figure}[t]
 \centering
   \includegraphics[width=0.8\linewidth]{5ConnectingCrystalStructure/Voronoi_Index}
   \caption{Voronoi indices for \textbf{HC} and \textbf{HP} crystal structures.}
   \label{figure: voronoi_index}
 \end{figure}
-To further deconstruct the intermolecular relationships, we examine the molecular crystals of \textbf{HC} and \textbf{HP} families by considering dimer packing motifs. Exciton transport has been shown to occur through coherent or incoherent hopping between molecular sites, and thus it is important to understand the possible intermolecular transport channels in the \textbf{HC} and \textbf{HP} systems.
 
-The dimer motifs are quantified through three angle variables, $\alpha$, $\beta$, and $\gamma$. These are depicted in Figure \ref{figure: dimer_schematic_alpha}, and example motifs with associated angles are given in Figure \ref{figure: motif_examples}. Three axes, $x$, $y$, $z$, are defined on each molecule A and B of the dimer, where $x$ is defined as the vector going from the phenol carbon to the phenol oxygen, $y$ as the vector orthogonal to it in the plane of the molecule, representing the short and long axes of the molecule, and $z$ is the orthogonal unit vector. The angles are then defined as:
+Exciton transport has been shown to occur through coherent or incoherent hopping between molecular sites, and thus it is important to understand the possible intermolecular transport channels in the \textbf{HC} and \textbf{HP} systems. To determine the intermolecular relationships, we examine the topology of the molecular crystals of \textbf{HC} and \textbf{HP} families by considering dimer packing motifs. Crystal morphologies are commonly described qualitatively as herringbone, face-face, edge-tail, \textit{etc}. Here we take a more of quantitative approach by constructing maps of each crystal, based on a geometric description of the dimers. These maps allow the topology of the crystal to be analysed graphically.
+
+The dimer motifs are quantified through three angle variables, $\alpha$, $\beta$, and $\gamma$. These are depicted in Figure \ref{figure: dimer_schematic_alpha}, and example motifs with associated angles are given in Figure \ref{figure: motif_examples}. Three axes, $x$, $y$, $z$, are defined on each molecule $i$ and $j$ of the dimer, where $x$ and $y$ are the long and short axes of the molecule, and $z$ is the orthogonal vector. These vectors comprise an orthogonal basis to describe the dimer. The angles are then defined as:
 \begin{itemize}
-\item[$\bullet$] $\alpha$: The angle between the $z$-axis located at centroid of monomer A $C_{A}$ and the vector connecting the two centroids $C_{A}$ and $C_{B}$.  The $\alpha$ angle quantifies the spatial overlap between the two monomers, ranging from 0\degree{} to 90\degree{}. 
+\item[$\bullet$] $\alpha$: The azimuthal angle between the monomers shown as the black angle in Figure \ref{figure: dimer_schematic_alpha}. Calculated as the angle between the $z$-axis located at the centroid of monomer $i$, and the vector connecting two centroids. $\alpha$ is calculated twice, once with each monomer as the reference. The smallest angle is chosen, such that 0\degree{}$\leq\alpha\leq{}90\degree{}$.
 
-\item[$\bullet$] $\beta$: The angle between the two short axes $x$ of each molecule, ranging from 0\degree{} to 180\degree{}, tracking whether monomers are aligned cofacially parallel ($\beta=$0\degree{}, CoF-P), or cofacially antiparallel ($\beta=$180\degree{}, CoF-A), or in a herringbone edge-face manner (90\degree{}, Hb), and all configurations in between. $\beta$ is thus often described as the ``herringbone'' angle. 
+\item[$\bullet$] $\beta$: The angle between the two short-axis vectors $y$ of each molecule, shown in green in Figure \ref{figure: dimer_schematic_alpha}. $\beta$ ranges from 0\degree{} to 180\degree{}, tracking whether monomers are aligned cofacially parallel ($\beta=$0\degree{}, CoF-P), or cofacially antiparallel ($\beta=$180\degree{}, CoF-A), or in a herringbone edge-face manner (90\degree{}, Hb), and all configurations in between. $\beta$ is commonly described as the ``herringbone'' angle. 
 
-\item[$\bullet$] $\gamma$: The angle between the long-axis vectors $y$, ranging from 0\degree{} (parallel, P) to 180\degree{} (antiparallel, A). At $y=$ 90\degree{}, the dimer is T- or L-shaped, dependent on the $y$-slip. 
+\item[$\bullet$] $\gamma$: The angle between the long-axis vectors $x$, ranging from 0\degree{} (parallel, P) to 180\degree{} (antiparallel, A). At $y=$ 90\degree{}, the dimer is T- or L-shaped, dependent on the $x$-slip. 
 \end{itemize}
-\begin{figure}[H]
+
+\begin{figure}[t]
 \centering
   \includegraphics[width=0.8\linewidth]{5ConnectingCrystalStructure/dimer_schematic_alpha}
-  \caption[Schematic of $\alpha$, $\beta$, and $\gamma$ angles for classification of dimers.]{Panel a), left; schematic of two monomers A and B, their centroids $C$, and the $\alpha$, $\beta$, and $\gamma$ angles used to classify dimer configurations. Panel b), right; distribution of $\alpha$ angles for dimers in \textbf{HC} and \textbf{HP} systems.}
+  \caption[Schematic of $\alpha$, $\beta$, and $\gamma$ angles for classification of dimers.]{Panel a), left; schematic of two monomers, and the $\alpha$, $\beta$, and $\gamma$ angles used to classify dimer configurations. Panel b), right; distribution of $\alpha$ angles for dimers in \textbf{HC} and \textbf{HP} systems.}
   \label{figure: dimer_schematic_alpha}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[t]
 \centering
   \includegraphics[width=0.9\linewidth]{5ConnectingCrystalStructure/motif_examples}
   \caption[Example dimer motifs in \textbf{HC1}, \textbf{HC5}, and \textbf{HP1}.]{Example dimer motifs and associated $\alpha$, $\beta$ and $\gamma$ angles in \textbf{HC1}, \textbf{HC5}, and \textbf{HP1}.}
   \label{figure: motif_examples}
 \end{figure}
 
-In Figure \ref{figure: dimer_schematic_alpha}b the distribution density of the $\alpha$ angle is shown for the \textbf{HC} and \textbf{HP} systems. The distribution is heavily skewed towards 90\degree, indicating that for the majority of dimers, there is little overlap between the centroids of the monomers. This is also apparent in Figure \ref{figure: yslip_density}, where the distribution of $y$-slip distances is shown. As such, it can be expected that in each molecular crystal there are few dimers with the classical configuration expected for efficient charge or energy transfer. This links back to the findings of Martinez and Iverson, in Section \ref{section: lom introduction}, who found a paucity of dimers with direct facial stacking.\cite{Martinez2012}
-
-\begin{figure}[H]
-\centering
-  \includegraphics[width=0.8\linewidth]{5ConnectingCrystalStructure/yslip_density}
-  \caption[$y$-slip densities for dimer configurations of \textbf{HC} and \textbf{HP} systems]{The density of slip distances for each molecular dimer in the $y$-plane (long axis). $Y$-length represents the length of molecule, such that the slip distance reported is independent of the chromophore identity.}
-  \label{figure: yslip_density}
-\end{figure}
-
-Figure \ref{figure: dimer_classification} shows the dimer distribution densities for the $\beta$ and $\gamma$ angles for \textbf{HC} (top row) and \textbf{HP} (bottom row). Key regions are highlighted as an example in the upper plot of panel a); for example at $\beta$=90,$\gamma$=0, a herringbone (Hb) stack is witnessed with the long axes arranged in parallel. For both \textbf{HC} and \textbf{HP} systems, the majority of dimers have $\beta$ and $\gamma$ angles close to 180\degree{} (top right of plot), indicating that the most common dimer configuration is a cofacial arrangement where the carbonyl groups align antiparallel, at opposing ends of the molecule from eachother. This results in an antiparallel alignment of the \sone{} transition dipole moment of each monomer.  However, as panels b) and c) show, when the $\alpha$ angle is used as a filter, these cofacial arrangements occur at large slip displacements in the $x$ or $y$  plane ($\alpha$\textgreater{60}), and thus are more like edge-edge coplanar arrangements rather than the well-known $\pi$-stack. Only in \textbf{HC-5} is there significant cofacial $\pi$-stacking between dimers, with other cofacial arrangements in \textbf{HC} and \textbf{HP} having larger $y$-slip, as is common  for aromatic motifs. For \textbf{HC} compounds, 63\% of the cofacially aligned dimers have a $y$-slip of less than half a molecule, whereas 68\% of cofacially-algined \textbf{HP} dimers have a $y$-slip of more than half a molecule (Figure \ref{figure: yslip_density}), indicating the cofacial, $\pi$-stacked alignment is more prominent in \textbf{HC} compounds than their mono-aryl \textbf{HP} counterparts. 
-\begin{figure}[H]
+In Figure \ref{figure: dimer_schematic_alpha}b the distribution density of the $\alpha$ angle is shown for the cofacially stacked \textbf{HC} and \textbf{HP} systems. The distribution is heavily skewed towards 90\degree, indicating that for the majority of cofacial dimers, there is little overlap between the centroids of the monomers. As such, it can be expected that in each molecular crystal there are few dimers with the configuration required for efficient charge or energy transfer, and that transfer will occur through only a few particular dimer motifs. 
+\begin{figure}[t]
 \centering
   \includegraphics[width=0.9\linewidth]{5ConnectingCrystalStructure/dimer_classification}
   \caption[Probability density maps of $\beta$ and $\gamma$ angles.]{Panel a), left; Probability density map of the $\beta$ and $\gamma$ angles for \textbf{HC} (top) and \textbf{HP} (bottom) dimers. Key configurations are labelled on the axes, as explained in the text. Panel b), centre; probability density for the subset of dimers where $\alpha$ \textless{}  60\degree{}.  Panel c), right; probability density for the subset of dimers where $\alpha$ \textgreater{} 60\degree{}.}
   \label{figure: dimer_classification}
 \end{figure}
-For the dimers with significant overlap (Figure \ref{figure: dimer_classification}b), \textbf{HC} has two hotspot regions with $\beta$ approximately 90\degree, indicating a herringbone arrangement, with carbonyl groups at the same ($\gamma$=0\degree) or opposite ends of the dimer ($\gamma$=180\degree). There also exist dimers close to this arrangement, with deviations in both $x$ and $y$. Conversely, in the relatively few \textbf{HP} systems with  $\alpha$\textless{60}, configurations lie on the diagonal, indicating motifs centred around a T-shape, which move to L-shaped when $\alpha$\textgreater{60}. Overall, the significant dimer arrangement in \textbf{HP} compounds is a herringbone motif, with the majority of cofacial arrangements having a large $x$ or $y$-slip with minimal $\pi\pi$ interactions due to the single aryl groups aligning at $y$=180\degree. The $\alpha$ angle is generally larger than in \textbf{HC}, indicating a larger slip, with overlapping monomers distributed around a cofacial stacking. The prominence of the herringbone arrangement in \textbf{HC} systems is replaced by a propensity for a T-shape packing, quantified by the $\gamma$ angles distributed around 90\degree. In the next section, we show how these geometric parameters, and those of the chromophore, influence the exciton coupling in the \textbf{HC} and \textbf{HP} families.
+
+Figure \ref{figure: dimer_classification} shows the dimer distribution densities for the $\beta$ and $\gamma$ angles for \textbf{HC} (top row) and \textbf{HP} (bottom row). Key regions are highlighted as an example in the upper plot of panel a); for example at $\beta$=90,$\gamma$=0, a herringbone (Hb) stack is witnessed with the long axes arranged in parallel. For both \textbf{HC} and \textbf{HP} systems, the majority of dimers have $\beta$ and $\gamma$ angles close to 180\degree{} (top right of plot), indicating that the most common dimer configuration is a cofacial arrangement where the carbonyl groups align antiparallel, at opposing ends of the molecule from eachother. This results in an antiparallel alignment of the \sone{} transition dipole moment of each monomer.  However, as panels b) and c) show, when the $\alpha$ angle is used as a filter, the configurations with more acute azimuthal angles are mostly herringbone in nature for \textbf{HC}, with carbonyl groups at the same ($\gamma=$0\degree) or opposite ends of the dimer ($\gamma=180\degree$). There also exist dimers close to this arrangement, with deviations in both $x$ and $y$. In the relatively few \textbf{HP} systems with  $\alpha$\textless{60}\degree{}, configurations lie on the diagonal between herringbone and cofacial.
+
+The cofacial arrangements favoured by the Kasha model occur at large slip displacements in the $x$ or $y$  plane ($\alpha$\textgreater{60}), and are more like edge-edge coplanar arrangements rather than the well-known $\pi$-stack. Only in \textbf{HC5} is there significant cofacial $\pi$-stacking between dimers, with other cofacial arrangements in \textbf{HC} and \textbf{HP} having larger $x$-slip, as is common  for aromatic motifs. For \textbf{HC} compounds, 63\% of the cofacially aligned dimers have a $x$-slip of less than half a molecule, whereas 68\% of cofacially-algined \textbf{HP} dimers have a $x$-slip of more than half a molecule, as shown in Figure \ref{figure: xslip_density}. So while the cofacial, $\pi$-stacked arrangement is rare for both families, it is more prominent in \textbf{HC} compounds than their mono-aryl \textbf{HP} counterparts. The cofacial arrangement is particularly dominant in \textbf{HC5}.
+
+
+\begin{figure}[t]
+\centering
+  \includegraphics[width=0.8\linewidth]{5ConnectingCrystalStructure/xslip_density}
+  \caption[$x$-slip densities for dimer configurations of \textbf{HC} and \textbf{HP} systems]{The density of slip distances for each molecular dimer in the $x$-plane (long axis) for cofacial dimers. The slip is normalised by the length of the long axis $x$ for each molecule, such that slip is molecule independent.}
+  \label{figure: xslip_density}
+\end{figure}
+
+
+ Overall, the significant dimer arrangement in \textbf{HP} compounds is a herringbone motif, with the majority of cofacial arrangements having a large $x$ or $x$-slip with minimal $\pi\pi$ interactions due to the single aryl groups aligning at $y$=180\degree. The $\alpha$ angle is generally larger than in \textbf{HC}, indicating a larger slip, with overlapping monomers distributed around a cofacial stacking. The prominence of the herringbone arrangement in \textbf{HC} systems is replaced by a propensity for a T-shape packing, quantified by the $\gamma$ angles distributed around 90\degree. In the next section, we show how these geometric parameters influence the exciton coupling in the \textbf{HC} and \textbf{HP} families.
+
+
 \subsection{Intermolecular Interactions in the Molecular Crystal}\label{section: Connecting_Interactions}
 
 Localisation of the electronic excited state onto one monomer of the molecular crystal has been shown to be an important step in the relaxation process of ESIPT systems in the solid state. For the dimers discussed above, the coupling $J_{ij}$ between monomers $i$ and $j$ is calculated in Troisi's diabatization scheme based on the orthogonal transformation of adiabatic states to diabatic states (Equation \ref{equation: diabatic matrix}).\cite{Arago2015,Fornari2016}. In this Chapter this method is extended to asses the effect of a third monomer $k$ on the exciton coupling, where in a trimer chromophore, $\textbf{H}^D$ becomes a 3x3 matrix
@@ -157,17 +171,24 @@ where the coupling $J_{ij}$ between monomers $i$ and $j$ incorporates the effect
   \label{figure: trimer_excitations}
 \end{figure} 
 
+To establish the effect of the third molecule on the exciton coupling, we calculated the exciton coupling for a trimer system in \textbf{HP1}, \textbf{HC1}, and \textbf{HC5}. It is found that the addition of a third molecule has only a small effect on the dimer coupling in \textbf{HP1} and \textbf{HC1}, where the increased coupling in one dimer is compensated for by the decreased coupling in the other dimer, with difference of less that 0.02 eV. The largest effect is seen in \textbf{HC5} due to the cofacial packing of the trimer system, where the central monomer is sandwiched by two cofacially stacked monomers, one parallel and one antiparallel, as shown in \ref{figure: trimer_couplings}. For \textbf{HC1}, two trimers are used to capture both parallel and antiparallel stacked dimers. 
+These perturbations are no larger than the inherent modulation of couplings in the dynamic regime.\cite{Arago2015,Arago2016} As such, focus from here will be on dimer couplings where the presence of exterior molecules has been neglected. The exciton couplings for all dimers and the identity of the dimer with the largest $J$ are shown in Figure \ref{figure: couplings}. 
+\begin{figure}[t]
+\centering
+  \includegraphics[width=0.8\linewidth]{5ConnectingCrystalStructure/trimer_couplings}
+  \caption{Schematic of the trimer motifs extracted from unit cells of \textbf{HC1}, \textbf{HC5} and \textbf{HP1}. Exciton couplings for dimer pairs (shown in brackets) and then for the full trimer are shown. Calculated at $\omega$B97X-D/6-311++G(d,p) level of theory.}
+  \label{figure: trimer_couplings}
+\end{figure}
 
-With this in mind, we  calculated the dimer exciton coupling for a trimer system to assess the impact of an exterior monomer on the dimer coupling in \textbf{HP1}, \textbf{HC1}, and \textbf{HC5}. It is found that the addition of a third molecule has only a small effect on the dimer coupling in \textbf{HP1} and \textbf{HC1}, where the increased coupling in one dimer is compensated for by the decreased coupling in the other dimer, with difference of less that 0.02 eV. The largest effect is seen in \textbf{HC-5} due to the cofacial packing of the trimer system, where the central monomer is sandwiched by two cofacially stacked monomers, one parallel and one antiparallel.  These purturbations are no larger than the inherent modulation of couplings in the dynamic regime.\cite{Arago2015,Arago2016} As such, focus from here will be on dimer couplings where the presence of exterior molecules has been neglected. The exciton couplings and the identity of the dimer with the largest $J$ are shown in Figure \ref{figure: couplings}.
 
-\begin{figure}
+\begin{figure}[t]
 \centering
   \includegraphics[width=0.9\linewidth]{5ConnectingCrystalStructure/couplings}
   \caption[Exciton couplings in \textbf{HC} and \textbf{HP} systems]{Exciton couplings $J$ between monomers $i$ and $j$ in the dimers identified in \textbf{HC} and \textbf{HP}. The mean coupling is also shown, along with the distance in angstroms between the constituent monomer centroids.}
   \label{figure: couplings}
 \end{figure}
 
-In \textbf{HC1-4}, where the closest packed dimers are herringbone in nature, similar dimer configurations are present. For \textbf{HC-2}, the identity of the dimer with the largest coupling changes due to a lateral displacement of one monomer increasing the centroid distance to 8.5 {\AA} and thus reducing the coupling in the herringbone stacked dimer. The identity of the largest coupled dimer changes to a cofacial, edge-edge stacked dimer with $\alpha=87\degree$, where minimal overlap reduces the coupling $J$. For \textbf{HC-1,3,4}, the herringbone stacking pattern is exhibited where the largest coupling is found in \textbf{HC1}, where the monomers are most tightly packed. In \textbf{HC5-7}, face-face stacked dimers are more prevalent in the crystal structure. The size of the coupling in \textbf{HC6} is reduced compared to \textbf{HC5} due to the $x$ displacement of one the monomers. It is further reduced in \textbf{HC7} due to an increased $y$-slip. In the \textbf{HP} compounds, the large $\alpha$ and $y$-slip values systematically reduce the average coupling. In each \textbf{HP} derivative there exists one close packed, cofacial dimer which exhibits the largest coupling. In \textbf{HC2-3}, the crystal structures afford more efficient cofacial stacking with y-slip values of only 1{\AA}, resulting in the largest couplings of all investigated systems. 
+In \textbf{HC1-4}, where the closest packed dimers are herringbone in nature, similar dimer configurations are present. For \textbf{HC-2}, the identity of the dimer with the largest coupling changes due to a lateral displacement of one monomer increasing the centroid distance to 8.5 {\AA} and thus reducing the coupling in the herringbone stacked dimer. The identity of the largest coupled dimer changes to a cofacial, edge-edge stacked dimer with $\alpha=87\degree$, where minimal overlap reduces the coupling $J$. For \textbf{HC-1,3,4}, the herringbone stacking pattern is exhibited where the largest coupling is found in \textbf{HC1}, where the monomers are most tightly packed. In \textbf{HC5-7}, face-face stacked dimers are more prevalent in the crystal structure. The size of the coupling in \textbf{HC6} is reduced compared to \textbf{HC5} due to the $y$ displacement of one the monomers. It is further reduced in \textbf{HC7} due to an increased $x$-slip. In the \textbf{HP} compounds, the large $\alpha$ and $x$-slip values systematically reduce the average coupling. In each \textbf{HP} derivative there exists one close packed, cofacial dimer which exhibits the largest coupling. In \textbf{HC2-3}, the crystal structures afford more efficient cofacial stacking with $x$-slip values of only 1{\AA}, resulting in the largest couplings of all investigated systems. 
 
 As shown in  Figure \ref{figure: dimer_regressions}a, the coupling $J$ correlates linearly with half of the energy splitting for the \sone{} and \stwo{} states of the dimer. This is somewhat surprising, given the simplicity of the original model (Section \ref{section: lom intermolecular-interactions}), the polarity of the molecules in question and their generally nonparallel stacking. The energy splitting is perhaps the simplest way to obtain the exciton coupling in the Kasha regime, although it is more expensive than using atomic-centred transition charges, or the PDA approximation, since the supramolecular calculation must be done rather than one monomer calculation. At small intermolecular distances (\textless4{\AA}), these computationally efficient metrics can underestimate the couplings due to them only considering the Coulomb interaction.\cite{Kistler2013} The linear correlation here shows that the general Kasha interpretation of the coupling applies here and that the diabatization method to obtain the couplings reproduces the supramolecular coupling.
 
@@ -197,19 +218,71 @@ The role of H- and J-aggregates is investigated by assigning dimers based on the
   \end{tabular}
 \end{table}
 
-In the Kasha model, for a perfectly stacked dimer with no $y$-slip, the oscillator strength of the \stwo{} state should be double that of the monomer state. Figure \ref{figure: dimer_regressions}b shows the relationship between the $y$-slip in the dimers and the oscillator strength, namely the difference in oscillator strength between the \stwo{} and \sone{} states in the dimer, normalised by the corresponding mononomer excitation energy. These systems generally fit the Kasha model, as when the $y$-slip is zero, the model predicts an enhanced \stwo{} intensity of 2.10 for the \textbf{HC}s and 1.83 for the \textbf{HP}s. With increasing $y$-slip, the difference in oscillator strength between the two states decreases until the inversion to J-aggregates is witnessed ($f_{S_{1}}>f_{S_{2}}$). For the \textbf{HC}s this occurs at a $y$-slip of 52\% and at 46\% for the \textbf{HC}s. The largest group of outliers are cofacially stacked dimers, where a larger shift is seen at lower slip distances due to the minimal $x$-slip and archetypal stacking.\cite{Gierschner2016} 
-\begin{figure}[t]
+In the Kasha model, for a perfectly stacked dimer with no $x$-slip, the oscillator strength of the \stwo{} state should be double that of the monomer state. Figure \ref{figure: dimer_regressions}b shows the relationship between the $x$-slip in the dimers and the oscillator strength, namely the difference in oscillator strength between the \stwo{} and \sone{} states in the dimer, normalised by the corresponding mononomer excitation energy. These systems generally fit the Kasha model, as when the $x$-slip is zero, the model predicts an enhanced \stwo{} intensity of 2.10 for the \textbf{HC}s and 1.83 for the \textbf{HP}s. With increasing $x$-slip, the difference in oscillator strength between the two states decreases until the inversion to J-aggregates is witnessed ($f_{S_{1}}>f_{S_{2}}$). For the \textbf{HC}s this occurs at a $x$-slip of 52\% and at 46\% for the \textbf{HC}s. The largest group of outliers are cofacially stacked dimers, where a larger shift is seen at lower slip distances due to the minimal $x$-slip and archetypal stacking.\cite{Gierschner2016} 
+\begin{figure}[H]
 \centering
   \includegraphics[width=0.8\linewidth]{5ConnectingCrystalStructure/dimer_regressions.pdf}
-  \caption[Correlation between the energy splitting and exciton coupling]{Panel a), top; Correlation between the energy splitting of the dimer states and the exciton coupling. Panel b), bottom; Linear regression of the $y$-slip against the difference in oscillator strength between the \stwo{} and \sone{} states in dimers.}
+  \caption[Correlation between the energy splitting and exciton coupling]{Panel a), top; Correlation between the energy splitting of the dimer states and the exciton coupling. Panel b), bottom; Linear regression of the $x$-slip against the difference in oscillator strength between the \stwo{} and \sone{} states in dimers.}
   \label{figure: dimer_regressions}
 \end{figure}
+
 %%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%
-\subsection{Exciton Hopping the Marcus Regime}\label{section: Connecting_Marcus}
+\subsection{Huang-Rhys Factors}\label{section: HR}
 %%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%
-Exciton hopping rates $\nu_{ij}$ between monomers $i$ and $j$ in a molecular crystal can be calculated based on a Marcus hopping scheme,
+
+Normal modes can be correlated between different electronic states using the Duschinsky rotation matrix, yielding the Huang-Rhys factors $S$ between the electronic states for each frequency $\omega$
+\begin{equation}
+S_{j}=\frac{\omega_{j}D_{j}^2}{2\hbar{}}
+\end{equation}
+where $D_{j}$ is the displacement of mode $j$ between the equilibrium geometry in the considered electronic states. Summation of each Huang-Rhys factor yields the normal mode reorganisation energy for the system
+\begin{equation}
+\lambda_{NM}=\sum_{j=1}^{3N-6}\hbar{}\omega_{j}S_{j}
+\end{equation}
+
+The \ac{HR} factors in vacuum and molecular crystals were calculated for \textbf{HC1}, \textbf{HC5}, and \textbf{HP1}. In vacuum, ground and excited states were optimised at (TD-)$\omega$B97X-d/6-31G(d) level. In the molecular crystal, a cluster model consisting of a central chromophore and all molecules within a 7\AA{}, taken from the optimised unit cell for each system (see main text for unit cell optimisation details). Ground and excited states were optimised at ONIOM((TD-)$\omega$B97X-d/6-31G(d):AMBER) level, and frequencies were calculated at (TD-)$\omega$B97X-d/6-31G(d) level using point charge embedding. The DUSHIN program was used to calculate the Huang-Rhys factors and the associated reorganisation energies ($\lambda_{NM}$).\cite{Reimers2001}
+
+For \textbf{HP1} and \textbf{HC5}, it is found that $\lambda_{NM}$ overestimates the reorganisation energy with respect to $\lambda_{A}$. In \textbf{HP1},  $\lambda_{A}$ is 1.24 eV compared to 2.19 eV for $\lambda_{NM}$. In \textbf{HC5}, the NM approximation is 0.4 eV larger than $\lambda_{A}$. In both \textbf{HP1} and \textbf{HC5}, the HR factors are reduced in moving from vacuum to the solid state, in particular for rotational modes. The RIM interpretation of AIE prescribes that switch-on of fluorescence upon aggregation is due to dampening of rotational modes, which dissipate the excited state nonradiatively, as witnessed by a reduction in the HR factors. While \textbf{HC1}, \textbf{HC5} and \textbf{HP1} show this effect, \textbf{HC1} and \textbf{HP1} show AIE while \textbf{HC5} is dark in both dispersed and aggregated forms. The dampening of the HR factors does not result in luminescence in \textbf{HC5}, suggesting that the excited state wavepacket decays through the MECI.\cite{Dommett2017a} Furthermore, due to the anharmonicity of the PES, the validity of the scheme in these cases is not clear.
+
+To explore this further, Figures \ref{figure: HC1_DUSHIN}-\ref{figure: HP1_DUSHIN} show the Huang-Rhys (HR) factors in vacuum and solid state for \textbf{HC1}, \textbf{HC5} and \textbf{HP1}. The different y-axis scales for the Huang-Rhys factors between plots should be noted. Each system is discussed in turn below.
+
+For \textbf{HC1} in vacuum (Figure \ref{figure: HC1_DUSHIN}, left), the geometric similarity between the planar E* excited state minimum and the ground state equilibrium geometry yields negligible HR factors. This leads to $\lambda_{NM}$ of 0.08 eV, which underestimates the $\lambda_{A}$ of 0.36. For K*, the PES in vacuum is highly anharmonic, and intramolecular rotation leads to a highly distorted geometry with respect to the ground state. As a consequence, the HR factors are extremely large and the harmonic approximation is non-applicable for determining the reorganisaiton energy, as shown by a value of 99 eV ($\lambda_{A}$=3.64 eV). Moving to the molecular crystal (Figure \ref{figure: HC1_DUSHIN}, right), in E* the HR factors are of similar magnitude as in vacuum but in K* they are markedly reduced and suppressed to fractional values. The largest K* HR factor is the O-H stretching mode, since the geometry remains planar and has the largest displacement between \szero{} and \sone{} as it is the ESIPT coordinate. The K* $\lambda_{NM}$ is 4.67 eV, with $\lambda_{A}$=0.59 eV. 
+
+\begin{figure}[t]
+\centering
+  \includegraphics[width=\linewidth]{5ConnectingCrystalStructure/HC1_DUSHIN}
+  \caption{Huang-Rhys factors associated with each normal mode calculated \textit{via} the Duschinsky rotation matrix between the E* and \szero{}, and K* and \szero{} electronic states for \textbf{HC1}. Frequencies 0-500 cm\textsuperscript{-1} in the solid state are shown in the inset.}
+  \label{figure: HC1_DUSHIN}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\linewidth]{5ConnectingCrystalStructure/HC5_DUSHIN}
+  \caption{Huang-Rhys factors associated with each normal mode calculated \textit{via} the Duschinsky rotation matrix between  K* and \szero{} electronic states for \textbf{HC5}. Frequencies 0-500 cm\textsuperscript{-1} in the solid state are shown in the inset.}
+  \label{figure: HC5_DUSHIN}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+  \includegraphics[width=\linewidth]{5ConnectingCrystalStructure/HP1_DUSHIN}
+  \caption{Huang-Rhys factors associated with each normal mode calculated \textit{via} the Duschinsky rotation matrix between K* and \szero{} electronic states for \textbf{HP1}. Frequencies 0-500 cm\textsuperscript{-1} in the solid state are shown in the inset.}
+  \label{figure: HP1_DUSHIN}
+\end{figure}
+
+In \textbf{HC5} there is no stable E* minimum in either vacuum or the solid state for the monomer chromophore. In vacuum, the HR factors are much less than in \textbf{HC1} due to the rotation angle at the minimum being less distorted. The molecule is more planar and is closer in structure and vibrational signature. At larger rotation angles the MECI is reached. HR factors are reduced in the solid state, in particular for the rotational modes, but with the O-H stretch HR factor increasing.   %Here the OH stretch is at 2036 cm\textsuperscript{-1}. In the molecular crystal the OH-
+
+For \textbf{HP1}, large reorganisation energies, and correspondingly large HR-factors, are associated with low-frequency rotational modes. Indeed, such is the displacement between modes in the ground and excited states, the total reorganisation energy is 41 eV, whereas the adiabatic value 3.89 eV. As such, the harmonic approximation is invalid here due to the excited state potential energy surface anharmonicity. In the solid state, the normal modes associated with rotation are significantly reduced, whilst the largest HR factor is associated with the stretching of the phenol oxygen. This is to be expected, since it is along this coordinate that ESIPT occurs, and hence is has the largest HR-factor. In solid state, $\lambda_{NM}$ is 2.19 eV, compared with $\lambda_{A}$ of 1.24 eV.  
+
+In the case of the \textbf{HC} and \textbf{HP} systems, the AIE behaviour can not be directly attributed to the reduction of the HR factors in the solid state compared to vacuum. Such is the complexity of the PES, where ESIPT and rotation occur in the excited state (in vacuum), the surfaces are highly anharmonic and the validity of the HR scheme via Duschinsky is not clear. As such, it is not the focus of our investigation into the AIE behaviour of these systems.
+
+
+%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%
+\subsection{Exciton Hopping}\label{section: Connecting_Marcus}
+%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%
+For fluorescence to occur from the K* state, the exciton must localise onto one monomer to enable ESIPT. In competition with this is exciton hopping, which will prevent localisation. Exciton hopping rates $\nu_{ij}$ between monomers $i$ and $j$ in a molecular crystal can be calculated based on a Marcus hopping scheme,
 \begin{equation}
 \nu_{ij}=\frac{J_{ij}^2}{\hbar}\sqrt{\frac{\pi}{\lambda k_{B}T}}\exp\bigg[-\frac{\lambda}{4k_{B}T}\bigg]
 \label{equation: marcus}
@@ -223,24 +296,8 @@ constant, T is the temperature (298K), and $\lambda$ is the reorganisation energ
 \label{equation: lambda}
 \end{split}
 \end{equation}
-where $E_g$ and $E_{ex}$ are ground state energies at the \szero{} and \sone{} minima, and $E_{g}^*$ and $E_{ex}^*$ are the corresponding excited state energies at respective minima. $\lambda$ can also be calculated using normal mode analysis. Normal modes can be correlated between different electronic states using the Duschinsky rotation matrix, yielding the Huang-Rhys factors $S$ between the electronic states for each frequency $\omega$
-\begin{equation}
-S_{j}=\frac{\omega_{j}D_{j}^2}{2\hbar{}}
-\end{equation}
-where $D_{j}$ is the displacement of mode $j$ between the equilibrium geometry in the considered electronic states. Summation of each Huang-Rhys factor yields the normal mode reorganisation energy for the system
-\begin{equation}
-\lambda_{NM}=\sum_{j=1}^{3N-6}\hbar{}\omega_{j}S_{j}
-\end{equation}
-For \textbf{HP1} and \textbf{HC5}, it is found that $\lambda_{NM}$ overestimates the reorganisation energy with respect to $\lambda_{A}$. In \textbf{HP1},  $\lambda_{A}$ is 1.24 eV compared to 2.19 eV for $\lambda_{NM}$. In \textbf{HC5}, the NM approximation is 0.4 eV larger than $\lambda_{A}$. Therefore $\lambda_{A}$ is used in Equation \ref{equation: lambda} to calculate $\nu_{ij}$. In both \textbf{HP1} and \textbf{HC5}, the HR factors are reduced in moving from vacuum to the solid state, in particular for rotational modes, as shown in Figure \ref{figure: HP1_DUSHIN} for \textbf{HP1}. The solid state normal mode analysis uses the ONIOM optimised cluster and uses point charge embedding to calculate the frequencies. In vacuum, large reorganisation energies, and correspondingly large HR-factors, are associated with low-frequency rotational modes. Indeed, such is the displacement between modes in the ground and excited states, the total reorganisation energy is 41 eV, whereas the adiabatic value 3.89 eV. As such, the harmonic approximation is invalid here due to the excited state potential energy surface anharmonicity. In the solid state, the normal modes associated with rotation are supressed to fractional values, whilst the largest HR factor is associated with the stretching of the phenol hydroxyl proton. This is to be expected, since it is along this coordinate that ESIPT occurs, and hence is has the largest HR-factor. In solid state, $\lambda_{NM}$ is 2.19 eV, compared with $\lambda_{A}$ of 1.24 eV. 
+where $E_g$ and $E_{ex}$ are ground state energies at the \szero{} and \sone{} minima, and $E_{g}^*$ and $E_{ex}^*$ are the corresponding excited state energies at respective minima.
 
-The RIM interpretation of AIE prescribes that switch-on of fluorescence upon aggregation is due to dampening of rotational modes, which dissipate the excited state nonradiatively, as witnessed by a reduction in the HR factors. While both \textbf{HC5} and \textbf{HP1} show this effect, only \textbf{HP1} shows AIE while \textbf{HC5} is dark in both dispersed and aggregated forms. As such, the dampening of the HR factors does not result in luminescence in \textbf{HC5}, suggesting that the excited state wavepacket decays through the MECI. 
-
-\begin{figure}[H]
-\centering
-  \includegraphics[width=0.9\linewidth]{5ConnectingCrystalStructure/HP1_DUSHIN.pdf}
-  \caption[Huang-Rhys factors for \textbf{HP1}]{Huang-Rhys factors associated with each normal mode calculated \textit{via} the Duschinsky rotation matrix between the \szero{} and \Kstar{} \sone{} electronic states for \textbf{HP1}. Frequencies 0-1800 cm\textsuperscript{-1} in the solid state are shown in the inset.}
-  \label{figure: HP1_DUSHIN}
-\end{figure}
 Solid state reorganisation energies $\lambda$ in keto and, when located, enol minima were calculated for ONIOM((TD-)$\omega$B97X-D/6-31G(d):UFF) models with a monomer chromophore using Equation \ref{equation: lambda}. Figure \ref{figure: marcus_scatter_vdw} shows the coupling, reorganisation energy and the associated exciton hopping rate (using a log scale) for each dimer. The hopping rate $\nu$ is ultrafast in the enol regime (\textbf{HC1-4,6,7}), where the planar conformation confers a relatively low reorganisation energy $\lambda$ (244 meV on average). The lowest $\nu$ for \textbf{HC1} is \SI{5e11}{s^{-1}}, while the rate of ESIPT in the molecular crystal, through time resolved spectroscopy, is \SI{3e11}{s^{-1}}.\cite{Zahid2017} Intramolecular hopping will therefore compete with ESIPT, which requires localisation of the excited state to one site in the molecular crystal. Due to similarity of the electronic and crystal structures, this should also be the case for \textbf{HC2-4,6,7}, hence opening nonradiative intramolecular decay channels for these systems and a source of quantum yield leak.
 
 For the \textbf{HP} family the stabilisation arising from ESIPT is larger than for the \textbf{HC} systems, decreasing the hopping rate by up to three orders of magnitude and producing a larger Stokes-shifted emission. Due to the increased organisation energy arising from tautomerism, localisation and ESIPT will be favoured over exciton hopping. By modifying the chromophore molecular structure through removal of the second aryl group, the bias towards ESIPT is increased with respect to the \textbf{HC} systems due to the instability the planar \Estar{} conformer. As such, in \textbf{HP} the radiative decay channel through ESIPT is favoured at the expense of the intermolecular deactivation channel in \Estar{} due to the intramolecular properties of the chromophore.
@@ -289,49 +346,46 @@ Geometries were optimised at the Franck-Condon, the \Kstar{} minimum and the MEC
 \end{figure}
 %%%
 At the MS-3-CASPT2(12,11)/6-31G(d):AMBER level, absorption for \textbf{HP1} is calculated at 3.67 eV (\textit{f}=0.868), in fair agreement but blue-shifted by 0.41 eV compared with the crystalline absorption maximum of 3.26 eV.\cite{Tang2016} 
-With a four-state average (MS-4-CASPT2), this improves further to 3.52 eV. With TD-$\omega$B97X-D/6-31G(d):AMBER, the bright state is calculated at 4.25 eV in the trimer model and 4.23 eV in the monomer model, a large overestimation of the absorption energy. When the 6-311++G(d,p) basis set is used, the prediction is slightly improved with the bright state occurring at 4.10 eV. The accurate prediction of the initial photoabsorption is crucial in understanding the excited state mechanism and as such we proceed with using MS-3-CASPT2(12,11)/6-31G(d):AMBER for the energies (which we denote CASPT2 for brevity). %perhaps the gap between s1 and s2 can be discussed
+With a four-state average (MS-4-CASPT2), this improves further to 3.52 eV. With TD-$\omega$B97X-D/6-31G(d):AMBER, the bright state is calculated at 4.25 eV in the trimer model and 4.23 eV in the monomer model, a large overestimation of the absorption energy. When the 6-311++G(d,p) basis set is used, the prediction is slightly improved with the bright state occurring at 4.10 eV. The accurate prediction of the initial photoabsorption is crucial in understanding the excited state mechanism and as such we proceed with using MS-3-CASPT2(12,11)/6-31G(d):AMBER for the energies (which is denoted CASPT2 for brevity). %perhaps the gap between s1 and s2 can be discussed
 
-Post photo-excitation, relaxation in \sone{} \textit{via}  ESIPT is expected to be dominant relaxation channel in \textbf{HP1} due to the negligible oscillator strength (\textit{f}=0.016) of the \stwo{} state, which is n$\pi^\ast{}$ in character. Fluorescence in the molecular crystal is centred at 2.34 eV, thus displaying a Stokes shift of 0.94 eV. The emission wavelength predicted at CASPT2 is 2.73 eV, again in fair agreement and with similar blue-shift as calculated for absorption. Certainly, allowing relaxation of the exterior atoms and mutual polarisation would allow further geometric relaxation and a more accurate emission energy.
+Post photo-excitation, relaxation in \sone{} \textit{via}  ESIPT is expected to be dominant relaxation channel in \textbf{HP1} due to the negligible oscillator strength (\textit{f}=0.016) of the \stwo{} state, which is n$\pi^\ast{}$ in character. Fluorescence in the molecular crystal is centred at 2.34 eV, thus displaying a Stokes shift of 0.94 eV. The emission wavelength predicted at CASPT2 is 2.73 eV, again in fair agreement and with similar blue-shift as calculated for absorption. Certainly, allowing relaxation of the exterior atoms and mutual polarisation would allow further geometric relaxation and a more accurate emission energy. Also, addition of Ewald point charges to reflect the periodicity of the crystal would improve emission further. However, this was outside the scope of the current work.
 %The Stokes-shift is underestimated compared to experiment by 0.5 eV, which can be partially attributed to the frozen MM atoms and neglect of charge relaxation in the excited state.
 
-The oscillator strength between \sone{} and \szero{} states at the \Kstar{} minimum is 0.549, indicating that emission will be bright. The radiative decay rate can be calculated using the Einstein spontaneous emission:
+The oscillator strength between \sone{} and \szero{} states at the \Kstar{} minimum is 0.549, indicating that emission will be bright. We compute the radiative decay rates from the E* and K* states using ONIOM(TDDFT) by computing the fluorescence spectrum and calculating $k_{r}$ through
 \begin{equation}
-k_{r}=\frac{f\Delta{}E^2}{1.499}
-\label{equation: einstein decay rate}
+    k_{r}=\frac{1}{\hbar}\int{\Gamma_{r}(E)dE}
 \end{equation}
-where $f$ is the oscillator strength and $\Delta{}E$ is the vertical emission energy (in cm\textsuperscript{-1}). 
-%For \textbf{HP1}, the large reorganisation energy and low oscillator strength reduce the hopping and radiative rates in the enol regime, with emission from the \Kstar{} minimum highly favourable (with CASPT2, $k_{r,K*}$ is \SI{1.79e8}{s^{-1}}). 
-Radiative rates for \textbf{HC1}, \textbf{HC5}, and \textbf{HP1} are given in Table \ref{table: rates}. For \textbf{HC1}, $k_{r,K*}$ is comparable with \textbf{HP1} in both \Estar{} and \Kstar{}. However, \textbf{HC1} exhibits lower quantum efficiency, owing to the competing exciton hopping in the enol state, which will inhibit localisation and thus ESIPT. Also in competition in \textbf{HC1} is emission from the planar \Estar{} state, resulting in self-absorption.
+where $\Gamma_{r}$ is the rate of spontaneous emission per molecule per unit of angular frequency between $E/\hbar$ and $(E+d
+E)/\hbar$.\cite{Niu2010} The spectra for \textbf{HC1}, \textbf{HC5} and \textbf{HP1} are given in Figure \ref{figure: HC1_HC5_HP1_emission_oniom} and radiative rates for \textbf{HC1}, \textbf{HC5} and \textbf{HP1} are given in Table \ref{table: rates}.
+
+  
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.8\linewidth]{5ConnectingCrystalStructure/HC1_HC5_HP1_emission_oniom}
+\caption{Emission spectra in molecular crystal for 7\AA{} clusters for \textbf{HC1}, \textbf{HC5} and \textbf{HP1}, calculated at TD-$\omega$B97X-D/6-31G(d) in point charges. Single point energies were calculated for 100 initial conditions based upon a Wigner distribution of the excited state frequencies calculated at ONIOM(TD-$\omega$B97X-D/6-31G(d):AMBER) level.}
+\label{figure: HC1_HC5_HP1_emission_oniom}
+\end{figure}
+
+For \textbf{HC1}, $k_{r,K*}$ is comparable with \textbf{HP1} in both E* and K*. However, \textbf{HC1} exhibits lower quantum efficiency, owing to the competing exciton hopping in the enol state, which will inhibit localisation and thus ESIPT. Thus in \textbf{HC1} there is competition between delocalisation, emission from E*, and emission from K*. Due to the proximity of the E* band to the absorption, only K* fluorescence will significantly contribute to the quantum yield.
+
+For \textbf{HP1}, emission from E* is negligible and emission is expected from the K* state. The highly distorted E* minimum, as discussed in the previou section, is expected to play little role in the photochemistry and population transfer to K* should dominate. The radiative rate from K* is of similar magnitude to \textbf{HC1}, and as such the higher quantum yield of \textbf{HP1} is on account of the lower nonradiatve decay rate and lack of other competitive pathways, such as exciton hopping.
+
 \begin{table}
 \centering
-\caption[Radiative decay rates in the solid states]{Radiative decay rates $k_{r}$ in the enol (\Estar{}) and keto (\Kstar{}) regimes for \textbf{HC1}, \textbf{HC5}, \textbf{HP1}. All rates in \SI{}{s^{-1}}, calculated at TD-$\omega$B97X-D/6-31G(d):AMBER level.} 
+\caption[Radiative decay rates in the solid state]{Radiative decay rates $k_{r}$ in the solid state in the enol (\Estar{}) and keto (\Kstar{}) regimes for \textbf{HC1}, \textbf{HC5}, \textbf{HP1}. All rates in \SI{}{s^{-1}}.} 
 \label{table: rates}
-  \begin{tabular}{lll}
+  \begin{tabular}{ccc}
     \hline
   	System & $k_{r,E*}$ & $k_{r,K*}$\\
     \hline
-    \textbf{HC1} & \SI{5.61e8}{} & \SI{2.83e8}{} \\ 
-	\textbf{HC5} & \SI{6.62e5}{} & \SI{1.02e8}{} \\
-	\textbf{HP1} & - & \SI{1.23e8}{} \\
+    \textbf{HC1} & \SI{4.68e8}{} & \SI{2.99e8}{} \\ 
+	\textbf{HC5} & - & \SI{9.54e7}{} \\
+	\textbf{HP1} & \SI{5.58e6}{} & \SI{1.10e8}{} \\
     \hline
   \end{tabular}
 \end{table}
-  
-\begin{comment}
-\begin{table}
-\caption{Hopping rates $\nu_{}$ and radiative rates $k_{r,}$ in the enol (\Estar{}) and keto (\Kstar{}) regimes for \textbf{HC1}, \textbf{HC5}, \textbf{HP1}. All rates in \SI{}{s^{-1}}, calculated at TD-$\omega$B97X-D/6-31G(d):AMBER level.} 
-  \label{table: rates}
-  \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lllll}
-  \hline
-  System & $\nu_{E*}$ &  $\nu_{K*}$ & $k_{r,E*}$ & $k_{r,K*}$\\
-  \hline
-  \textbf{HC1} & \SI{4.19e13}{} & \SI{1.05e11}{} & \SI{5.61e8}{} & \SI{2.83e8}{} \\
-  \textbf{HC5} & \SI{3.92e11}{} & \SI{2.73e10}{} & \SI{6.62e5}{} & \SI{1.02e8}{} \\
-  \textbf{HP1} & \SI{3.20E4}{} & \SI{2.03E8}{} &   \SI{1.92E6}{} & \SI{1.23e8}{} \\
-  \hline
-  \end{tabular*}
-\end{table}
-\end{comment}
+
+
 The MECI in \textbf{HP1} lies 1.46 eV above the \Kstar{} minimum and 1.08 eV above the bright absorption state. As such, it is classically inaccessible and \textbf{HP} emission can be attributed to the trapping of the excited state at the \Kstar{} minimum, followed by radiative decay. The degeneracy of the \sone{} and \szero{} states on going from CASSCF to CASPT2 is lifted slightly, with a gap of 0.2 eV at CASPT2 level. As the substituent effects in the crystalline samples are minor in the \textbf{HP} samples (absorption and fluorescence), it can be assumed that this mechanism can be applied to all four systems in the family. It would be of interest to synthesise a \textbf{HP} system with a methoxy group the \textit{para} position, as in \textbf{HC5}, to assess its AIE behaviour.
 
 In Figure \ref{figure: MECI_comparison}, the MECI geometries of \textbf{HC1}, \textbf{HC5}, and \textbf{HP1} are compared. All three involve the pyramidalisation of the protonated carbonyl group  combined with torsional rotation of the deprotonated phenol moeity. In \textbf{HC1} and \textbf{HP1}, the compounds which undergo AIE due to the high energy of the MECI, the torsional angles are 49.6\degree{} and 53.3\degree{}. In \textbf{HC5}, where the MECI is energetically accessible, the pyramidal distortion is only 26.7\degree{}. The same effect is seen in vacuum, where the MECI of \textbf{HC5} is also onset at lesser distortion than the other systems, as discussed above. Thus the stability of the \textbf{HC5}, and the high energy MECIs of \textbf{HC1} and \textbf{HP1}, are mainly due to the electronic effects of the chromophore. Rather, the role of the packing and the crystalline environment as a whole is to promote efficient localisation of the excited state at the expense of exciton hopping the enol state. Such is the propensity for localisation and ESIPT in \textbf{HP} and the high energy MECI, a largely increased QE is witnessed as a result.

@@ -7,7 +7,7 @@
 \section{Introduction}\label{section: NRdecay_intro}
 Computational methods have the potential to explain the intriguing luminescence properties of the \acf{HC} materials introduced in Section \ref{section: lom HC}. \textbf{HC} derivatives \textbf{1}-\textbf{5} of Figure \ref{figure: HC_experimental} have strikingly different emission characteristics in the solid state, for which we wish to disentangle the intra- and intermolecular contributions. This chapter addresses the intramolecular interactions present in the five systems. The effect of the substituents on the four level \ac{ESIPT} photocycle are analysed through a combination of static and nonadiabatic dynamics simulations, investigating the relaxation mechanisms and the competition between different deactivation channels in vacuum. These simulations show that a strong electron donating group (EDG) in the \textit{para} position alters the topology of the potential energy surface (PES), destabilising the \Estar{} state, thereby assisting and accelerating proton transfer. Our results provide detailed understanding into the fundamental relaxation mechanisms of \ac{HC}s and the role of the substituents, which is the initial step in unravelling the effect of aggregation on the emission properties.
 
-This majority of the work presented in this chapter was published in reference\citenum{Dommett2017}. To complement the published work, herein there is additional analysis of the nonadiabatic dynamics simulations, where rate constants and lifetimes are explored in more detail. The computational methods used shall be described, followed by analysis of the vertical excitations, minima on the excited state, and the feasible relaxation channels. Finally the results of nonadiabatic dynamics rationalise those obtained in static calculations. The relevant Supporting Information of ref.\citenum{Dommett2017} is incorporated into the chapter and designated appendices.
+This majority of the work presented in this chapter was published in reference\citenum{Dommett2017}. To complement the published work, herein there is additional analysis of the nonadiabatic dynamics simulations, where rate constants and lifetimes are explored in more detail. The computational methods used shall be described, followed by analysis of the vertical excitations, minima on the excited state, and the feasible relaxation channels. Finally the results of nonadiabatic dynamics rationalise those obtained in static calculations. The relevant Supporting Information of ref.\citenum{Dommett2017} is incorporated into the chapter and designated appendices. Figures reproduced from ref.\citenum{Dommett2017} by permission of the PCCP Owner Societies.
 
 \section{Computational Methods}\label{section: NRdecay_methods}
 The ground state geometries of all the compounds were optimised in vacuum using resolution of identity \acf{MP2} with the def2-SV(P) and def2-TZVP basis sets.\cite{Haase1993,Schafer1992,Weigend2005} Vertical excitation energies were calculated in vacuum using coupled cluster to approximated second order (CC2) and \acf{ADC2} methods under the resolution of identity approximation with the def2-TZVP basis set.\cite{Christiansen1995,Hattig2000,Hattig2002,Kohn2003,Hattig2005} Core electrons were frozen for all \ac{MP2}, \ac{ADC2} and CC2 calculations. The performance of the ADC(2) and CC2 methods is compared, whilst the effect of the basis set is considered for ADC(2). 
@@ -119,30 +119,36 @@ The static calculations suggest that the dominant relaxation process involves a 
 The ADC(2) geometries for the \Kstar{} \sone/\szero{} MECI of all studied compounds show a $\theta_{tor}$ angle significantly deviated from CC2 and CASSCF values, with the crossing seam reached at a much smaller angle . The ADC(2) MECI structures are very similar to the \Kstar{} minima, rotated by a further 10\textdegree{}. This behaviour is associated with the description of the ground state with the MP2 method, which could artificially destabilise \szero{} and thus the \sone/\szero{}  crossing occurs at smaller angles. Similar results were found with def2-SV(P) and def2-TZVP basis sets.
 
 The non-ESIPT relaxation channel is also accessed \textit{via} intramolecular rotation in the \Estar{} state, leading to a second MECI. The stabilisation of these MECI structures involves relaxation through $\theta_{tor}$, which is significantly larger for \textbf{1} with a value of about 124\textdegree{} (144\textdegree{} with CASSCF). For \textbf{1}, we also observed relaxation through the H-C-C-H dihedral angle (88\textdegree{}). For the rest of the \sone/\szero{} MECI structures (\textbf{2}-\textbf{5}), only $\theta_{tor}$ deviates from the plane. For \textbf{1}-\textbf{3}, the \Estar{} MECIs are slightly higher in energy than the \Estar{} minima (0.2-0.3 eV).  Considering the small energy gap and the absence of barriers, the crossing seam region should be accessible. Another mechanism is the direct relaxation to the MECI from the FC geometry, which is the only possibility for \textbf{4} and \textbf{5}, considering the lack of a stable \Estar{} minimum. These calculations show that the competition between the ESPIT and the relaxation to \Estar{} will depend on the substituent. In the case of \textbf{4}-\textbf{5}, a heavy bias towards the ESPIT is expected. Nonadiabatic dynamic simulations confirm this analysis. 
+%%%%% NA Dynamics
 \subsection{Nonadiabatic Dynamics}\label{section: NRdecay_Dynamics}
-
-For these systems, the \sone{} \acp{PES} obtained with ADC(2) are in a good agreement with the CC2 prior to the conical intersection. The greater computational efficiency of ADC(2) over CC2 also makes it attractive for the study of the first steps of the excited state dynamics of \textbf{HC} systems, although the results when the energy of \sone{} and \szero{} converge must be analysed with care. In particular, it is expected that excited state lifetimes may be underestimated. 
+%%%%% NA Dynamics
+For these systems, the \sone{} \acp{PES} obtained with ADC(2) are in a good agreement with the CC2 prior to the conical intersection. The greater computational efficiency of ADC(2) over CC2 also makes it attractive for the study of the first steps of the excited state dynamics of \textbf{HC} systems, although the results when the energy of \sone{} and \szero{} converge must be analysed with care. In particular, it is expected that excited state lifetimes may be underestimated. From a technical point of view, there are known problems with the stability of CC2 for \ac{TSH} dynamics, and as such ADC(2) is the method of choice employed here.\cite{Plasser2014}
 
 Compounds \textbf{1} and \textbf{5} represent the extreme cases, with most significant difference in the electronic structure of the excited states. The dynamics simulations thus use \textbf{1} and \textbf{5} as exemplars, a strategy which will also be used in Chapter \ref{chapter: Inter}.  The \acp{PES} show that rotation around the angle $\theta_{tor}$ is activated during relaxation (in \Estar{} and \Kstar{}). \ac{TSH} allows analysis of the competition between different relaxation pathways and the role of rotation in the mechanism. The first steps of the photorelaxation of \textbf{1} and \textbf{5} were explored using nonadiabatic dynamics considering two excited states (\stwo{} and \sone{}), which are close in energy. The simulations confirm that the main deactivation pathways are associated with relaxation to the \Kstar{} and \Estar{} minima, with both mechanisms involving  rotation about $\theta_{tor}$. The competition between the two relaxation channels strongly depends on the substituent. 
 
-First we analyse the populations and lifetimes of the adiabatic states. The lifetimes of \stwo{} and \sone{} were estimated using a consecutive reaction scheme,
+First we analyse the decay rates of the adiabatic states by fitting a kinetic model of the population of the \stwo{}, \sone{} and \szero{} states. For each of \textbf{1} and \textbf{5}, 50 trajectories were run, 60\% of which started on the \sone{} electronic surface and 40\% on the \stwo{} surface. At each time step, for \stwo{} and \sone{}, the number of trajectories on each electronic surface represents the population of that state. Since a trajectory is stopped when the \sone{}-\szero{} energy gap is less than 0.2 eV, the \szero{} population is simply the number of halted trajectories. 
+
+The \ac{TSH} simulations allow population transfer between \stwo{} and \sone{}, and vice versa. Population can also transfer to \szero{}, through halted trajectories. Based on this, the following reaction scheme is used to model the populations:
 \begin{align*}
 \centering
-\ce{&S_{2} ->[$K_{1}$]S_{1} ->[$K_{2}$] S_{0}}
+\ce{&S_{2} <-->[{$K_{1}$}][{$K_{1'}$}] S_{1} ->[$K_{2}$] S_{0}}
 \end{align*}
 
-yielding a set of differential equations. 
+This yields the set of differential equations (Equations \ref{equation: s2rate}-\ref{equation: s0rate}), which were integrated using the open-source computer algebra system \texttt{Maxima} and solved using the least-squares method implemented in the \texttt{optimize.curve\textunderscore{}fit} function of the \texttt{scipy} python package.\cite{maxima,scipy} The global fits for the populations of \stwo{}, \sone{} and \szero{} are shown in Figures \ref{figure: HC_1_states_dynamics_fit} and \ref{figure: HC_5_states_dynamics_fit} for \textbf{1} and \textbf{5}. The calculated rates of $K_{1}$, $K_{1'}$ and $K_{2}$ are given in Table \ref{table: state_decay_rates}. It should be stated that the relatively few number of trajectories (50) renders the calculated rates to be no more than qualitative. Nevertheless, the analysis can provide a general understanding of the excited state decay process. 
+
 \begin{equation}\label{equation: s2rate}
-    \frac{dS_{2}(t)}{dt}=-K_{1}S_{2}(t)
+    \frac{dS_{2}(t)}{dt}=K_{1'}S_{1}(t)-K_{1}S_{2}(t)
 \end{equation}
 \begin{equation}\label{equation: s1rate}
-    \frac{dS_{1}(t)}{dt}=K_{1}S_{2}(t)-K_{2}S_{1}t
+    \frac{dS_{1}(t)}{dt}=K_{1}S_{2}(t)-K_{2}S_{1}(t)-K_{1'}S_{1}(t)
 \end{equation}
 \begin{equation}\label{equation: s0rate}
-    \frac{dS_{0}(t)}{dt}=K_{2}S_{1}t
+    \frac{dS_{0}(t)}{dt}=K_{2}S_{1}(t)
 \end{equation}
 
-Equations \ref{equation: s2rate}-\ref{equation: s0rate} were integrated using the \texttt{maxima} linear algebra package, whichleads to the following expressions for the populations:
+\begin{comment}
+%%%%%% old rates %%%%%%
+
 \begin{equation}\label{equation: state_rates}
     \begin{bmatrix}
     S_{2}(t)\\
@@ -162,8 +168,26 @@ Equations \ref{equation: s2rate}-\ref{equation: s0rate} were integrated using th
     1
     \end{bmatrix}
     \end{equation}
+%%%%%%%%%
+\end{comment}
 
-The set of equations in \ref{equation: state_rates} was solved for $K_{1}$ and $K_{2}$ using the least-squares method as implemented in the \texttt{optimize.curve\textunderscore{}fit} function of the \texttt{scipy} python package. The global fits are shown in Figures \ref{figure: HC_1_states_dynamics_fit} and \ref{figure: HC_5_states_dynamics_fit} for \textbf{1} and \textbf{5}. In compound \textbf{1}, there is slight population transfer from \sone{} to \stwo{} that is not incorporated in the model and thus decreases the quality of the \sone{} fit. Nevertheless, in both compounds there is fast population transfer from \stwo{} to \sone{}, followed by a longer-lived \sone{} state. In \textbf{1}, the lifetime of 215 fs ($K_{B}$=0.0047 fs\textsuperscript{-1}) dwarfs that of compound \textbf{5} ($K_{B}$=0.0103 fs\textsuperscript{-1}), again underscoring the power of the methoxy group to destabilise the excited state. The longer lifetime of \sone{} for compound \textbf{1} can be attributed to the stability of the \Estar{} channel, where seven trajectories remain beyond the 500 fs simulation time. For compound \textbf{5}, just one trajectory remained active at 500 fs, in the enol state.
+\begin{table}
+    \centering
+    \begin{tabular}{cccc}
+    \hline
+    Compound & $K_{1}$ & $K_{1'}$ & $K_{2}$\\
+    \hline
+    \textbf{1} & 14.40 & 0.10 & 4.62\\
+     \textbf{5} & 98.86 & 6.66 & 10.48\\
+     \hline
+    \end{tabular}
+    \caption[Calculated rates of population transfer between electronic states]{Calculated rates of population transfer between electronic states for \textbf{1} and \textbf{5}. Rates are given in units of ps\textsuperscript{-1}.}
+    \label{table: state_decay_rates}
+\end{table}
+
+In compound \textbf{1} there is initially a transfer of population from \sone{} to \stwo{}, shown by the markers in Figure \ref{figure: HC_1_states_dynamics_fit}. Although this transfer is included in the model, through $K_{1'}$, the calculated rate is too low to pick up this small fluctuation and it is missed in the fit, accounting for the worse fit of \stwo{} and \sone{} compared with \szero{}. This effect is not present in compound \textbf{5}. 
+
+In both compounds there is fast population transfer from \stwo{} to \sone{}, followed by a longer-lived \sone{} state. The decay of \stwo{} in \textbf{5} is nearly seven times faster than in compound \textbf{1}. In the \sone{} state, decay to \szero{} is more than twice as fast in \textbf{5} than in \textbf{1}, and thus the excited state is less stable with the addition of the methoxy group. The longer lifetime of \sone{} for compound \textbf{1} can be attributed to the stability of the \Estar{} channel, where seven trajectories remain beyond the 500 fs simulation time. For compound \textbf{5}, just one trajectory remained active at 500 fs. 
 
 \begin{figure}[t]
 \centering
@@ -179,11 +203,15 @@ The set of equations in \ref{equation: state_rates} was solved for $K_{1}$ and $
   \label{figure: HC_5_states_dynamics_fit}
 \end{figure}
 
-Next we analyse the populations of the two decay channels (\Estar{} and \Kstar{}) by tracking populations of four species in the trajectories: \Estar{}, \Kstar{}, K, and E. Since trajectories were halted if the \sone{}-\szero{} energy gap becomes less than 0.2 eV, the K and E populations are tracked simply by determining if the trajectory is in \Kstar or \Estar{} when the simulation is killed. It is then assumed that population decays through conical intersection to the corresponding ground state in E or K. In a similar vain to the global fits for the adiabatic states, the tautomer lifetimes were modelling using a set of four rate equations:
+To further analyse the excited state decay pathways, we track the populations of the enol and keto tautomers during the dynamics. Four states are of interest: \Estar{}, \Kstar{}, E, and K, representing the excited and ground state species of each tautomer. A classification for \Estar{} and \Kstar{} based on bond distances is used. Throughout the dynamics, the distance $D$ between the hydroxyl proton and the phenol ($O_{P}$) and carboxyl oxygen ($O_{C}$) is tracked.  When $D_{O_{P}} \leq D_{O_{C}}$, the molecule is in the \Estar{} state, and when $D_{O_{P}} > D_{O_{C}}$ the molecule is in the \Kstar{} state. Early in the dynamics, the O-H stretch vibration is active, which in some trajectories causes large oscillations in the O-H distance and a fluctuation between \Estar{} and \Kstar{} states. As such, we further impose on the classification that the molecule is in \Estar{} until the final oscillation occurs. This separates the vibrational relaxation from the ESIPT process. As the E and K species reside on the \szero{} surface, which is never explicitly occupied, their population is classified by identifying whether the molecule is in \Estar{} or \Kstar{} when the trajectory is halted due to the energy gap of \sone{} and \szero{} becoming less than 0.2 eV. It is then assumed that population decays through conical intersection to the corresponding ground state in E or K. If in \Estar{} at $t=x$, the trajectory is then classified as E for the remaining 500-$x$ femtoseconds of the analysis, and likewise for  \Kstar{}. At each timestep, the number of trajectories in \Estar{}, \Kstar{}, E, and K are counted, with the total population summing to 50, the total number of trajectories. Note that each trajectory can only occupy one species at any time, and all trajectories begin the simulation in the \Estar{} state.
+
+In a similar vain to the global fits for the adiabatic states, the tautomer populations were modelled using a set of three rate equations, 
 \begin{align*}
 \centering
 \ce{&E^{*} ->[$K_{PT}$] K^{*}\\&E^{*} ->[$K_{IC_E}$] E\\&K^{*} ->[$K_{IC_K}$] K}\\
 \end{align*}
+where $K_{PT}$ represents the ESIPT rate,  $K_{IC_{E}}$ is the internal conversion process in enol and $K_{IC_{K}}$ is the keto internal conversion. 
+
 After integration with the \texttt{maxima} package, the following integrated rate equations were obtained:
 \begin{equation}
 \mathbf{A}=\mathbf{B}\cdot\mathbf{C}
@@ -227,23 +255,30 @@ After integration with the \texttt{maxima} package, the following integrated rat
   \label{figure: HC_5_Global}
 \end{figure}
 
-The global fits for the tautomer states are shown in Figures \ref{figure: HC_1_Global} and \ref{figure: HC_5_Global}, and the calculated rates are shown in Table In compound \textbf{1}, $K_{1}$ (the rate of ESIPT) is 2.9 ps\textsuperscript{-1}, which is almost ten-fold slower than in compound \textbf{5}, such is the bias for ESIPT afforded by the addition of the methoxy group. Not captured in the model is the slight oscillatory behaviour between \Estar{} and \Kstar{} populations for compound \textbf{1}, which is not evident in compound \textbf{5}. The internal conversion rates are more similar for the two compounds. These timescales are within the same magnitude of those obtained by Zahid \textit{et. al}, although direct comparison is complicated by the fact that the experimental timescales involve solvation, which is not included in these simulations. 
+The global fits for the tautomer states are shown in Figures \ref{figure: HC_1_Global} and \ref{figure: HC_5_Global}, and the calculated rates are shown in Table \ref{table: species_decay_rates}. Due to the relatively few trajectories, these models provide only a qualitative picture of the decay of each species.
+In compound \textbf{1}, $K_{PT}$ (the rate of ESIPT) is 2.71 ps\textsuperscript{-1},  more than five times slower than in compound \textbf{5}. Note that all ESIPT events happen on the \sone{} surface. The increased rate in \textbf{5} can be traced back to the electronic densities in Figure \ref{figure: HC_Vac_Densities}, where in compound \textbf{5} the phenol oxygen loses density and the proton is more acidic than in \textbf{1}. In Figure \ref{figure: HC_1_Global}, the fit for the \Kstar{} decay in compound \textbf{1} is quite poor, and thus it is expected that $K_{PT}$ is underestimated by this model. Alternative models were made by introducing bounds for the coefficients, and the best fit for \Kstar{} decay gave a rate constant of 5.00 ps\textsuperscript{-1}, but to the detriment of the other fits (\Estar{},E,K). From these \ac{TSH} simulations, $K_{PT}$ for compound \textbf{1} is expected to be between 2-6 ps\textsuperscript{-1}, and between 2-5 times faster in compound \textbf{5}. Certainly, more trajectories would enable a more quantitative picture of the process.
 
-\begin{table}[H]
+The internal conversion rates are more similar for the two compounds. These timescales are within the same magnitude of those obtained by Zahid \textit{et. al}, although direct comparison is complicated by the fact that the experimental timescales involve solvation, which is not included in these simulations. The calculated internal conversion rates are expected to be overestimated, due to the instability of the \szero{} state with the ADC(2) method as discussed in Section \ref{section: NRdecay_Channels}. This means that the conical intersection is accessed at lower rotation angles than with CC2.  
+
+\begin{table}[b]
 \centering
-\caption[Obtained rates for decay processes from TSH dynamics for compounds \textbf{1} and \textbf{5}]{Obtained rates for proton transfer, internal conversion in \Estar{} and \Kstar{}, for \textbf{1} and \textbf{5}, in ps\textsuperscript{-1}.}
+\caption[Obtained rates for tautomer decay processes for compounds \textbf{1} and \textbf{5}]{Obtained rates for proton transfer, internal conversion in \Estar{} and \Kstar{}, for \textbf{1} and \textbf{5}, in ps\textsuperscript{-1}.}
 \begin{tabular}{cccc}
     \hline
      Compound & $K_{PT}$ & $K_{IC_{E}}$ & $K_{IC_{K}}$ \\
      \hline
-     \textbf{1} & 2.92 & 1.78 & 28.82 \\
-     \textbf{5} & 26.00 & 4.76 & 21.81 \\
+     \textbf{1} & 2.71 & 1.71 & 47.14 \\
+     \textbf{5} & 14.00 & 2.52 & 36.69 \\
      \hline
 \end{tabular}
+\label{table: species_decay_rates}
 \end{table}
 
-In the case of \textbf{1}, both pathways are similarly populated in the dynamics simulations (\Kstar: 48\%, \Estar: 52\%). The population of the different pathways depends on the initial state. For trajectories started in \stwo{}, the fraction is larger (\Kstar: 60\%, \Estar: 40\%). For \textbf{1}, the significant population of the \Estar{} channel is associated with the stabilisation of the \Estar{} minimum and the lower acidity of the proton due to the electronic density distribution, as shown in Figure \ref{figure: HC_Vac_Densities}. Conversely, compound \textbf{5} shows a significant preference for the \Kstar{} channel, with ESIPT occurring in 80\% of trajectories, showing a similar channel preference regardless of the initial state. The methoxy group results in the increased acidity of the proton and lack of stable \Estar{} minimum, and a heavy bias for the ESIPT channel. This is evident from the fast population transfer of enol to keto in Figure \ref{figure: HC_5_Global}.
-%%%%Comment
+In the case of \textbf{1}, both pathways enol and keto decay pathways are similarly populated in the dynamics simulations (\Kstar: 48\%, \Estar: 52\%). The population of the different pathways depends on the initial state. For trajectories started in \stwo{}, the fraction is larger (\Kstar: 60\%, \Estar: 40\%). For \textbf{1}, the significant population of the \Estar{} channel is associated with the stabilisation of the \Estar{} minimum and the lower acidity of the proton due to the electronic density distribution, as shown in Figure \ref{figure: HC_Vac_Densities}. Conversely, compound \textbf{5} shows a significant bias for the \Kstar{} channel, with ESIPT occurring in 80\% of trajectories, showing a similar channel preference regardless of the initial state. The methoxy group results in the increased acidity of the proton and lack of stable \Estar{} minimum, and a heavy bias for the ESIPT channel. This is evident from the fast population transfer from \Estar{} to \Kstar{} in Figure \ref{figure: HC_5_Global}.
+
+%%%%Comment%%%%%%%%%%%%
+%%%%Comment%%%%%%%%%%%%
+%%%%Comment%%%%%%%%%%%%
 \begin{comment}
 \begin{figure}[H]
 \centering
@@ -258,10 +293,8 @@ In the case of \textbf{1}, both pathways are similarly populated in the dynamics
   \caption[Populations of \textbf{HC5} in nonadiabatic dynamics simulations]{The population of the \szero{}, \sone{}, and \stwo{} states for compound \textbf{1} from \ac{TSH} simulations. The population of enol and keto states are also shown.}
   \label{figure: HC_5_Populations}
 \end{figure}
-\end{comment}
-%%%%Comment
 
-To estimate the lifetime of the enol state, the decay rate of \Estar{} was calculated by incorporating both ESIPT and internal conversion into one rate constant. The fit of $K$, the \Estar{} decay rate, for \textbf{1} and \textbf{5} is shown in Figure \ref{figure: HC_Dynamics_Enolfit}. In \textbf{1}, $K=0.0154$ fs\textsuperscript{-1}, giving a lifetime of just 65 fs. For compound \textbf{5} the lifetime is even shorter at just 18 fs. Whilst these times are certainly underestimated, they show the instability of the enol state for \textbf{5} compared to \textbf{1}. While the goodness of fit is reasonable, at 0.74 and 0.81 respectively for \textbf{1} and \textbf{2} (Figure \ref{figure: HC_Dynamics_Enolfit}), the largest error comes from combining the nonradiative decay rate and the ESIPT rate into one decay constant. Furthermore, it can be seen that there are many unphysical step-like features in the populations. Both of these factors are a result of the relatively small number of trajectories run. More accurate lifetimes could thus be attained by running more trajectories and with a higher level of theory to better sample the phase space and allow the separation and estimation of $K_{1}$ and $K_{2}$. However the computational cost associated with this is prohibitive, and for a qualitative description the current method shows the relative differences of the compounds. Besides the elevated computational costs, there are known problems with the stability of CC2 for dynamics.\cite{Plasser2014}
+To estimate the lifetime of the enol state, the decay rate of \Estar{} was calculated by incorporating both ESIPT and internal conversion into one rate constant. The fit of $K$, the \Estar{} decay rate, for \textbf{1} and \textbf{5} is shown in Figure \ref{figure: HC_Dynamics_Enolfit}. In \textbf{1}, $K=0.0154$ fs\textsuperscript{-1}, giving a lifetime of just 65 fs. For compound \textbf{5} the lifetime is even shorter at just 18 fs. Whilst these times are certainly underestimated, they show the instability of the enol state for \textbf{5} compared to \textbf{1}. While the goodness of fit is reasonable, at 0.74 and 0.81 respectively for \textbf{1} and \textbf{2} (Figure \ref{figure: HC_Dynamics_Enolfit}), the largest error comes from combining the nonradiative decay rate and the ESIPT rate into one decay constant. Furthermore, it can be seen that there are many unphysical step-like features in the populations. Both of these factors are a result of the relatively small number of trajectories run. More accurate lifetimes could thus be attained by running more trajectories and with a higher level of theory to better sample the phase space and allow the separation and estimation of $K_{1}$ and $K_{2}$. However the computational cost associated with this is prohibitive, and for a qualitative description the current method shows the relative differences of the compounds. 
 
 \begin{figure}[t]
 \centering
@@ -269,18 +302,19 @@ To estimate the lifetime of the enol state, the decay rate of \Estar{} was calcu
   \caption[Estimation of enol decay rate]{Estimation of the enol lifetime for \textbf{1} and \textbf{5} using first-order exponential decay.}
   \label{figure: HC_Dynamics_Enolfit}
 \end{figure}
+\end{comment}
+%%%%Comment%%%%%%%%%%%%
+%%%%Comment%%%%%%%%%%%%
+%%%%Comment%%%%%%%%%%%%
 
-
-
-
-For \textbf{1} and \textbf{5}, the average time for the first proton transfer is 59 fs and 10 fs respectively, with all trajectories exhibiting ESIPT finding the ground state before the maximum simulation time (500 fs). We identify three steps in the ESIPT mechanism:
+For \textbf{1} and \textbf{5}, the average time for the first proton transfer is 85 $\pm 86$ fs and 43 $\pm 62$ fs respectively, with all trajectories exhibiting ESIPT finding the ground state before the maximum simulation time (500 fs). Note that these averages different from those which we published in reference \citenum{Dommett2017}, where the first proton transfer was defined as the time at which $D_{O_{P}} > D_{O_{C}}$, regardless of whether the proton then migrated back in an oscillatory manner. This lead to average times of 59 fs and 10 fs for the ESIPT process, which are perhaps underestimated due to not separating the vibrational oscillation from the ESIPT process. Analysis of the trajectories shows three steps in the ESIPT mechanism can be identified:
 \begin{enumerate}
     \item Relaxation in the excited state (\Estar{} form)
     \item Proton transfer (ESIPT) 
     \item Relaxation in \Kstar{} followed by internal conversion
 \end{enumerate}
 
-These three steps are illustrated for a typical trajectory in panel a) of Figure \ref{figure: HC_1_Trajectories}. During step 1, the angle decreases to $\theta_{tor}$=11\textdegree{} to facilitate the proton transfer in step 2. In some trajectories, the proton oscillates somewhat before transferring. ESIPT in step 2 occurrs at 45 fs. In step 3, the molecule relaxes in the keto form \textit{via} dihedral rotation after which dihedral rotation of 37\textdegree{} results in state convergence after 139 fs, which is underestimated considering the limitations of the ADC(2) method. The region with \sone/\szero{} gap of 0.1 eV is accessed in an average time of 76 fs post-ESPIT for \textbf{1} and 47 fs for \textbf{5}. Considering the features of the PES at ADC(2)/def2-SV(P) level of theory, these times are underestimated with respect to real internal conversion times, but they provide a relative indication of how fast the molecules reach the crossing seam region and the effect of the substituent.
+These three steps are illustrated for a typical trajectory in panel a) of Figure \ref{figure: HC_1_Trajectories}. During step 1, the angle decreases to $\theta_{tor}$=11\textdegree{} to facilitate the proton transfer in step 2. In some trajectories, the proton oscillates somewhat before transferring. ESIPT in step 2 occurs at 45 fs. In step 3, the molecule relaxes in the keto form \textit{via} dihedral rotation after which dihedral rotation of 37\textdegree{} results in state convergence after 139 fs, which is underestimated considering the limitations of the ADC(2) method. The region with \sone/\szero{} gap of 0.1 eV is accessed in an average time of 76 fs post-ESPIT for \textbf{1} and 47 fs for \textbf{5}. Considering the features of the PES at ADC(2)/def2-SV(P) level of theory, these times are underestimated with respect to real internal conversion times, but they provide a relative indication of how fast the molecules reach the crossing seam region and the effect of the substituent.
 \begin{figure}[t]
 \centering
   \includegraphics[width=0.9\linewidth]{3nonradiativedecay/HC_1_Trajectories.pdf}
@@ -297,7 +331,7 @@ Both processes involve the rotation around the angle $\theta_{tor}$. 20\% of the
 
 In panel b) of Figure \ref{figure: HC_1_Trajectories}, a typical trajectory undergoing \Estar{} relaxation is shown. At 0 fs,  $\theta_{tor}$=-10.5\textdegree{}, and for the first 110 fs of the simulation (step 1), the angle oscillates about the equilibrium value (-11.0\textdegree{} at ADC(2)/def2-SV(P) level of theory). Then, the rotation deviates the phenoxy group from the plane prohibiting ESIPT and the molecule reaches the CI region at 225 fs, with an $\theta_{tor}$=-57.6\textdegree{}. The dynamics support the assertions from the \acp{PES} that proton transfer from the twisted \Estar{} form, with a barrier of 1.2 eV, is improbable. Relaxation in \Estar{} therefore competes with ESIPT in compound \textbf{1} due to the close proximity of a local minimum close to the Franck-Condon geometry. Proton transfer followed by internal conversion is the faster process, with an average time duration of 123 fs, compared to 228 fs for rotation in \Estar{}.
 
-The nonadiabtic dynamic simulations do not allow the prediction of post-internal conversion behaviour, but the analysis of the PES can help understand the following steps in the mechanisms. Post-ESIPT, two relaxation pathways are possible once the MECI is populated. The first completes the four-level photocycle and returns the system to the ground state cis-enol form \textit{via} \ac{GSIPT}. The second continues the rotation about $\theta_{tor}$ to produce the trans-keto form of \textbf{HC}.  Optimisation at the MP2/def2-TZVP level show this structure is more than 1 eV less stable than the ground state, suggesting that \ac{GSIPT} will be preferential. This is shown schematically in Figure \ref{figure: HC_1_Energylevels_ADC2}. The nonadiabatic dynamics simulations clearly illustrate the effect of a strong electron donor in the \textit{para} position on the ESIPT process in \ac{HC}s. The population of the ESIPT channel and rate of proton transfer is greatly increased as is subsequent convergence of the ground and first excited state. 
+The nonadiabtic dynamic simulations employed here do not allow the prediction of post-internal conversion behaviour, but the analysis of the PES can help understand the following steps in the mechanisms. Post-ESIPT, two relaxation pathways are possible once the MECI is populated. The first completes the four-level photocycle and returns the system to the ground state cis-enol form \textit{via} \ac{GSIPT}. The second continues the rotation about $\theta_{tor}$ to produce the trans-keto form of \textbf{HC}.  Optimisation at the MP2/def2-TZVP level show this structure is more than 1 eV less stable than the ground state, suggesting that \ac{GSIPT} will be preferential. This is shown schematically in Figure \ref{figure: HC_1_Energylevels_ADC2}. The nonadiabatic dynamics simulations clearly illustrate the effect of a strong electron donor in the \textit{para} position on the ESIPT process in \ac{HC}s. The population of the ESIPT channel and rate of proton transfer is greatly increased as is subsequent convergence of the ground and first excited state. 
 
 \begin{figure}
 \centering
