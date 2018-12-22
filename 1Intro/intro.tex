@@ -8,9 +8,19 @@ Luminescent organic molecules are used in numerous biological and technological 
 Since the discovery of electromluminescence in the 1960s, intensive efforts in academia and industry have delivered considerable progress in the field of organic electronics, leading to  the development of applications such as field-effect transistors, photovoltaic cells, optical memory devices, and single-crystal lasers.\cite{Ostroverkhova2016} The most prominent success story are certainly \acp{OLED}, which have already reached market adoption for lighting and display purposes. However, in many areas organic systems suffer from low efficiencies, trial-and-error optimisation, and decreased performance in aggregated form versus solution. 
 To advance, there must be control over both the supermolecular structure of the material and the electronic structure of the  molecules within. Neither of property exists in isolation, and their interplay must also be understood, which somewhat complicates matters. Of these contributing factors, it is the electronic structure and its relationship with the environment which are of interest in this work. The luminescent response of molecules can change drastically from one medium to another, whether in the gas phase, as a solution, aggregated as clusters, or in molecular crystals. Understanding the interplay between the luminophore and its environment is crucial for designing more efficient materials from first principles. 
 
-To this end, this work approaches the problem using computational chemistry methods to investigate organic compounds exhibiting \ac{AIE}. AIE-active compounds are non-emissive in dispersed media, but undergo a switch-on of luminescence, typically in the form of fluorescence, upon aggregation. Since technological applications require a thin-film or solid-state layer, AIE has attracted considerable interest as a pathway to overcome the common effect of \ac{ACQ}, hitherto a major obstacle in the development of organic luminophores. The potency of \ac{AIE} systems can be further boosted by incorporating \acf{ESIPT} into the chromophore, where the large Stokes shift separates emission from absorption and emission and increases the quantum yield of fluorescence. ESIPT systems exhibiting AIE are the focus of this thesis. In this chapter the problem of \ac{ACQ} shall be introduced, followed by an examination of the AIE phenomenon through analysis of typical structures and mechanistic interpretations, before introducing \ac{ESIPT} and the systems under investigation.
+To this end, this work approaches the problem using computational chemistry methods to investigate organic compounds exhibiting \ac{AIE}. AIE-active compounds are non-emissive in dispersed media, but undergo a switch-on of luminescence, typically in the form of fluorescence, upon aggregation. Since technological applications require a thin-film or solid-state layer, AIE has attracted considerable interest as a pathway to overcome the common effect of \ac{ACQ}, hitherto a major obstacle in the development of organic luminophores. The potency of \ac{AIE} systems can be further boosted by incorporating \acf{ESIPT} into the chromophore, where the large Stokes shift separates emission from absorption and emission and increases the quantum yield of fluorescence. ESIPT systems exhibiting AIE are the focus of this thesis. 
+
+In this chapter the problem of \ac{ACQ} shall be introduced, followed by an examination of the \ac{AIE} phenomenon through analysis of typical structures and mechanistic interpretations, before introducing the \ac{ESIPT} mechanism. Once the key concepts of \ac{ACQ}, \ac{AIE}, and \ac{ESIPT} have been established, we focus on the systems under investigation - two families of related compounds with a range of photochemical behaviours. The \acp{HC} have a donor-acceptor structure and undergo \ac{ESIPT}, where substituent identities and molecular packing determine the AIE response. In contrast, the four molecules of the \ac{HP} family combine \ac{ESIPT} with a remarkable \ac{AIE} response. At the end of Chapter \ref{chapter: luminscent organic materials} we survey the experimental studies on these systems and set the aims and objectives of this project. 
+
+In Chapter \ref{chapter:theory}, the fundamental principles of quantum chemistry are introduced, with an overview of the computational methods which have been developed in attempt to solve the \schro{} equation. The key concepts of photochemistry are discussed with a focus on excited states in molecular crystals.
+
+In Chapter \ref{chapter:NRdecay}, we present a study of the vacuum photochemistry of five \ac{HC} compounds synthesised by Cheng and coworkers (Figure \ref{figure: HC_experimental}). Here the vertical excitations, \acp{PES} and nonadiabatic dynamics of the family are studied to determine the nonradiative decay pathways and rationalise the nonemission of these compounds.
+
+In Chapter \ref{chapter: Inter} the focus moves to the crystalline photochemistry for the \acp{HC}. Using a hierarchy of QM:MM models, we construct the \ac{PES} and the decay pathway in the excited state for two systems with differing emission behaviour using density functional and multireference methods. The methods employed consider exciton coupling, long and short range electrostatics, and cluster size, to decouple the different factors responsible for the observed photobehaviour. With our results, we establish design rules for efficient ESIPT emitters.
+
+In Chapter \ref{chapter: Connecting}, the scope of our work is expanded to consider the \ac{HP} family, as well as two additional \textbf{HC} compounds which undergo AIE (Table \ref{table: chalcones}. In total we consider eleven compounds to understand the remarkable efficiency of the \ac{HP} family and to test the design rules established in Chapter \ref{chapter: Inter}. A quantitative description of the crystal morphologies is developed, based upon the dimer configurations present. The thesis concludes with an overview of the main results, and how these precipitate the design rules for more efficient organic luminescent materials. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Aggregation Caused Quenching}\label{section: lom ACQ}
+\section{Photophysics of Molecular Aggregates}\label{section: lom ACQ}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Molecular Stacking}
 Photoinduced luminescence occurs after chromophores with $\pi$-conjugation, typically in the form of aromatic moieties, absorb light in the \ac{UV} or visible region of the electromagnetic spectrum. In good solvents or dilute concentration, fluorescence will usually follow, although the presence of metals or second row elements can allow phosphorescence \textit{via} intersystem crossing. Upon aggregation with increased concentration, or crystallisation, the fluorescence is often reduced or quenched completely. 
@@ -35,26 +45,26 @@ This intermolecular interaction is detrimental to solid-state fluorescence, and 
 
 The deleterious effects of \ac{ACQ} cannot be underestimated and pose a significant problem for organic luminescent applications. In the next section, we shall look in more detail of the photophysics of molecular aggregates, within the context of Kasha's exciton theory.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Photophysics of Molecular Aggregates}\label{section: lom intermolecular-interactions}
+\subsection{Exciton Theory}\label{section: lom intermolecular-interactions}
 Intermolecular interactions become photophysically important in the solid state due to the dense packing of molecular units. This effect is typically framed in Kasha's two state exciton theory.\cite{Gierschner2009,Gierschner2013,Gierschner2013a,Hestand2017,Shi2017} The exciton is typically defined as a delocalised excited state, where the excited electron and hole remain in close proximity. The Coulomb interaction between the transition dipoles of the monomers in a dimer results in an energy shift in the absorption spectrum, and has underpinned exciton theory since its inception in the 1960s.\cite{Kasha1965a} When two monomers stack ``side-by-side", the Coulombic excitonic coupling is positive, a blue-shifted absorption spectrum is witnessed (relative to the isolated monomer) and radiative decay is reduced. This stacking motif is denoted a H-aggregate. Conversely, in J-aggregates, dimers align ``head-to-tail", and a red-shifted absorption is witnessed with an increased radiative decay. These extreme cases have helped interpret the supermolecular photophenomena in molecular aggregates.
 
-When the intermolecular distance is large enough to prevent orbital overlap, the exciton can be considered as the interaction of the wavefunction of one monomer ($\ket{1}$) with the wavefunction of the second monomer ($\ket{2}$). In the excited state, the  wavefunctions interact to form a delocalised exciton (a Frenkel exciton), the Hamiltonian $H$ of which is given
+When the intermolecular distance is large enough to prevent orbital overlap, the exciton can be considered as the interaction of the wavefunction of one monomer ($\ket{1}$) with the wavefunction of the second monomer ($\ket{2}$). In the excited state, the  wavefunctions interact to form a delocalised exciton (a Frenkel exciton), the Hamiltonian $\hat{H}$ of which is given
 \begin{equation}
-H=\hbar\omega + \mathrm{\hbar{}D} + J_{0}\{\ket{1}\bra{2}+\ket{2}\bra{1}\}.
+\hat{H}=\hbar\omega + \mathrm{\hbar{}D} + J_{0}\{\ket{1}\bra{2}+\ket{2}\bra{1}\}.
 \end{equation}
 The first term is the energy gap between S\textsubscript{0} and S\textsubscript{1},  $\hbar{}D$ is the shift of the S\textsubscript{1} state in going from the vacuum to the crystal, and $J_{0}$ is the Coulombic coupling.\cite{Spano} The exciton for a multisite system can be described using periodic boundary conditions to produce a wavelike function $k$. For the two site system, $\ket{k}$ is\cite{Hestand2018}
 \begin{equation}
 \ket{k}=\frac{1}{\sqrt{2}}\big[e^{ik}\ket{1}+  e^{i2k}\ket{2}\big]\qquad\quad k=0,\pm{\pi}.
 \end{equation}
-For the allowed values of $k$, the transition energy $E_k$ for state $k$ is an eigenvalue of $H$, and has the form
+For the allowed values of $k$, the transition energy $E_k$ for state $k$ is an eigenvalue of $\hat{H}$, and has the form
 \begin{equation}
-\mathrm{E}_{k}=\hbar\omega + \mathrm{\hbar{}D} +J_{0}\cos{k}.
+\mathrm{E}_{k}=\hbar\omega + \mathrm{\hbar{}D} +J\cos{k}.
 \end{equation}
-For the two site system, this results in two exciton states in the Frenkel Hamiltonian, as depicted in Figure \ref{figure: H_J_Aggregates}. The Coulomb coupling $J_{0}$ represents the interaction energy due to exchange of excitation energy between $\ket{1}$ and $\ket{2}$, the sign of which dictates whether the symmetric superposition is the upper or lower state. When the coupling is positive, the symmetric state is the upper state, as in the H-aggregate, and the transition dipoles are reinforced resulting in blue-shifted absorption compared to the gas-phase monomer. Since emission usually takes place from the lower state, the state is nonradiative and fluorescence is quenched. When the coupling is negative, the symmetric state is lowered and emission is symmetry allowed.\cite{Hestand2017}
+For the two site system, this results in two exciton states in the Frenkel Hamiltonian, as depicted in Figure \ref{figure: H_J_Aggregates}. The Coulomb coupling $J$ represents the interaction energy due to exchange of excitation energy between $\ket{1}$ and $\ket{2}$, the sign of which dictates whether the symmetric superposition is the upper or lower state. When the coupling is positive, the symmetric state is the upper state, as in the H-aggregate, and the transition dipoles are reinforced resulting in blue-shifted absorption compared to the gas-phase monomer. Since Kasha's rule dictates that emission will usually take place from the lower state, the state is nonradiative and fluorescence is quenched.\cite{Kasha1950} When the coupling is negative, the symmetric state is lowered and emission is symmetry allowed.\cite{Hestand2017}
 \begin{figure}[t]
 \centering
   \includegraphics[width=\linewidth]{1Intro/H_J_aggregates.pdf}
-  \caption[Exciton energy level diagram for H- and J-aggregates]{Energy level diagram for a H-aggregate (left) and J-aggregate (right) of naphthalene. For the H-aggrgate, the Coulombic coupling $J_{0}$ is positive, raising the energy of the symmetric state resulting in blue-shifted absorption with respect to the monomer state. Emission from the lower state is forbidden, and thus quenched. In the J-aggregate, the negative Coulombic coupling results in red-shifted absorption and allowed emission. The bright excitonic state, the symmetric superposition of the monomer wavefunctions, is indicated with a star.}
+  \caption[Exciton energy level diagram for H- and J-aggregates]{Energy level diagram for a H-aggregate (left) and J-aggregate (right) of naphthalene. For the H-aggrgate, the Coulombic coupling $J$ is positive, raising the energy of the symmetric state resulting in blue-shifted absorption with respect to the monomer state. Emission from the lower state is forbidden, and thus quenched. In the J-aggregate, the negative Coulombic coupling results in red-shifted absorption and allowed emission. The bright excitonic state, the symmetric superposition of the monomer wavefunctions, is indicated with a star.}
   \label{figure: H_J_Aggregates}
 \end{figure}
 \begin{comment}
@@ -89,28 +99,92 @@ J_{0}<0
 \ket{2}
 \end{equation}
 \end{comment}
-H- and J-aggregates represent the two extreme stacking cases. In Kasha's theory, the coupling $J_{0}$ arises from the interaction of the transition dipole moments, which at its most crude can be treated as the interaction between two point dipoles,
-\begin{equation}
-    J_{0,Coul}=\frac{\mu^{2}(1-3\cos^{2}\theta)}{4\pi\epsilon{}R^3}
+H- and J-aggregates represent the two extreme stacking cases. 
+
+Understanding the complex photophenomena of molecular aggregates is important in the development of materials requiring control over the exciton. The existence of excitons and the dynamics in the solid state opens nonradiative decay channels and often a quenching of fluorescence for typical aromatic motifs due to the prominence of H-aggregates. This has hindered the development of solid-state organic lumniscence. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Methods to Calculate Exciton Couplings}\label{section: lom exciton_couplings}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Quantum chemical methods allow for the calculation of the coupling parameter $J_{ij}$ for monomers $i$ and $j$ in a molecular dimer. In Kasha's exciton theory, the coupling $J_{ij}$ arises from the interaction of the transition dipole moments, which at its most crude can be treated as the interaction between two point dipoles,
+\begin{equation}\label{equation: PDA}
+    J_{ij}=\frac{\mu^{2}(1-3\cos^{2}\theta)}{4\pi\epsilon{}R^3}
 \end{equation}
 where $R$ is the intermolecular distance (between the centroids of the monomers), $\theta$ is the angle between  $\bm{\mu}$ (transition dipole vector) and $\bm{R}$, and $\epsilon$ is the optical dielectric constant of the medium. Thus for H-aggregates, when $\theta$=90\degree{}, the coupling is positive, and is negative in J-aggregates when $\theta$ is close to zero. H-aggregates become J-aggregates at the so-called ``magic angle" of 54.7\textdegree.\cite{Hestand2018}
 
-The crude point-dipole, Coulomb interpretation of the coupling is only valid approximation for homodimers with large intermolecular separation.\cite{Kistler2013} When monomers stack in close proximity ($R\leq4\si{\angstrom}$), wavefunction overlap invokes the possibility of \ac{CT} states, where the electron resides on one site and the hole on another.\cite{Darghouth2018} This creates a short-range coupling factor as well as the long-range Coulomb coupling. The total coupling is the combined short-range \ac{CT} coupling and the Coulomb coupling, leading to complex behaviour which is dependent on the sign of the short- and long-range contributions. For example, the \ac{CT} coupling is highly sensitive to the molecular geometry, where small distortions can change the total coupling value and result in multiple H- to J-aggregate conversions.\cite{Arago2015} %The two components of the total coupling has lead to an expanded nomenclature for stacking motifs, where the contribution of both the short and long-range coupling is considered (HH, HJ, JH, JJ). In the JH and HJ, the interference is completely destructive and the total coupling is zero, resulting in an absorption spectrum at the same position as a monomer.\cite{Hestand2017}
+The crude point-dipole, Coulomb interpretation of the coupling is only valid approximation for homodimers with large intermolecular separation.\cite{Kistler2013} When monomers stack in close proximity ($R\leq4\si{\angstrom}$), wavefunction overlap invokes the possibility of \ac{CT} states, where the electron resides on one site and the hole on another.\cite{Darghouth2018} This creates a short-range coupling factor as well as the long-range Coulomb coupling. The total coupling is the combined short-range \ac{CT} coupling and the Coulomb coupling, leading to complex behaviour which is dependent on the sign of the short- and long-range contributions. For example, the \ac{CT} coupling is highly sensitive to the molecular geometry, where small distortions can change the total coupling value and result in multiple H- to J-aggregate conversions.\cite{Arago2015} Yamagata \textit{et. al} devised a wavefunction overlap scheme to calculate the effect of charge transfer in addition to  the Coulomb interpretation.\cite{Yamagata2012} %The two components of the total coupling has lead to an expanded nomenclature for stacking motifs, where the contribution of both the short and long-range coupling is considered (HH, HJ, JH, JJ). In the JH and HJ, the interference is completely destructive and the total coupling is zero, resulting in an absorption spectrum at the same position as a monomer.\cite{Hestand2017}
 
-Understanding the complex photophenomena of molecular aggregates is important in the development of materials requiring control over the exciton. The existence of excitons and the dynamics in the solid state opens nonradiative decay channels and often a quenching of fluorescence for typical aromatic motifs due to the prominence of H-aggregates. This has hindered the development of solid-state organic lumniscence. However, when the group of Ben Zhong Tang found a system which had its fluorescence switched on, rather than quenched, upon aggregation, a new strategy for the design and development of brightly luminescent organic materials was launched. They named the phenomenon \acf{AIE}. In the next section, the roots of \ac{AIE} shall be examined and the technological advances that have arisen from the discovery briefly outlined.
+Perhaps the simplest method to attain $J$ is to refer to the original definition of the coupling shown in Figure \ref{figure: H_J_Aggregates} and use the splitting of the first two excited states of the supermolecular system,
+\begin{equation}
+    J_{ij}=\frac{E(S_{2})-E(S_{1})}{2}
+\end{equation}
+It is aa method which has proven popular for its conceptual simplicity and ease of calculation, since only one calculation on the dimer is required.\cite{Hsu2009,Gierschner2013a,Shi2017}
+
+A more sophisticated method based on the Coulomb interpretation is to project the full transition density matrix as atomic transition charges charges $q^{t}$, where each atom in the monomer is assigned a transition charge. This is cheaper than the full supermolecular calculation since only a monomer need be calculated, although the polarising effect of the second monomer is therefore neglected. In such a scheme, $J$ is calculated through intermolecular pairwise contributions
+\begin{equation}\label{equation: J_TC}
+\sum_{u}^{N_{i}}\sum_{v}^{N_{j}}\frac{q^{t}_{u}q^{t}_{v}}{|\bm{R}_{u}^{i}-\bm{R}_{v}^{j}|}
+\end{equation}
+between atom $u$ monomer $i$ and atom $v$ on monomer $j$. This method is capable of reproducing the supermoelcular couplings at lower computational costs for well-separated dimers.\cite{Kistler2013} Alternatively, the transition densities can be projected onto a three-dimensional real-space grid and integrated to give a molecular transition density, the product of which gives the coupling, in what is known as the transition density cube method.\cite{Bricker2014}
+
+An attractive method to calculate $J_{ij}$, incorporating both the Coulomb and short-range interactions, is the diabatization method devised by Arag\'o and Troisi. Here, the adiabatic energies of the supermolecule in the diagonal adiabatic Hamiltonian are transformed to the diabatic, monomer basis, such that the off-diagonal elements contain the couplings  \textbf{H}\textsuperscript{\textit{D}}, computed \textit{via}
+\begin{equation}
+\textbf{H}^{D}=\textbf{C}\textbf{H}^{A}\textbf{C}^\dag
+\label{equation: diabatic hamiltonian}
+\end{equation}
+\begin{equation}
+\label{equation: diabatic matrix}
+\textbf{H}^D=
+\begin{bmatrix}
+E_{i}^D & J_{ij}\\
+J_{ij} & E_{j}^D
+\end{bmatrix}
+=
+\begin{bmatrix}
+C_{11} & C_{12}\\
+C_{21} & C_{22}
+\end{bmatrix}
+\begin{bmatrix}
+E_{i}^A & 0\\
+0 & E_{j}^A
+\end{bmatrix}
+\begin{bmatrix}
+C_{11} & C_{21}\\
+C_{12} & C_{22}
+\end{bmatrix}
+\end{equation} 
+where \textbf{H}\textsuperscript{\textit{A}} is the diagonal Hamiltonian of the \sone{} and \stwo{} excitation energies and \textbf{C} is the adiabatic-diabatic transformation matrix. There exists no unique way to transform the bases, and various properties can be used, such as atomic transition charges or transition dipoples. In our work, \textbf{C} is defined as the matrix which minimised the difference between the transition dipole moments of the first two excited states of the dimer ($\bm{\mu}^{A}$) and the transition dipole moments of the first excited state of the two isolated monomers ($\bm{\mu}^{ISO}$), which are collected by matrix \textbf{M}. The singular value decomposition method of \textbf{M} into $\bm{U\Sigma{}V}^{\dag}$ yields matrix \textbf{C},
+\begin{equation}
+\begin{split}
+    \bm{\mathrm{M}}&=(\bm{\mu}^{A})^{\dag}\bm{\mu}^{ISO}\\
+    &=\bm{U\Sigma{}V}^{\dag}
+    \end{split}
+\end{equation}
+\begin{equation}
+    \bm{\mathrm{C}}^{\dag}=\bm{UV}^{\dag}
+\end{equation}
+This method encapsulates both the Coulomb interaction and the short-range effects such as exchange, overlap, and charge-transfer.\cite{Arago2015,Arago2016,Fornari2017} In this thesis, we implement the method of Troisi and evaluate exciton couplings in Chapter \ref{chapter: Inter}.  In chapter \ref{chapter: Connecting}, we explicitly compare the results to the couplings obtained using the supermolecular approach, and extend the method to a trimer basis, where the effect of a third monomer on the coupling is considered.
+
+
+
+
+
+
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Aggregation Induced Emission}\label{section: lom AIE}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Overview}
-In 2001, the Tang group at the Hong Kong University of Science and Technology were interested in silole-based polymers for highly emissive thin-films. As was common at the time, fabrication of such materials was challenging due to \ac{ACQ}. Through serendipity during a purification process, they found that a wet spot of 1-methyl-1,2,3,4,5-pentaphenylsilole was almost non-emissive, but brightly fluorescent after solvent evaporation.\cite{Luo2001} The law of aggregation quenching emission had been turned on its head, and the Tang group had observed the exact opposite behaviour, of molecular aggregation inducing light emission. This was almost unheard of for small organic molecules. 
+In 2001, the Tang group at the Hong Kong University of Science and Technology were interested in silole-based polymers for highly emissive thin-films. As was common at the time, fabrication of such materials was challenging due to \ac{ACQ}. Through serendipity during a purification process, they found that a wet spot of 1-methyl-1,2,3,4,5-pentaphenylsilole was almost non-emissive, but brightly fluorescent after solvent evaporation.\cite{Luo2001} The law of aggregation quenching emission had been turned on its head, and the Tang group had observed the exact opposite behaviour, of molecular aggregation inducing light emission. 
 
-The Tang group used the \ac{AIE} phenomenon to develop a range of chemical sensors to detect for instance volatile organic compounds, explosives, and pH.\cite{Dong2007,Li2005,Li2009} Such was the magnitude of the \ac{AIE} breakthrough and the mechanistic interpretations provided by the Tang group, many other groups began to explore this exciting new phenomenon for a wide range of applications. In the field of biological probing, \ac{AIE}-active systems can detect important small molecules such as glucose, thiols, and lactic acid.\cite{Wang2014,Yuan2014,Shen2012} Probes have been developed to detect protein fibrillation, which has been linked to Alzheimer's, Parkinson's and type II diabetes.\cite{Hong2012} \ac{AIE} systems have been also used in medical imaging, where fluorescence is an attractive technique due its high resolution, wide applicability, and low cost.\cite{Mei2015} The Tang group have tracked the progress of the field with periodic, in-depth reviews of the vast number of innovations, of which they contribute a significant share.\cite{Hong2009,Wang2010a,Hong2011,Mei2014,Hu2014,Mei2015} The most prominent avenue for the application of AIE is in optoelectronic and lasing devices, particularly OLEDs, which we will overview in the next section. 
-\subsection{Optoelectronic Applications of AIE}
-Upon discovery of \ac{AIE}, the potential for the improvement of optoelectronic devices was immediately apparent. In the original publication, the group built a highly emissive blue-emitting electroluminescent device, and optimised the device to 8\% \ac{EQE} in the cyan region, a vast improvement on the previous high of just 1.5\% for an \ac{OLED}. \cite{Luo2001,Chen2002} \ac{EQE} is the product of the electroluminescence efficiency of the emitter (the organic layer in this case) and the external coupling factor, which is a measure of the fraction of light able to escape the \ac{OLED}. Due to electroluminescence efficiency being limited to 25\% for singlet emitters, and the external coupling being limited to around 22\%, it was previously thought that the theoretical maximum \ac{EQE} is 5.5\%. Indeed, such was the remarkable \ac{EQE} measure in this \ac{OLED} that these previously accepted limitations had to be reconsidered.
+The Tang group used the \ac{AIE} phenomenon to develop a range of chemical sensors to detect for instance volatile organic compounds, explosives, and pH.\cite{Dong2007,Li2005,Li2009} Such was the magnitude of the \ac{AIE} breakthrough and the mechanistic interpretations provided by the Tang group, many other groups began to explore this exciting new phenomenon for a wide range of applications. In the field of biological probing, \ac{AIE}-active systems can detect important small molecules such as glucose, thiols, and lactic acid.\cite{Wang2014,Yuan2014,Shen2012} Probes have been developed to detect protein fibrillation, which has been linked to Alzheimer's, Parkinson's and type II diabetes.\cite{Hong2012} \ac{AIE} systems have been also used in medical imaging, where fluorescence is an attractive technique due its high resolution, wide applicability, and low cost.\cite{Mei2015} The Tang group have tracked the progress of the field with periodic, in-depth reviews of the vast number of innovations, of which they contribute a significant share.\cite{Hong2009,Wang2010a,Hong2011,Mei2014,Hu2014,Mei2015} The most prominent avenue for the application of AIE is in optoelectronic and lasing devices, particularly OLEDs, which we will overview in Section \ref{section: lom AIE_applications}. Prior to that, in the next section,  we examine the proposed mechanisms which precipitated from the experimental studies led by Tang \textit{et. al}.
 
-In follow-up work, a light-blue emitting \ac{OLED} with hexaphenylsilole (Figure \ref{figure: HPS_TPE}) as the emitting layer was fabricated with \ac{EQE} of 7\%.\cite{Chen2003} While the unfavourable spin statistics inhibit efficiency for singlet-emitting \acp{OLED} across the visible spectrum, deep blue emitters are harder still since the large band gap makes charge injection difficult, hindering the development of full colour displays. Non-doped deep blue \acp{OLED} with \ac{EQE} of around 4\% were reached in 2014, with emitters based on triphenylamine and tetraphenylethene (Figure \ref{figure: HPS_TPE}).\cite{Huang2014,Huang2014a} This has recently been increased to 6.5\% using a carbazole-based organic layer, and in 2018 reached 9.4\%.\cite{KumarKonidena2017,Tang2018} Inclusion of phosphorescent or thermally-activated delayed fluorescent dopants can further increase the quantum efficiency by harvesting triplet states for luminescence.\cite{Zhu2018}
+\subsection{Hypothesised Mechanisms}\label{section: lom AIE_mechanisms}
 
 \begin{figure}[t]
 \centering
@@ -118,7 +192,7 @@ In follow-up work, a light-blue emitting \ac{OLED} with hexaphenylsilole (Figure
   \caption[Examples of AIE-active chromophores]{Two dimensional (top) and three dimensional (bottom) structures of two of the ubiquitous AIE-active systems, hexaphenylsilole (HPS, left) and tetraphenylethene (\ac{TPE}, right). AIE occurs through restriction of the rotational motions depicted with arrows.}
   \label{figure: HPS_TPE}
 \end{figure}
-\subsection{Hypothesised Mechanisms}\label{section: lom AIE_mechanisms}
+
 Systems exhibiting \ac{AIE} are typically based on a propeller architecture, where a central stator is connected to a number of aromatic rotors \textit{via} single bonds, as shown in Figure \ref{figure: HPS_TPE}. In the initial analysis of 1-methyl-1,2,3,4,5-pentaphenylsilole, the absorption spectra showed that after the water fraction in an ethanol-water solvent mixture rose above 60\%, the absorption band increased in intensity and moved to longer wavelengths.\cite{Luo2001} On this basis, the \ac{AIE} activity was attributed to the formation of aggregates which forced the molecules into a more planar conformation, thus increasing the conjugation and the absorption. Enough rotation about the sigma bonds was still possible to prevent complete planarity and therefore limiting the stacking and subsequent fluorescence quenching. 
 
 A few months later, the group showed the \ac{AIE} effect for four more silole systems, followed by an extensive study of ten phenylsiloles.\cite{Tang2001,Chen2003} Crucially, in this later work the crystal structure of the siloles showed that the conformation remains twisted in the solid state.\cite{Chen2003} Large torsional angles exist between the phenyl groups and the central silole moiety, on account of the steric repulsion between the six phenyl groups. The lack of space between the phenyl blades, and their angular orientations, prevents intermolecular stacking which give rise to aggregation caused quenching. Therefore the planarisation hypothesis was wrong. 
@@ -130,27 +204,34 @@ The \ac{RIR} mechanism allowed the library of \ac{AIE}-active systems to be expa
 Dissipation of the excited state can occur through means other than rotation. A bent, $\pi$-surface system of benzenes fused with cyclooctatraenes undergoes \ac{AIE} but without any rotable units.\cite{Nishiuchi2013} In solution, ring inversions dissipate the excited state and there is almost no emission. Single crystals show emission in the blue region, since the bent structure prevents facial stacking and the inversion modes are restricted. Thus \ac{AIE} is achieved through \ac{RIV}. In a similar vain, the \ac{RIV} mechanism can be applied to \ac{TPE} by locking pairs of phenyl groups with eythlene linkers. In 2014, Tang unified the \ac{RIR} and \ac{RIV} interpretations under the \ac{RIM} umbrella.\cite{Leung2014}
 
 The discovery and development of the \ac{AIE} phenomenon has transformed the field of luminescent organic materials. While much of the innovation has been based on the propeller systems, a class of systems based on \ac{ESIPT} have attracted interest in recent years for their favourable photochemical properties. \ac{ESIPT} systems form the basis of the research in this thesis and in the next section the \ac{ESIPT} mechanism shall be introduced, along with the key applications which incorporate \ac{ESIPT}.
+
+\subsection{Optoelectronic Applications of AIE}\label{section: lom AIE_applications}
+Upon discovery of \ac{AIE}, the potential for the improvement of optoelectronic devices was immediately apparent. In the original publication, the group built a highly emissive blue-emitting electroluminescent device, and optimised the device to 8\% \ac{EQE} in the cyan region, a vast improvement on the previous high of just 1.5\% for an \ac{OLED}. \cite{Luo2001,Chen2002} \ac{EQE} is the product of the electroluminescence efficiency of the emitter (the organic layer in this case) and the external coupling factor, which is a measure of the fraction of light able to escape the \ac{OLED}. Due to electroluminescence efficiency being limited to 25\% for singlet emitters, and the external coupling being limited to around 22\%, it was previously thought that the theoretical maximum \ac{EQE} is 5.5\%. Indeed, such was the remarkable \ac{EQE} measure in this \ac{OLED} that these previously accepted limitations had to be reconsidered.
+
+In follow-up work, a light-blue emitting \ac{OLED} with hexaphenylsilole (Figure \ref{figure: HPS_TPE}) as the emitting layer was fabricated with \ac{EQE} of 7\%.\cite{Chen2003} While the unfavourable spin statistics inhibit efficiency for singlet-emitting \acp{OLED} across the visible spectrum, deep blue emitters are harder still since the large band gap makes charge injection difficult, hindering the development of full colour displays. Non-doped deep blue \acp{OLED} with \ac{EQE} of around 4\% were reached in 2014, with emitters based on triphenylamine and tetraphenylethene (Figure \ref{figure: HPS_TPE}).\cite{Huang2014,Huang2014a} This has recently been increased to 6.5\% using a carbazole-based organic layer, and in 2018 reached 9.4\%.\cite{KumarKonidena2017,Tang2018} Inclusion of phosphorescent or thermally-activated delayed fluorescent dopants can further increase the quantum efficiency by harvesting triplet states for luminescence.\cite{Zhu2018}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Theoretical Framework }\label{section: lom theory}
+\section{Theoretical Framework}\label{section: lom theory}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Approaches Based on Fermi Golden Rule}\label{section: lom FGR}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In 2005, the first theoretical study to determine the root of AIE in the phenylsiloles was presented.\cite{Yui2005} To probe the origins of the AIE phenomenon, Shuai \textit{et al.} calculated the rates of the excited state decay processes and constructed a model for the observed \ac{QE} of photoluminescence, $\Phi_{\mathrm{PL}}$, 
+In 2005, the first theoretical study to determine the root of AIE in the phenylsiloles was presented.\cite{Yui2005} To probe the origins of the AIE phenomenon, Shuai \textit{et al.} calculated the rates of the excited state decay processes and constructed a model for the observed \ac{QE}, 
 \begin{equation}\label{equation: QE}
     \Phi_{\mathrm{PL}}=\frac{k_{r}}{k_{r}+k_{nr}}
 \end{equation}
 where the overall observed \ac{QE} is determined by the rates of radiative ($k_{r}$) and nonradiative ($k_{nr}$) decay. $k_{nr}$ will typically consist of internal conversion, intersystem crossing, and intermolecular processes such as charge transfer. The idea is to determine the radiative and nonradiative rates in solution and aggregate form to elucidate the reason for the increased fluorescence in the solid state. This strategy underpins most of the theoretical work into AIE, of which the Shuai group have been at the forefront over the last 10 years. 
 
-To evaluate $k_{r}$, the Einstein spontaneous emission formula can be applied,
+To evaluate $k_{r}$, the Einstein spontaneous emission formula can be applied,\cite{Yui2005}
 \begin{equation}
     k_{r}=\frac{fE_{if}^{2}}{1.499}
 \end{equation}
-where $f_{if}$ is the oscillator strength and $E_{if}$ is the energy difference between the initial (\sone{}) and final electronic state (\szero{}). This considers that there is no displacement between the ground and excited state \acp{PES}. A more realistic method to evaluate $k_{r}$ is to simulate the fluorescence spectrum using a Winger ensemble and integrate the spontaneous emission for the rate.\cite{Crespo-Otero2012} The Fermi Golden rule and Condon approximation can be used within the Born-Oppenheimer approximation to determine $k_{nr}$ according to,
+where $f_{if}$ is the oscillator strength and $E_{if}$ is the energy difference between the initial (\sone{}) and final electronic state (\szero{}). This considers that there is no displacement between the ground and excited state \acp{PES}. A more realistic method to evaluate $k_{r}$ is to simulate the fluorescence spectrum using a Winger ensemble and integrate the spontaneous emission for the rate,  a strategy we employ in Chapter \ref{chapter: Connecting}.\cite{Crespo-Otero2012} The Fermi Golden rule and Condon approximation can be used within the Born-Oppenheimer approximation to determine $k_{nr}$ according to,
 \begin{equation}\label{equation: Fermi}
     k_{nr}(T)=\frac{2\pi}{\hbar}\sum_{\nu_{i}\nu_{f}}P_{i\nu_{i}}(T)\bigg|\sum_{k}\bra{\Phi_{f}}\hat{P}_{k}\ket{\Phi_{i}}\bra{\Theta_{f\nu_{f}}}\hat{P}_{k}\ket{\Theta_{i\nu_{i}}}\bigg|^{2}\delta{}(E_{i\nu_{i}}-E_{f\nu_{f}})
 \end{equation}
-where $P$ is the Boltzmann distribution of vibrational states ($\nu$) in the initial electronic state ($\Phi_{i}$), $\hat{P}$ is the momentum operator to give the coupling between electronic states and nuclear ($\Theta$) wavefunctions. The first sum runs over each of the vibrational states in the initial ($\nu_{i}$) and final ($\nu_{f}$)  states, and Boltzmann probability for the excited state (($\nu_{i}$) is multiplied by the product of the electronic (or nonadiabatic) coupling and the vibrational coupling. The coupling terms measure the change of the nuclear and electronic wavefunctions due to nuclear displacements for each nuclei $k$. For systems with small spin-orbit coupling, the contributions of intersystem crossing are normally neglected. As such, the framework for evaluating $k_{nr}$ focuses on internal conversion processes, although intermolecular decay through exciton formation or charge transfer are of growing interest.\cite{Li2017} Equation \ref{equation: Fermi} lies at the heart of Shuai's theoretical framework for interpreting AIE through intramolecular motions, which we denote the \ac{FGR-RIM} approach.
+where $P_{i\nu_{i}}$ is the Boltzmann distribution of vibrational states ($\nu$) in the initial electronic state ($\Phi_{i}$), $\hat{P}$ is the momentum operator to give the coupling between electronic states and nuclear ($\Theta$) wavefunctions. The first sum runs over each of the vibrational states in the initial ($\nu_{i}$) and final ($\nu_{f}$)  states, and Boltzmann probability for the excited state (($\nu_{i}$) is multiplied by the product of the electronic (or nonadiabatic) coupling and the vibrational coupling. The coupling terms measure the change of the nuclear and electronic wavefunctions due to nuclear displacements for each nuclei $k$. For systems with small spin-orbit coupling, the contributions of intersystem crossing are normally neglected. As such, the framework for evaluating $k_{nr}$ focuses on internal conversion processes, although intermolecular decay through exciton formation or charge transfer are of growing interest.\cite{Li2017} Equation \ref{equation: Fermi} lies at the heart of Shuai's theoretical framework for interpreting AIE through intramolecular motions, which we denote the \ac{FGR-RIM} approach.
 
 Solving Equation \ref{equation: Fermi} is computationally demanding and thus approximations must be made. Initially Shuai \textit{et al.} used a displaced harmonic approximation, where it is assumed that the excited state \ac{PES} is just a rigid displacement of the ground state.\cite{Yui2005} The internal conversion rate can then be racast as
 \begin{equation} \label{equation: displaced_harmonic}
@@ -160,19 +241,15 @@ where $R^{l}_{fi}$ are the nonadiabatic couplings, $\omega_{l}$ is the frequency
 \begin{equation}\label{equation: NFC}
 N_{FC}=\sqrt{\frac{2\pi}{\sum_{j}S_{j}\omega^{2}_{j}(2\bar{n}_{j}+1)}}\mathrm{exp}\bigg[-\frac{(\omega_{fi}+\omega_{l}+\sum_{j}S_{j}\omega_{j})^{2}}{2\sum_{j}S_{j}\omega_{j}^{2}(2\bar{n}_{j}+1)}\bigg].
 \end{equation}
-$k_{nr}$ the weighted Franck-Condon factors are functions of the \ac{HR} factors $S$ for each mode $j$, which determine the difference in vibrational wavefunctions in different electronic states. One of the main parameters obtained from the \ac{HR} factors is the reorganization energy $\lambda$ for each vibrational mode \textit{via},
-\begin{equation}
-    \lambda_{j}=\hbar{}S_{j}\omega_{j}
-\end{equation}
-which is associated with the energetic cost of geometry relaxation in the electronic transition. Analysis of $S_{j}$, $\sum_{j}\lambda_{j}$ and the nonadiabatic couplings give insight into the main vibrational modes involved in the internal conversion. In particular, analysis of the HR factors and reorganisation energies are popular for the semi-quantitative interpretation of AIE.\cite{Yin2006,Peng2007,Li2011,Peng2013,Shuai2014c,Shuai2014,Wu2014,Zhang2015a,Zheng2016,Fan2016,Zhang2016,Duan2017,Fan2017,Fan2018} Since $k_{nr}$ is a product of the electronic couplings and the Franck-Condon factors, both of these must be small in order to increase the QE (Equation \ref{equation: QE}). For the phenylsilole compounds, calculation of $k_{r}$ and $k_{nr}$ in vacuum revealed that the most significant contributions to $k_{nr}$ come from low-frequency rotational modes, which have large \ac{HR} factors and large reorganisation energies. The authors hypothesise that in the solid state, the dampening of rotational modes due to steric hindrance reduces the \ac{HR} factor, and thus the $N_{FC}$ contribution to $k_{nr}$.\cite{Yui2005,Yin2006} $k_{nr}$ decreases with respect to $k_{r}$, resulting in fluorescence.
+$k_{nr}$ the weighted Franck-Condon factors are functions of the \ac{HR} factors $S$ for each mode $j$, which determine the difference in vibrational wavefunctions in different electronic states. 
 
 Within the displaced harmonic oscillator model (Equation \ref{equation: displaced_harmonic}), some key approximations are made. Firstly, by assuming the ground and excited state \acp{PES} mirror each other means that the model is only valid for systems where the excited state geometry does not deviate far from the ground state equilibrium position. Secondly, in the implementation a ''promoting-mode" $l$ is chosen which is used to calculate the nonadiabatic coupling but does not contribute to $N_{FC}$ (Equation \ref{equation: NFC}). 
 
-To overcome these limitations, Shuai \textit{et al.} further developed the \ac{FGR-RIM} theory to incorporate the \ac{DRE}, such that all vibrations are considered rather than just one promoting mode.\cite{Yui2005,Peng2007a,Niu2010}. The \ac{DRE} correlates the excited state coordinates $Q^{e}$ with those of the ground state $Q^{g}$
+To overcome these limitations, Shuai \textit{et al.} further developed the \ac{FGR-RIM} theory to incorporate the \ac{DRE}, such that all vibrations are considered rather than just one promoting mode.\cite{Yui2005,Peng2007a,Niu2010} The \ac{DRE} correlates the excited state coordinates $Q^{e}$ with those of the ground state $Q^{g}$
 \begin{equation}
-    Q^{e}_{i}=\sum_{j}S_{ij}Q^{g}_{j}+D_{i}
+    Q^{e}_{i}=\sum_{j}R_{ij}Q^{g}_{j}+D_{i}
 \end{equation}
-where $S$ is the Duschinsky rotation matrix and $D_{i}$ is the displacement of the two \ac{PES}. Inclusion of \ac{DRE} involves solving Equation \ref{equation: Fermi} through a path-integral formalism. Fourier transform of the delta function yields the thermal vibrational correlation function which can be solved analytically \textit{via} the implementation of Peng and Shuai.\cite{Peng2013}
+where $R_{ij}$ are the elements of the Duschinsky rotation matrix and $D_{i}$ is the displacement of the two \ac{PES}. Shuai \textit{et al.} solve Equation \ref{equation: Fermi} with \ac{DRE} through a path-integral formalism.\cite{Peng2007a} Fourier transform of the delta function yields the thermal vibrational correlation function which can be solved analytically \textit{via} the implementation of Peng and Shuai.\cite{Peng2013}
 %\begin{equation}
 %k_{nr}=\sum_{kl}\frac{1}{\hbar}R_{kl}\int_{\infty}^{\infty}\%diff{t}\big[e^{i\omega_{if}t}Z_{i}^{-1}\rho_{IC}(t,T)\big]
 %\end{equation}
@@ -181,6 +258,37 @@ Incorporating \ac{DRE} to model the effect of temperature shows that increases $
 Shuai \textit{et al.} have also considered the effect of including exciton couplings in the nonradiative decay rate.\cite{Li2017} The authors developed an analytical expression for $k_{nr}$ incorporating the exciton coupling and evaluated the rates for four aromatic molecules and four typical AIE chromophores. It was found that the the exciton coupling increases $k_{nr}$, but only slightly. Howeover, the values of exciton couplings for the tested systems was less than 30meV, which is relatively small.
 
 The \ac{FGR-RIM} framework offers major progress in rationalising AIE through the restriction of intramolecular motions interpretation. Shuai's group have implemented the methods in a closed-source, commercial code MOMAP.\cite{Niu2018} However, the formalism contains some key approximations which should be highlighted. For the electronic nonadiabatic coupling, perturbation theory is used where the magnitude of the coupling is only calculated at the equilibrium geometries in \szero{} and \sone{}. This may be a source of error in systems which deviate from the equilibrium structures, as nonadiabatic couplings can vary significantly in the regions of surface crossings. Further, low-frequency modes driving the photochemistry can be highly anharmonic and nonadiabatic couplings in the equilibrium region do not necessarily correlate with the deactivation modes driving the photochemistry. In general, the use of the harmonic potentials potentially limits the applications to molecules which excited state dynamics is restricted to regions of the PES around equilibrium. These approximations can break down in systems with more highly anharmonic excited state \acp{PES}. 
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+\subsection{Huang-Rhys Factors and Reorganisation Energies}\label{section: lom HR}
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+Using the Duschinksy rotation matrix, normal modes can be correlated between different electronic states, yielding the Huang-Rhys factors $S$ between the electronic states for each frequency $\omega$
+\begin{equation}
+S_{j}=\frac{\omega_{j}D_{j}^2}{2\hbar{}}
+\end{equation}
+where $D_{j}$ is the displacement of mode $j$ between the equilibrium geometry in the considered electronic states. Summation of each Huang-Rhys factor yields the normal mode reorganisation energy for the system,
+\begin{equation}
+\lambda_{NM}=\sum_{j=1}^{3N-6}\hbar{}\omega_{j}S_{j}
+\end{equation}
+which is associated with the energetic cost of geometry relaxation in the electronic transition. Analysis of the Huang-Rhys factors, the reorganisation energies, and the nonadiabatic couplings give insight into the main vibrational modes involved in the internal conversion. In particular, analysis of the HR factors and reorganisation energies are popular for the semi-quantitative interpretation of AIE.\cite{Yin2006,Peng2007,Li2011,Peng2013,Shuai2014c,Shuai2014,Wu2014,Zhang2015a,Zheng2016,Fan2016,Zhang2016,Duan2017,Fan2017,Fan2018} Since $k_{nr}$ is a product of the electronic couplings and the Franck-Condon factors, both of these must be small in order to increase \ac{QE} (Equation \ref{equation: QE}). For the phenylsilole compounds, calculation of $k_{r}$ and $k_{nr}$ in vacuum revealed that the most significant contributions to $k_{nr}$ come from low-frequency rotational modes, which have large \ac{HR} factors and large reorganisation energies. The authors hypothesise that in the solid state, the dampening of rotational modes due to steric hindrance reduces the \ac{HR} factor, and thus the $N_{FC}$ contribution to $k_{nr}$.\cite{Yui2005,Yin2006} $k_{nr}$ decreases with respect to $k_{r}$, resulting in fluorescence.
+
+The reorganisation energy can also be calculated in the adiabatic regime,\cite{Reimers2001}
+\begin{equation}
+\begin{split}
+\lambda_{A}&=\lambda_{ex}+\lambda_{g}\\
+&=(E_{ex}^*-E_{ex})+(E_{g}^*-E_g)
+\label{equation: lambda}
+\end{split}
+\end{equation}
+where $E_g$ and $E_{ex}$ are ground state energies at the \szero{} and \sone{} minima, and $E_{g}^*$ and $E_{ex}^*$ are the corresponding excited state energies at respective minima.\cite{Bredas2004} This is visualised in Figure \ref{figure: reorganisation_energy}. $\lambda_{A}$ can be easily calculated using quantum chemical methods, where geometry optimisation in \szero{} and \sone{}, and a single point calculation of \sone{} at the \szero{} minimum, yields four quantities required to evaluate Equation \ref{equation: lambda}. This does not require the normal modes to be calculated, which can be computationally expensive in the excited state for large molecules.
+
+\begin{figure}[t]
+\centering
+  \includegraphics[width=0.6\linewidth]{1Intro/reorganisation_energy.pdf}
+  \caption[Schematic of the reorganisation energy in the adiabatic regime]{Schematic of how the reorganisation energy $\lambda$ is calculated in the adiabatic regime, based on the ground and excited state \acp{PES} of a monomer and the four quantities of Equation \ref{equation: lambda}. Red arrows indicate vertical transitions between electronic states. Adapted from reference \citenum{Stehr2014}.}
+  \label{figure: reorganisation_energy}
+\end{figure}
 %%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%
 \subsection{Restriced Access to Conical Intersection Model}\label{section: lom RACI}
@@ -204,12 +312,17 @@ Studies have shown that modes other than rotation can be followed to access coni
 Blancafort has shown that the RACI model can account for AIE in Tang's original compounds, the phenylsiloles.\cite{Peng2016} By combining TDDFT and CASSCF/CASPT2 calculations, it is found that a combination of ring puckering and a flapping mode result in a conical intersection in solution, which is inaccessible in the crystal. Conical intersections accessed through ring puckering have been found for other systems exhibiting AIE.\cite{Sasaki2016} Notable is the octatrene derivative, where the AIE character has been attributed to the \ac{RIV} mechanism, as discussed in Section \ref{section: lom AIE_mechanisms}. \cite{Nishiuchi2013} The ring puckering \ac{MECI} uncovered by Yuan \textit{et al.} means it falls under both the \ac{RIM} interpretation and the \ac{RACI} model.\cite{Yuan2013}
 
 The \ac{RACI} model and the \ac{FGR-RIM} interpretation of AIE are different in their underlying assumptions but are not necessarily conflicting interpretations of the AIE phenomenon. The \ac{FGR-RIM} approach determines the nonradiative decay rate from the coupling of electronic and nuclear wavefunctions through nuclear vibrations. The nuclear modes are treated within the harmonic approximation while the electronic coupling is calculated at the equilibrium geometries. This can be troublesome for systems which undergo large nuclear deformation in the excited state, where the modes can become highly anharmonic and the electronic coupling can vary in the vicinity of a conical intersection. In these cases,  more accurate lifetimes would be predicted using nonadiatatic dynamics simulations and the \ac{RACI} model can be used to interpret the intersection seam.  In the solid state the close packing of molecules reduces the conformational phase space and thus the harmonic approximation is more applicable. The \ac{RACI} model can identify the decay path in solution and the solid state, whilst \ac{FGR-RIM} can provide a quantitative prediction of lifetimes and quantum yields.
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+%\subsection{Charge Transport and Exciton Diffusion}\label{section: lom charge_transport}
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Excited State Intramolecular Proton Transfer}\label{section: lom ESIPT}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Combining AIE with ESIPT}
-Tautomerism is a type of isomerism resulting in the transfer of a chemical group between two sites on a molecule, and the simultaneous switching of a single and double bond. Photo-induced tautomerism, where the transferring group is a proton, is called \acf{ESIPT}. Research into the mechanism and potential applications of ESISPT has been active for more than half a century, since \ac{ESIPT} was first observed in the 1950s in salicylic acid. Photochromic materials harnessing \ac{ESIPT} have garnered much attention due to the wide range of applications and remarkable properties. In particular, it is the unusually large Stokes-shifted emission which makes \ac{ESIPT} so attractive. The separation between the absorption and emission bands can typically exceed 200 nm, reducing self-absorption and increasing the output signal for the desired application. The emission colour can be tuned by the addition of electron donating or withdrawing groups, as well as solvent polarity and viscosity.\cite{Azarias2016,Yushchenko2007} Dual emission from the pre- and post-\ac{ESIPT} forms is also possible. These characteristics, in tandem with \ac{AIE}, have resulted in \ac{ESIPT} chromophores being used for chemical sensing, biological imaging and probing, as well the optoelectronic applications such as optical memory, lasers, and \acp{OLED}.\cite{Hsieh2010,Kwon2011,Zhao2012,Demchenko2013,Padalkar2015,Chen2018} However, while there is a huge potential range of applications for ESIPT emitters, there are notable shortcomings, such as low quantum yields and short fluorescent lifetimes.\cite{Padalkar2015} The work in this thesis will look to address why this is through computational modelling.
+Tautomerism is a type of isomerism resulting in the transfer of a chemical group between two sites on a molecule, and the simultaneous switching of a single and double bond. Photo-induced tautomerism, where the transferring group is a proton, is called \acf{ESIPT}. Research into the mechanism and potential applications of ESISPT has been active for more than half a century, since \ac{ESIPT} was first observed in the 1950s in salicylic acid.\cite{Weller1955} Photochromic materials harnessing \ac{ESIPT} have garnered much attention due to the wide range of applications and remarkable properties. In particular, it is the unusually large Stokes-shifted emission which makes \ac{ESIPT} so attractive. The separation between the absorption and emission bands can typically exceed 200 nm, reducing self-absorption and increasing the output signal for the desired application. The emission colour can be tuned by the addition of electron donating or withdrawing groups, as well as solvent polarity and viscosity.\cite{Azarias2016,Yushchenko2007} Dual emission from the pre- and post-\ac{ESIPT} forms is also possible. These characteristics, in tandem with \ac{AIE}, have resulted in \ac{ESIPT} chromophores being used for chemical sensing, biological imaging and probing, as well the optoelectronic applications such as optical memory, lasers, and \acp{OLED}.\cite{Hsieh2010,Kwon2011,Zhao2012,Demchenko2013,Padalkar2015,Chen2018} However, while there is a huge potential range of applications for ESIPT emitters, there are notable shortcomings, such as low quantum yields and short fluorescent lifetimes.\cite{Padalkar2015} The work in this thesis will look to address why this is through computational modelling.
 \begin{figure}[t]
 \centering
   \includegraphics[width=0.95\linewidth]{1Intro/ESIPT.pdf}
@@ -238,7 +351,7 @@ Developing efficient fluorophore emission at the extremes of the visible spectru
 
 \begin{table}[t]
 \centering
-\caption[Molecular structures and their QEs in the solid state]{Molecular structures of the \textbf{HC} and \textbf{HP} systems and their QEs ($\theta$) in the solid state.\cite{Cheng2015,Tang2016,Cheng2016} } 
+\caption[Molecular structures and their \ac{QE} in the solid state]{Molecular structures of the \textbf{HC} and \textbf{HP} systems and their \ac{QE} in the solid state.\cite{Cheng2015,Tang2016,Cheng2016} } 
   \label{table: chalcones}
   \begin{tabular}{llllllll}
   %\hline
@@ -279,13 +392,13 @@ Developing efficient fluorophore emission at the extremes of the visible spectru
   \end{tabular}
 \end{table}
 
-For the \ac{HC} and \ac{HP} families, the crystal packing, absorption and emission wavelength, and crucially the QE, are all dependent on the choice of substituent and number of aromatic rings. How these factors interplay is not well resolved. To fully understand the photophysical properties of these systems, intricate knowledge of the electronic, molecular picture must be combined with the intermolecular interactions of the crystal. Theoretical methods can help elucidate this picture and offer insight into the working mechanisms behind \ac{AIE} for these \ac{ESIPT} systems, and how to maximise the quantum yield of fluorescence. This is the primary aim of the work in this thesis, with \ac{HC} and \ac{HP} families used as exemplars. In this thesis, Chapters \ref{chapter:NRdecay} and \ref{chapter: Inter} shall focus on the \textbf{HC} derivatives, with particular attention on \textbf{1} and \textbf{5}. In Chapter \ref{chapter: Connecting}, a holistic view of all eleven systems shall be taken as we examine how the crystal structure and packing regime influences emission. Since the \acp{HC} are the main focus of the thesis, the following section shall focus on their luminescent properties and previous investigations.  
+For the \ac{HC} and \ac{HP} families, the crystal packing, absorption and emission wavelength, and crucially the\ac{QE}, are all dependent on the choice of substituent and number of aromatic rings. How these factors interplay is not well resolved. To fully understand the photophysical properties of these systems, intricate knowledge of the electronic, molecular picture must be combined with the intermolecular interactions of the crystal. Theoretical methods can help elucidate this picture and offer insight into the working mechanisms behind \ac{AIE} for these \ac{ESIPT} systems, and how to maximise the quantum yield of fluorescence. This is the primary aim of the work in this thesis, with \ac{HC} and \ac{HP} families used as exemplars. In this thesis, Chapters \ref{chapter:NRdecay} and \ref{chapter: Inter} shall focus on the \textbf{HC} derivatives, with particular attention on \textbf{1} and \textbf{5}. In Chapter \ref{chapter: Connecting}, a holistic view of all eleven systems shall be taken as we examine how the crystal structure and packing regime influences emission. Since the \acp{HC} are the main focus of the thesis, the following section shall focus on their luminescent properties and previous investigations.  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Emitters based on 2'-hydroxychalcones}\label{section: lom HC}
+\section{Emitters Based on 2'-hydroxychalcones}\label{section: lom HC}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%
-\subsection{Crystalline Emission Properties}
+\subsection{Crystalline Emission Properties of \acp{HC}}
 %%%%%%
 In 2015, Cheng \textit{et al.} synthesised a range of crystalline \textbf{HC} systems with different substitution patterns.\cite{Cheng2015} They found the identity and the position of the substituent to be critical in the quantum yield of the crystals. This is summarised in Figure \ref{figure: HC_experimental}. When substituents are \textit{meta} to  the hydroxyl group (compounds \textbf{1}-\textbf{3}) in the phenol ring, deep red fluorescence is observed, but only when in crystalline form. The solutions are almost non-emissive. Interestingly, under frozen conditions the solutions still only weakly fluoresce, indicating that restriction of intramolecular rotation is not the key factor in the \ac{AIE} for these molecules. When the same substituents are in \textit{para} position (compounds \textbf{4},\textbf{5}), neither the crystals nor the solutions are emissive. 
 \begin{figure}[H]
@@ -323,7 +436,7 @@ Song and co-workers studied the deactivation of \textbf{HC} as a function of sol
 
 
 
-
+\begin{comment}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Structure of thesis}\label{section: lom outline}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -336,3 +449,4 @@ In Chapter \ref{chapter: Inter} the focus moves to the crystalline photochemistr
 In Chapter \ref{chapter: Connecting}, the scope of our work is expanded to consider the \ac{HP} family, as well as two additional \textbf{HC} compounds which undergo AIE (Table \ref{table: chalcones}. In total we consider eleven compounds to understand the remarkable efficiency of the \ac{HP} family and to test the design rules established in Chapter \ref{chapter: Inter}. A quantitative description of the crystal morphologies is developed, based upon the dimer configurations present. The thesis concludes with an overview of the main results, and how these precipitate the design rules for more efficient organic luminescent materials. 
 
 
+\end{comment}

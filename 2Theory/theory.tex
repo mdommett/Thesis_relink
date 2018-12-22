@@ -4,7 +4,7 @@
 \subsection{Overview}\label{section: QM_overview}
 The development of quantum mechanics in the early 20th century armed scientists with the tools to calculate the microscopic properties of matter. In chemistry, the postulates of quantum mechanics can be applied to calculate relative energies of molecules, molecular geometries, ratios of products of chemical reactions, transition states, spectra, and any other phenomenon of interest. However, whilst in principle any property can be calculated exactly by the \schro{} equation, the analytical solution is only obtainable for systems with one electron. For systems larger than this, and therefore anything of observable chemical relevance, the computational expense on even modern computer architecture is intractable. 
 
-To overcome this, a number of approximations are used field of computational chemistry. In general, as the number of atoms one wants to model increases, qualitative nature of the result also increases. Computational chemistry methods can generally be split into the types of approximations made and the number of atoms the method wishes to treat. In biophysical process and the modelling of proteins on the scale of tens of thousands of atoms, quantum mechanics is ignored completely. Forcefields are used to calculate the energy corresponding to a set of atomic coordinates in what are known as the \ac{MM} class of methods. The interactions between atoms are defined by analytical potentials, such as for bond stretches, bends, and angles, and are parameterised for different types of molecules using more accurate methods. This procedure is time-consuming and makes the forcefield specific to the systems it was fitted to, but enables computationally facile access to molecular geometries and properties of large systems.
+To overcome this, a number of approximations are used in the field of computational chemistry to solve the multielectron problem. In general, as the number of atoms one wants to model increases, qualitative nature of the result also increases. Computational chemistry methods can generally be split into the types of approximations made and the number of atoms the method wishes to treat. In biophysical process and the modelling of proteins on the scale of tens of thousands of atoms, quantum mechanics is ignored completely. Forcefields are used to calculate the energy corresponding to a set of atomic coordinates in what are known as the \ac{MM} class of methods. The interactions between atoms are defined by analytical potentials, such as for bond stretches, bends, and angles, and are parameterised for different types of molecules using more accurate methods. This procedure is time-consuming and makes the forcefield specific to the systems it was fitted to, but enables computationally facile access to molecular geometries and properties of large systems.
 
 At the other end of the scale the electronic structure is included through wavefunction or \ac{DFT} techniques. For the applications involved in this thesis, involving photoinduced phenomena, the activity of the electrons is paramount, and as such it is these methods which are utilised herein. In the next sections, the importance of the \schro{} equation shall be established, which along with the Born-Oppenheimer approximation enables the calculation of electronic properties through the simplest wavefunction method, the \ac{HF} method. Methods to improve the \ac{HF} approximation are then introduced, followed by the paradigm shift offered by \ac{DFT}. The first two sections of this Chapter focus on methods to obtain ground state properties, whilst in Section \ref{section: Photo} excited state methods shall be discussed. 
 %%%%%%%%%%%%%%
@@ -16,7 +16,7 @@ The wavefunction $\Psi$ contains all the information about the quantum state of 
 \begin{equation}\label{equation: td-schro}
     i\hbar{}\frac{\partial \Psi(\bm{R},\bm{r},t)}{\partial t}=\hat{H}\Psi(\bm{R},\bm{r},t)
 \end{equation}
-where $\hbar=\frac{h}{2\pi}$ and $\hat{H}$ is the Hamiltonian operator for electrons at $\bm{r}$ and nuclei at $\bm{R}$. Separating the spatial part from the temporal part yields the time-dependent version of the \schro{} equation, which using the bra-ket notation of Dirac is
+where $\hbar=\frac{h}{2\pi}$ and $\hat{H}$ is the Hamiltonian operator for electrons at $\bm{r}$ and nuclei at $\bm{R}$. Separating the spatial part from the temporal part yields the time-dependent version of the \schro{} equation, which using the bra-ket notation of Dirac is\cite{Schrodinger1926}
 \begin{equation}\label{equation: ti-schro}
    \hat{H}\ket{\Psi}=E\ket{\Psi}.
 \end{equation}
@@ -36,7 +36,11 @@ In the hydrogen atom, the $\hat{V}_{e-e}$ and $\hat{V}_{n-n}$ can be neglected s
 \subsection{The Born-Oppenheimer Approximation}\label{section: QM_bornoppenheimer}
 %%%%%%%%%%%%%%
 %%%%%%%%%%%%%%
-Separation of variables is a key concept in quantum chemistry, where a complex problem is broken down into constituent parts. This method is used to simplify the solving of Equation \ref{equation: ti-schro} by separating the electronic terms from the nuclear terms. This is rooted in the fact that the nuclei are vastly heavier than electrons, and so it can be approximated that the nuclei are static with respect to the electrons. Equation \ref{equation: ti-schro} is solved, then, in two steps. First, the electronic structure is solved with ``clamped" nuclei, resulting in an electronic energy which is a parametric function of the nuclear coordinates. By concentrating on just the electronic terms, the \textit{electronic} Hamiltonian $\hat{H}_{e}$ becomes
+Separation of variables is a key concept in quantum chemistry, where a complex problem is broken down into constituent parts. This method is used to simplify the solving of Equation \ref{equation: ti-schro} by separating the electronic terms from the nuclear terms, and is known as the Born-Oppenheimer Approximation\cite{Born1927}
+\begin{equation}
+    \Psi_{BO}(\bm{R},\bm{r})=\Theta_{\bm{R},\bm{r}}\Phi_{\bm{r}}.
+\end{equation}
+where $\Theta_{\bm{R},\bm{r}}$ is the nuclear wavefuction and $\Phi_{\bm{r}}$ is the electronic wavefunction. The separation of terms is rooted in the fact that the nuclei are vastly heavier than electrons, and so it can be approximated that the nuclei are static with respect to the electrons. Equation \ref{equation: ti-schro} is solved, then, in two steps. First, the electronic structure is solved with ``clamped" nuclei, resulting in an electronic energy which is a parametric function of the nuclear coordinates. By concentrating on just the electronic terms, the \textit{electronic} Hamiltonian $\hat{H}_{e}$ becomes
 \begin{equation}\label{equation: Hel}
      \hat{H}_{e}=\underbrace{-\sum_{i=1}^{N}\frac{1}{2}\nabla_{i}^2}_\text{kinetic term}-\underbrace{\sum_{i=1}^{N}\sum_{A=1}^{M}\frac{Z_{A}}{r_{iA}}+\sum_{i=1}^{N}\sum_{j>{i}}^{N}\frac{1}{r_{ij}}}_\text{electrostatic terms}.
 \end{equation}
@@ -44,12 +48,13 @@ and the electronic \schro{} equation is then
 \begin{equation}\label{equation: ti-schro-el}
    \hat{H}_{e}\ket{\Phi}=E_{e}\ket{\Phi}
 \end{equation}
-The total wavefunction $\Psi$ is reconstructed from the the combination of the electronic functions for each state $I$ and the corresponding nuclear wavefunction $\Theta_{I}$
+
+The total wavefunction $\Psi$ can considering multiple electronic states can be constructed from the combination of the electronic functions for each state $I$ and the corresponding nuclear wavefunction $\Theta_{I}$ in what is known as the Born-Huang expansion\cite{Born1954}
 \begin{equation}
     \Psi(\bm{R},\bm{r})=\sum_{I}\Theta_{I}\Phi_{I}.
 \end{equation}
 
-When the nuclei are stationary, their kinetic energy is zero and the complete Hamliltonian is just the electronic Hamiltonian. For vibrating molecules, Equation \ref{equation: ti-schro-el} is solved at the required nuclear configuration, for electronic state $I$, and the time-evolution of the nuclear wavefunctions is
+When the nuclei are stationary, their kinetic energy is zero and the complete Hamliltonian is just the electronic Hamiltonian. For vibrating molecules, Equation \ref{equation: ti-schro-el} is solved at the required nuclear configuration, for electronic state $I$, and the time-evolution of the nuclear wavefunctions is\cite{Worth2004}
 \begin{equation}\label{equation: nucwavefunctions}
     i\hbar{}\frac{\partial{}\Theta_{I}}{\partial{}t}=[\hat{T_{n}}+E_{I}]\Theta_{I}\underbrace{-\sum_{I}\hat{\Lambda}_{JI}\Theta_{I}}_\text{Nonadiabtic couplings}
 \end{equation} 
@@ -60,7 +65,7 @@ When the nuclei are stationary, their kinetic energy is zero and the complete Ha
 \end{equation} 
 \end{comment}
 %%%%%%%%%%%%COMMENT
-where the energy of $E_{I}$ is the expectation value of the electronic Hamiltonian ($\bra{\Phi_{I}}\hat{H_e}\ket{\Phi_{I}}$). The highlighted \textit{nonadiabtic coupling} operator $\hat{\Lambda}_{JI}$ couples electronic state $I$ with electronic state $J$. In the adiabatic Born-Oppenheimer approximation, this coupling is completely neglected and the time-evolution of the nuclei becomes
+where the energy of $E_{I}$ is the expectation value of the electronic Hamiltonian ($\bra{\Phi_{I}}\hat{H_e}\ket{\Phi_{I}}$). The highlighted \textit{nonadiabtic coupling} operator $\hat{\Lambda}_{JI}$ couples electronic state $I$ with electronic state $J$. In the adiabatic Born-Oppenheimer approximation, this coupling is completely neglected and the time-evolution of the nuclei becomes\cite{Yonehara2012}
 \begin{equation}\label{equation: BO}
     i\hbar{}\frac{\partial{}\Theta_{I}}{\partial{}t}=[\hat{T_{n}}+E_{I}]\Theta_{I}
 \end{equation} 
@@ -72,11 +77,11 @@ The Born-Oppenheimer approximation helps divide the problem into electronic and 
 \subsection{Basis Sets}\label{section: methods_basisets}
 %%%%%%%%%%%%%%
 %%%%%%%%%%%%%%
-Molecular orbitals are constructed from the linear combination of atomic orbitals. These atomic orbitals are represented by mathematical functions called a basis set. An infinite number of these functions, without any other approximations, would lead to the computation of the exact wavefunction (or energy). However, since an infinite basis set is not possible, another source of error in the electronic structure arises from the truncation of the basis set and the number of functions used. Atom-centred basis sets typically consist of Gaussian functions. Whilst Gaussian functions themselves do not reflect the correct atomic orbital behaviour seen in Slater-type functions, the combination of multiple Gaussians can recover the radial behaviour along with the many numerical advantages. To adequately describe valence orbitals, more than one basis function is used in what is known as the split valence. Adding polarisation and diffuse functions aid the long range description of the atomic orbital.
+Molecular orbitals are constructed from the linear combination of atomic orbitals. These atomic orbitals are represented by mathematical functions called a basis set. A complete set these functions, without any other approximations, would lead to the computation of the exact wavefunction (or energy). However, since an infinite basis set is not possible, another source of error in the electronic structure arises from the truncation of the basis set and the number of functions used. Atom-centred basis sets typically consist of Gaussian functions, which hold many numerical advantages over other functional forms for the wavefunction. To adequately describe valence orbitals, more than one basis function is used in what is known as the split valence. Adding polarisation and diffuse functions aid the long range description of the atomic orbital.\cite{Cramer2002}
 
-For solid state calculations involving periodic systems, it is computationally more efficient to switch from atomic centred orbitals to periodic functions. In the solid state community, planewave basis sets are used to sample the unit cell, where the wavefunction is described by one-electron periodic functions ($e^{ikr}$). The wavefunction is constructed by summing these planewaves up to an energy cut-off as a function of the frequency. Often the core electrons are approximated by pseudopotentials to lower the computational cost of computing high frequency planewaves. 
+For solid state calculations involving periodic systems, it is computationally more efficient to switch from atomic centred orbitals to periodic functions. In the solid state community, planewave basis sets are used to sample the unit cell, where the wavefunction is described by one-electron periodic functions ($e^{ikr}$). The wavefunction is constructed by summing these planewaves up to an energy cut-off as a function of the frequency. Often the core electrons are approximated by pseudopotentials to lower the computational cost of computing high frequency planewaves.\cite{Young2001} 
 
-In the work presented in this thesis, almost all calculations involve atom-centred basis sets. Planewaves and periodic DFT are used to optimise the unit cells of molecular crystals, from which clusters are extracted and energies calculated as described in Section \ref{section: excited_states_crystals}. 
+In the work presented in this thesis, almost all calculations involve atom-centred basis sets. Periodic DFT using planewaves are used to optimise the unit cells of molecular crystals, from which clusters are extracted and energies calculated as described in Section \ref{section: excited_states_crystals}. 
 
 %%%%%%%%%%%%%%
 %%%%%%%%%%%%%%
@@ -84,13 +89,13 @@ In the work presented in this thesis, almost all calculations involve atom-centr
 \subsection{The Hartee-Fock Method}\label{section: methods_HF}
 %%%%%%%%%%%%%%
 %%%%%%%%%%%%%%
-In the \ac{HF} method, the intractable $N$-electron wavefunction $\Phi$ is simplified to be a product of $N$, one-electron wavefunctions $\chi$,
+In the \ac{HF} method, a single electron in an $N$-electron system moves within the field produced by the nuclei and the other $N$-1 electrons.\cite{hartree_1928} The intractable $N$-electron wavefunction $\Phi$ is simplified to be a product of $N$, one-electron wavefunctions $\chi$,
 \begin{equation}
 \ket{\Phi}=\ket{\chi_{1}\chi_{2}...\chi_{i}..\chi_{N}}.
 \end{equation}
- where $\chi$ are spin orbitals of each electron in the system. The spin orbitals consist of a spatial functional and a spin function, an infinite number of which could provide an exact solution. However, in practical terms a basis set of atomic functions is supplied, as described in Section \ref{section: methods_basisets}.
+where $\chi$ are spin orbitals of each electron in the system. The spin orbitals consist of a spatial functional and a spin function, an infinite number of which could provide an exact solution. However, in practical terms a basis set of atomic functions is supplied, as described in Section \ref{section: methods_basisets}.\cite{szabo1996}
  
- From the Pauli exclusion principle, no two electrons may share exactly the same four quantum numbers (i.e occupy the same spatial and spin orbital). Since electrons are fermions, the electronic wavefunction is \textit{antisymmetric}, meaning that a change in the orbital must result in the wavefunction changing sign. This is enforced using Slater Determinants. This is most easily seen for a two-electron system for electrons at positions $\bm{x}_{1}$ and $\bm{x}_{2}$, where orbital $\chi_{1}$ contains electron at $\bm{x}_1$ and orbital $\chi_{2}$ contains electron at $\bm{x}_2$, with a normalisation factor of $N^{-\frac{1}{2}}$
+ From the Pauli exclusion principle, no two electrons may share exactly the same four quantum numbers (i.e occupy the same spatial and spin orbital). Since electrons are fermions, the electronic wavefunction is \textit{antisymmetric}, meaning that a change in the orbital must result in the wavefunction changing sign. This is enforced using Slater Determinants.\cite{Slater1929} This is most easily seen for a two-electron system for electrons at positions $\bm{x}_{1}$ and $\bm{x}_{2}$, where orbital $\chi_{1}$ contains electron at $\bm{x}_1$ and orbital $\chi_{2}$ contains electron at $\bm{x}_2$, with a normalisation factor of $N^{-\frac{1}{2}}$
 \begin{equation}
 \begin{split}
 \Phi(\bm{x}_{1},\bm{x}_{2})&=\frac{1}{\sqrt{2}}\{\chi_{1}(\bm{x}_{1})\chi_{2}(\bm{x}_{2})-\chi_{1}(\bm{x}_{2})\chi_{2}(\bm{x}_{1})\}\\
@@ -101,7 +106,7 @@ In the \ac{HF} method, the intractable $N$-electron wavefunction $\Phi$ is simpl
 \end{vmatrix}
 \end{split}
 \end{equation}
-where by taking the determinant, the antisymmetry is ensured since exchanging the electrons changes the sign of the determinant. In the determinant, the rows consist of the electrons while the columns contain the orbitals. In the \ac{HF} method, the wavefunction is approximated by a single Slater Determinant, and therefore \ac{HF} is known as a single-determinant, or single-reference, method.  As well as ensuring antisymmetry, the Slater determinant wavefunction also introduces exact exchange (or HF exchange), a quantum mechanical property for electrons of parallel spin.
+where by taking the determinant, the antisymmetry is ensured since exchanging the electrons changes the sign of the determinant. In the determinant, the rows consist of the electrons while the columns contain the orbitals. In the \ac{HF} method, the wavefunction is approximated by a single Slater Determinant, and therefore \ac{HF} is known as a single-determinant, or single-reference, method.  As well as ensuring antisymmetry, the Slater determinant wavefunction also introduces exact exchange (or HF exchange), a quantum mechanical property for electrons of parallel spin.\cite{szabo1996}
 
 The variational principle states that the true ground state wavefunction will always be less than or equal to a trial wavefunction, meaning that the guessed spin orbitals will never undershoot the true energy. As such, 
 \ac{HF} is a purely iterative method where the energy is computed for a set of trial spin orbitals, the spin orbitals are altered, and the energy is guessed again. This is repeated until convergence. 
@@ -117,7 +122,7 @@ The antisymmetric nature of the Slater determinent results in two operators for 
 \begin{equation}
     \hat{K}_{ij}\chi_{i}=\chi_{j}\int{\frac{\chi^{\ast}_{j}\chi_{i}}{r_{ij}}d\bm{x}_{2}}.
 \end{equation}
-The Coulomb operator determines the Coulomb potential felt by electron $i$ in orbital $\chi_{i}$ from electron $j$ in orbital $\chi_{j}$. This is done by \textit{averaging} the interaction over all of the spatial coordinates of electron $j$. As such, $J_{ij}$ represents the average, or \textit{mean-field}, local potential felt by electron $i$. For this reason, the \ac{HF} method is often called a mean-field approach. The exchange operator $K_{ij}$ is a result of the antisymmetric Slater determinant, and is a quantum mechanical artefact of the fact that electrons are by nature  indistinguishable, and the exact labelling ($i$,$j$) has no physical meaning. 
+The Coulomb operator determines the Coulomb potential felt by electron $i$ in orbital $\chi_{i}$ from electron $j$ in orbital $\chi_{j}$. This is done by \textit{averaging} the interaction over all of the spatial coordinates of electron $j$. As such, $J_{ij}$ represents the average, or \textit{mean-field}, local potential felt by electron $i$. For this reason, the \ac{HF} method is often called a mean-field approach. The exchange operator $K_{ij}$ is a result of the antisymmetric Slater determinant, and is a quantum mechanical artefact of the fact that electrons are by nature  indistinguishable, and the exact labelling ($i$,$j$) has no physical meaning.\cite{szabo1996}
 
 The one-electron and two-electron operators are collected by the Fock operator $\hat{F}$, such that
 \begin{equation}
@@ -133,7 +138,7 @@ an eigenvalue equation solved by altering the orbitals until energy convergence 
 \begin{equation}\label{equation: expansion}
     \chi_{i}=\sum_{\mu=1}^{K}C_{ui}\phi_{\mu}\qquad\quad{}i=1,2,..,K
 \end{equation}
-The Roothaan equations are then used to solve Equation \ref{equation: Fock-operator} in matrix form,
+The Roothaan-Hall equations are then used to solve Equation \ref{equation: Fock-operator} in matrix form,\cite{Roothaan1951,Hall1951}
 \begin{equation}
     \bm{FC}={\bm{SC\epsilon}}
 \end{equation}

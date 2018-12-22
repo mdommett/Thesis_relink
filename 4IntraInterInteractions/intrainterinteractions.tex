@@ -64,44 +64,7 @@ The energies at the FC state and \Kstar{} minimum for the \textbf{M15} chromopho
 
 We validate the TDDFT calculated MECI geometry of \textbf{1} and \textbf{2} in the solid state by optimising the conical intersection with the state-averaged complete active space self-consistent field  method, using an active space of 12 electrons in 11 orbitals with the 6-31G(d) basis set (SA-CASSCF(12,11)/6-31G(d)):AMBER(HF). The MECI geometry is optimised within the \textbf{M7} model with AMBER forcefield to describe the MM-level, in which all the positions of all MM atoms are frozen during the optimisation. All CASSCF calculations were performed using the MOLCAS@UU v8.0 binaries, using  the Tinker v.6.3.3 interface for the QM/MM calculations. 
 
-Further understanding can be achieved by calculating the excitonic couplings for the relevant dimers. The diabatization scheme of Troisi was implemented to calculate the excitonic couplings $J$.\cite{Arago2015} The exciton coupling \textit{J} between two monomers in a dimer is given in the diabatic 2x2 Hamiltonian matrix \textbf{H}\textsuperscript{\textit{D}}, computed \textit{via}
-\begin{equation}
-\textbf{H}^{D}=\textbf{C}\textbf{H}^{A}\textbf{C}^\dag
-\label{equation: diabatic hamiltonian}
-\end{equation}
-\begin{equation}
-\label{equation: diabatic matrix}
-\textbf{H}^D=
-\begin{bmatrix}
-E_{i}^D & J_{ij}\\
-J_{ij} & E_{j}^D
-\end{bmatrix}
-=
-\begin{bmatrix}
-C_{11} & C_{12}\\
-C_{21} & C_{22}
-\end{bmatrix}
-\begin{bmatrix}
-E_{i}^A & 0\\
-0 & E_{j}^A
-\end{bmatrix}
-\begin{bmatrix}
-C_{11} & C_{21}\\
-C_{12} & C_{22}
-\end{bmatrix}
-\end{equation} 
-where \textbf{H}\textsuperscript{\textit{A}} is the diagonal Hamiltonian of the \sone{} and \stwo{} excitation energies and \textbf{C} is the adiabatic-diabatic transformation matrix. \textbf{C} is defined here as the matrix which minimised the difference between the transition dipole moments of the first two excited states of the dimer ($\bm{\mu}^{A}$) and the transition dipole moments of the first excited state of the two isolated monomers ($\bm{\mu}^{ISO}$), which are collected by matrix \textbf{M}. Singular value decomposition of \textbf{M} into $\bm{U\Sigma{}V}^{\dag}$ can yield matrix \textbf{C},
-\begin{equation}
-\begin{split}
-    \bm{\mathrm{M}}&=(\bm{\mu}^{A})^{\dag}\bm{\mu}^{ISO}\\
-    &=\bm{U\Sigma{}V}^{\dag}
-    \end{split}
-\end{equation}
-\begin{equation}
-    \bm{\mathrm{C}}^{\dag}=\bm{UV}^{\dag}
-\end{equation}
-
-This scheme incorporates both the short-range (exchange, orbital overlap, charge-transfer) and long-range Coulomb interactions. 
+Further understanding can be achieved by calculating the excitonic couplings for the relevant dimers. The diabatization scheme of Troisi was implemented to calculate the excitonic couplings $J$.\cite{Arago2015} This scheme incorporates both the short-range (exchange, orbital overlap, charge-transfer) and long-range Coulomb interactions. 
 
 The multi-model approach ensures size-consistency of the MM-region, evaluates the role of short and long-range interactions, explicitly models the long-range electrostatic potential from the crystal, and determines the role of excitonic coupling on the mechanistic interpretation.
 %%%%%%%%%%%%%%
