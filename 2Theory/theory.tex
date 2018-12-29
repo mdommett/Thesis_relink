@@ -6,7 +6,7 @@ The development of quantum mechanics in the early 20th century armed scientists 
 
 To overcome this, a number of approximations are used in the field of computational chemistry to solve the multielectron problem. In general, as the number of atoms one wants to model increases, qualitative nature of the result also increases. Computational chemistry methods can generally be split into the types of approximations made and the number of atoms the method wishes to treat. In biophysical process and the modelling of proteins on the scale of tens of thousands of atoms, quantum mechanics is ignored completely. Forcefields are used to calculate the energy corresponding to a set of atomic coordinates in what are known as the \ac{MM} class of methods. The interactions between atoms are defined by analytical potentials, such as for bond stretches, bends, and angles, and are parameterised for different types of molecules using more accurate methods. This procedure is time-consuming and makes the forcefield specific to the systems it was fitted to, but enables computationally facile access to molecular geometries and properties of large systems.
 
-At the other end of the scale the electronic structure is included through wavefunction or \ac{DFT} techniques. For the applications involved in this thesis, involving photoinduced phenomena, the activity of the electrons is paramount, and as such it is these methods which are utilised herein. In the next sections, the importance of the \schro{} equation shall be established, which along with the Born-Oppenheimer approximation enables the calculation of electronic properties through the simplest wavefunction method, the \ac{HF} method. Methods to improve the \ac{HF} approximation are then introduced, followed by the paradigm shift offered by \ac{DFT}. The first two sections of this Chapter focus on methods to obtain ground state properties, whilst in Section \ref{section: Photo} excited state methods shall be discussed. 
+At the other end of the scale the electronic structure is included through wavefunction or \ac{DFT} techniques. For the applications involved in this thesis, involving photoinduced phenomena, the activity of the electrons is paramount, and as such it is these methods which are utilised herein. In the next sections, the importance of the \schro{} equation shall be established, which along with the Born-Oppenheimer approximation enables the calculation of electronic properties through the simplest wavefunction method, the \ac{HF} method. Methods to improve the \ac{HF} approximation are then introduced, followed by the paradigm shift offered by \ac{DFT}. Attention is then switched to calculating excited states of molecular systems, and an overview of the intricacies involved in computational photochemistry.
 %%%%%%%%%%%%%%
 %%%%%%%%%%%%%%
 \subsection{The \schro{} Equation}\label{section: QM_schrodinger}
@@ -191,7 +191,7 @@ E_{i}=E_{i}^{(0)}+\sum_{n=1}^{n}\bra{\Phi_{i}^{(0)}}\hat{V}\ket{\Phi_{i}^{(n-1)}
 \end{equation}
 The perturbation operator $\hat{V}$ introduces the Coulomb repulsion between electrons, which when combined with excited Slater determinants, recovers the \textit{dynamic} correlation energy. In most chemical applications, the method is contracted at second-order, and was initially employed by C. M{\o}ller and M.S. Plesset to obtain the correlation energy, hence the acronym \ac{MP2} is often used.\cite{Moller1934} Since MP is perturbative, the MP-calculated energy can be lower than the true energy, making it a non-variational method.
 %%%%%%%%%%%%%%
-\subsection{Coupled Cluster Theories}\label{section: CC}
+\subsection{Coupled Cluster}\label{section: CC}
 %%%%%%%%%%%%%%
 In an alternative approach to perturbation theory, \ac{CC} methods were introduced in the 1960s to account for electron correlation.\cite{Cizek1966,Paldus1972} \ac{CC} theory uses excited determinants by means of a Taylor expansion with an exponential operator
 \begin{equation}\label{equation: cc}
@@ -262,8 +262,8 @@ Hybrid functionals improve upon the \ac{GGA}s by including a percentage of \ac{H
 One of the key errors in Kohn-Sham \ac{DFT}, using the types of functionals introduced thus far, is the self-interaction error. In \ac{HF}, the electron-electron interaction of the Hamiltonian ensures that an electron will interact with all the other electrons in the system but itself. In \ac{DFT}, each electron interacts with the entire electron density and thus with itself. If 100\% exact exchange is used this error is exactly cancelled. However, since this is not present in \ac{LDA}s or \ac{GGA}s, the \ac{XC}-potential does not show the correct asymptotic behaviour, and is only partially remedied by the small percentage of \ac{HF} exchange in hybrids. At large interelectronic distances, the self-interaction results in incorrect long-range asymptotic behaviour, where the \ac{XC} potential falls off more rapidly than 1/$R$. This causes a huge issue in the description of charge-transfer excitations in time-dependent density functional theory, as shall be discussed in Section \ref{section: tddft}
 
 To remedy this, a class of functionals called \acp{RSH} has been developed. The exchange is split into short- and long-range parts, where the short-range exchange will typically be represented by a local or semi-local functional, while the long range exchange is treated by \ac{HF} exchange. The distance at which the behaviour changes is determined by the range-separation parameter. Therefore, the long-range behaviour can be corrected due to having exact exchange. Whilst hybrid functionals are the most widely used in present day computational chemistry, it is certainly not a ``one size fits all" situation, since different functionals are developed to meet certain requirements, often being ``property-driven" as much as rooted in theory. In particular, for dealing with excited states, hybrid functionals have known and systematic failings, which the \ac{RSH} functionals aim to address. This shall be discussed in the next section, where we introduce \ac{TDDFT}.
-
-\section{Time Dependent Density Functional Theory}\label{section: tddft}
+\section{Methods for Excited States}
+\subsection{Time Dependent Density Functional Theory}\label{section: tddft}
 One of the most popular methods for probing excited states is \acf{TDDFT}, first proposed in 1984 by Runge and Gross, and then extended in 1995 by Casida, TDDFT is a popular approach for modelling the properties of electronically excited states. The fundamental idea within TDDFT is that the dynamics of a system can be completely described by its time-dependent density. Runge and Gross proved that there is a unique, 1:1 correspondence between time-dependent densities and potentials.\cite{Runge1984} From the 1:1 correspondence it follows that the time-dependent density is a unique functional of the external potential (and vice versa):
 \begin{equation}
     V(t)\rightarrow\Phi(\bm{r},t)\rightarrow\rho(\bm{r},t)
@@ -317,16 +317,22 @@ where $\Omega_{I}=E_{I}-E_{gs}$, the excitation energy of state $I$, $\hat{\rho}
 
 A well-known failing in \ac{TDDFT} is the poor description of \acf{CT} excitations, where there is minimal orbital between occupied and virtual orbitals involved in a transition. TDDFT is known to underestimate \ac{CT}-excitation energies with \ac{LDA}, \ac{GGA}, and hybrids, since self-interaction means virtual orbital energies are systematically too low in energy. The \ac{RSH} functionals have been shown to mitigate this error for \ac{CT} excitations, with tuned \ac{RSH} functionals showing equivalent performance wave function methods for the prediction of excitation energies.\cite{Stein2009a,Kuritz2011,Kronik2012a} Within the current work, the \ac{RSH} functional $\omega$B97X-D is used in density functional calculations to incorporate these benefits.\cite{Chai2008} 
 
-
-
-
-
 %%%%%%%%%%%%%%
-\section{ADC(2) and CC2}\label{section: methods_linear_response}
+\subsection{ADC(2) and CC2}\label{section: methods_linear_response}
 %%%%%%%%%%%%%%
-In addition, approximate \ac{CC} methods are used to calculate excited state properties of molecules, namely the \ac{CC}2 method. The \ac{CC}2 method was formulated in 1995 to approximate CCSD but with $N^{5}$ scaling and provide accurate excitation energies.\cite{Christiansen1995} In \ac{CC}2, the single excitations of CCSD are retained but the double excitations are approximated, with comparable ground state accuracy of MP2.\cite{Hattig2005} Response functions of \ac{CC}2 provide excitation energies and transition moments, making it a popular method in probing excited-state properties of molecules.\cite{Sneskov2012}
+In addition to \ac{TDDFT}, in this thesis post Hartree-Fock methods are used to calculate excited states of molecular systems. This section shall briefly outline the coupled cluster to approximate second order (CC2) and \ac{ADC2} methods, which are both based on linear response theory. The \ac{CC}2 method was formulated in 1995 to approximate CCSD but with $N^{5}$ scaling and provide accurate excitation energies.\cite{Christiansen1995} In \ac{CC}2, the single excitations of CCSD are retained but the double excitations are approximated, with comparable ground state accuracy of MP2.\cite{Hattig2005} Response functions of \ac{CC}2 provide excitation energies and transition moments, making it a popular method in probing excited-state properties of molecules.\cite{Sneskov2012}
 
-As an alternative but closely related approach, propagator methods are also used to calculate excitation energies and transition moments. The polarizer propagator introduces the effect of an external field, for instance the absorption of a photon. In the \ac{ADC2}, the polarizer propagator acts on the \ac{MP2} ground state to give excitation energies at similar accuracy but reduced computational cost compared to \ac{CC}2.
+CC2 is formulated as a generalised eigenvalue problem:
+\begin{equation}\label{equation: CC2}
+    \bm{AX}=\bm{\Omega{}X}
+\end{equation}
+where $\bm{\Omega}$ contains the excitation energies and the matrix $\bm{A}$ has matrix elements:\cite{Sneskov2012}
+\begin{equation}
+    \bm{A}_{\mu_{i}\nu_{j}}=\bra{\Phi_{HF}}t^{\dagger}_{\mu_{i}}\exp{(-\hat{T})}[\hat{H}_{e},\hat{\tau}_{\nu_{j}}]\exp{(\hat{T})}\ket{\Phi_{HF}}
+\end{equation}
+where $\hat{T}$ is the cluster operator, $t_{\mu_{u_{i}}}$ are the cluster amplitudes and $\hat{\tau}_{\nu_{j}}$ is the excitation operator.\cite{Crespo-Otero2018} The CC Jacobian is non-Hermitian, which causes numerical problems when excited states become degenerate.\cite{Hattig2005,Crespo-Otero2018,Plasser2014}
+
+As an alternative but closely related approach, propagator methods are also used to calculate excitation energies and transition moments. The polarizer propagator introduces the effect of an external field, for instance the absorption of a photon. In the \ac{ADC2}, the polarizer propagator acts on the \ac{MP2} ground state to give excitation energies at similar accuracy but reduced computational cost compared to \ac{CC}2.\cite{Trofimov1995,Trofimov1997} The advantage of \ac{ADC2} over CC2 is that the matrix $\bm{A}$ is Hermitian and the excited states can be obtained by diagonalising, unlike in CC2 where Equation \ref{equation: CC2} must be solved twice, for left and right eigenvectors.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%
