@@ -142,6 +142,7 @@ Submitted in partial fulfillment of the requirements\\ of the Degree of Doctor o
 \appendix
 \appendixpage
 \setcounter{figure}{0} \renewcommand{\thefigure}{A\arabic{figure}}
+\renewcommand{\thetable}{A\arabic{figure}}
 \section*{Appendix A}
 \label{appendix1}
 \begin{figure}[H]
@@ -156,7 +157,7 @@ Submitted in partial fulfillment of the requirements\\ of the Degree of Doctor o
 \begin{figure}[H]
 \centering
   \includegraphics[width=0.9\linewidth]{Misc/2HC_energies_vac_TDDFT_SB.pdf}
- \caption[The vacuum PES of \textbf{HC1} \& \textbf{HC5} with (TD-)$\omega$BX-D/6-31G(d) ]{The critical points on the \ac{PES} of \textbf{HC1} \& \textbf{HC5} obtained at (TD-)$\omega$BX-D/6-31G(d) in vacuum.}
+ \caption[The vacuum PES of \textbf{HC1} \& \textbf{HC5}]{The critical points on the \ac{PES} of \textbf{HC1} \& \textbf{HC5} obtained at (TD-)$\omega$BX-D/6-31G(d) in vacuum.}
   \label{figure: HC_TDDFT_VAC_SB}
 \end{figure}
 \newpage
@@ -177,6 +178,22 @@ Submitted in partial fulfillment of the requirements\\ of the Degree of Doctor o
   \caption[CASSCF and CASPT2 space used in Chapter \ref{chapter: Connecting}.]{HP orbitals in the active space for the CASSSCF and CASPT2 calculations, where the active space consists of 12 electrons in 11 orbitals. Orbitals shown for each of the Franck-Condon (FC), keto \sone{} (KS\textsubscript{1}) and minimum energy conical intersection (MECI) calculations.}
   \label{figure: HP_CASSCF_Orbitals}
 \end{figure}
+\begin{comment}
+\begin{table}[H]
+\centering
+\caption{Radiative rates $k_{r,}$ in the enol (E*) and keto (k*) regimes for \textbf{HC1}, \textbf{HC5}, \textbf{HP1}. All rates in \SI{}{s^{-1}}, calculated at TD-$\omega$B97X-D/6-31G(d):AMBER level using the Einstein relationship of Equation \ref{equation: Einstein_rate}.} 
+  \label{table: rates}
+  \begin{tabular}{lll}
+  \hline
+  System & $k_{r,E*}$ & $k_{r,K*}$\\
+  \hline
+  \textbf{HC1} & \SI{1.78e9}{} & \SI{2.83e8}{} \\
+  \textbf{HC5} & - & \SI{1.02e8}{} \\
+  \textbf{HP1} & \SI{4.49E6}{} & \SI{1.23e8}{} \\
+  \hline
+  \end{tabular}
+\end{table}
+\end{comment}
 %%%%%%%%%%%%%%
 % APPENDICES
 %%%%%%%%%%%%%%
