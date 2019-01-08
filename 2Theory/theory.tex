@@ -166,8 +166,8 @@ A number of methods exist to recover the correlation energy absent from the \ac{
 The basic idea of the configuration interaction is to describe the exact wavefunction as a linear combination of Slater determinants. The energy is found by diagonalising the $N$-electron Hamiltonian (Equation \ref{equation: H}) in the basis of trial determinant functions, and minimise the energy again using the Variational Principle.\cite{szabo1996} The additional functions consist of ``excited" Slater determinants, where a spin orbital ($\chi_{a}$) in the closed-shell \ac{HF} determinant is replaced by one of the remaining, unoccupied orbitals $\chi_{r}$. This excited Slater determinant can be denoted $\ket{\Phi_{a}^{r}}$.\cite{szabo1996}  Substituting one orbital is a single excitation, whilst replacing two orbitals $\chi_{a}$ and $\chi_{b}$ by $\chi_{r}$ and $\chi_{s}$ is a double excitation, and so on up to $N$-tuple excited determinants, giving the configuration interaction wavefunction the following form:\cite{szabo1996}
 \begin{align}\label{equation: config_int}
 \begin{split}
-\ket{\Phi_{\mathrm{CI}}}&=c_{0}\ket{\Phi_{\mathrm{HF}}}+\bigg(\frac{1}{1!}\bigg)^{2}\sum_{ar}c_{a}^{r}\ket{\Phi_{a}^{r}}+\bigg(\frac{1}{2!}\bigg)^{2}\sum_{abrs}c_{ab}^{rs}\ket{\Phi_{ab}^{rs}}\\&+\bigg(\frac{1}{3!}\bigg)^{2}\sum_{abrst}c_{abc}^{rst}\ket{\Phi_{abc}^{rst}}
-+\bigg(\frac{1}{4!}\bigg)^{2}\sum_{abrstu}c_{abcd}^{rstu}\ket{\Phi_{abcd}^{rstu}}+...
+\ket{\Phi_{\mathrm{CI}}}&=c_{0}\ket{\Phi_{\mathrm{HF}}}+\bigg(\frac{1}{1!}\bigg)^{2}\sum_{ar}c_{a}^{r}\ket{\Phi_{a}^{r}}+\bigg(\frac{1}{2!}\bigg)^{2}\sum_{abrs}c_{ab}^{rs}\ket{\Phi_{ab}^{rs}}\\&+\bigg(\frac{1}{3!}\bigg)^{2}\sum_{abcrst}c_{abc}^{rst}\ket{\Phi_{abc}^{rst}}
++\bigg(\frac{1}{4!}\bigg)^{2}\sum_{abcdrstu}c_{abcd}^{rstu}\ket{\Phi_{abcd}^{rstu}}+...
 \end{split}
 \end{align}
 The factorial terms ensure that each excitation is only counted once. In an infinite basis of spin orbitals, the $N$ excited determinants would recover the exact wavefunction of the system. However, even for finite bases with truncated level of excitations, configuration interaction calculations require huge computational expense due to the vast number of determinants.
@@ -289,8 +289,8 @@ Solving the time-dependent \schro{} equation for the wavefunction is not necessa
 \end{equation}
 where $\rho_1$ is the first-order, linear density induced by the first-order perturbation, $\rho_2$ is the second-order response, \textit{etc}. For absorption processes, this perturbation is an electric field acting on the ground state, and how the system responds contains the information about the system's optical spectrum.\cite{Ullrich2012}
 
-The van-Leeuwen theorem states that a fictitious, non-interacting Kohn-Shahm system can replicate the time-dependent density $\rho(\bm{r}
-,t)$ corresponding to an external potential $V(t)$.\cite{Leeuwen1999} Likewise, the time-dependent density can be reproduced by the Kohn-Shahm potential
+The van-Leeuwen theorem states that a fictitious, non-interacting Kohn-Sham system can replicate the time-dependent density $\rho(\bm{r}
+,t)$ corresponding to an external potential $V(t)$.\cite{Leeuwen1999} Likewise, the time-dependent density can be reproduced by the Kohn-Sham potential
 \begin{equation}
     \rho(\bm{r},t)=\rho[\nu_{KS}](\bm{r},t)
 \end{equation}
@@ -307,7 +307,7 @@ where $\Omega_{I}=E_{I}-E_{gs}$, the excitation energy of state $I$, $\hat{\rho}
 \begin{equation}
     \chi_{s}(\bm{r},\bm{r'},\omega)=\sum_{j,k=1}^{\infty}(f_{k}-f_{j})\frac{\psi_{j}(\bm{r})\psi_{k}^{\ast}(\bm{r})\psi_{j}^{\ast}(\bm{r'})\psi_{k}(\bm{r'})}{\omega-\omega_{jk}+i\eta{}}
 \end{equation}
-where $f_{i}$ and $f_{k}$ are occupation numbers of the orbitals in the Kohn-Shahm ground state (1 for occupied, 0 for unoccupied) and $\omega_{jk}$ is the energy difference between Kohn-Sham eigenstates. Excitations can be thought of as dynamical processes where the system transitions from one eigenstate to another, such that the excitation is an \textit{eigenmode} of the system.\cite{Ullrich2014} Excitations energies are calculated practically using Casida equation.\cite{Casida1995}
+where $f_{i}$ and $f_{k}$ are occupation numbers of the orbitals in the Kohn-Sham ground state (1 for occupied, 0 for unoccupied) and $\omega_{jk}$ is the energy difference between Kohn-Sham eigenstates. Excitations can be thought of as dynamical processes where the system transitions from one eigenstate to another, such that the excitation is an \textit{eigenmode} of the system.\cite{Ullrich2014} Excitations energies are calculated practically using Casida equation.\cite{Casida1995}
 \begin{comment}
 \begin{equation}
     \begin{pmatrix}
