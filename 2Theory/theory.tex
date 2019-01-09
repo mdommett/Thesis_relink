@@ -470,7 +470,7 @@ A popular route to obtaining the total energy of the cluster is the ONIOM method
 \begin{equation}\label{equation: ONIOM}
 E_{ONIOM}=E_{QM,Model}+E_{MM,real}-E_{MM,model}
 \end{equation}
-where the total energy is the sum of the QM energy of the model system with the MM energy of the real system. Subtracting the energy of the model system at the MM level ensures that its contribution is not double counted.\cite{Chung2015a} The QM level energy is calculated through the chosen method, typically (TD)DFT or CASSCF/CASPT2. In our work, we mainly use the AMBER force field to describe the MM-level atoms, which evaluates the MM energy through\cite{Case2005}
+where the total energy is the sum of the QM energy of the model system with the MM energy of the real system. Subtracting the energy of the model system at the MM level ensures that its contribution is not double counted.\cite{Chung2015a} The QM level energy is calculated through the chosen method, typically (TD)DFT or CASSCF/CASPT2. In our work, we mainly use the AMBER force field to describe the MM-level atoms, which evaluates the MM energy through\cite{Cornell1995}
 \begin{equation}
 \begin{split}
     E_{MM}&=\sum_{bonds}K_{r}(r-r_{eq})^{2}+\sum_{angles}K_{\theta}(\theta-\theta_{eq})^{2}+\sum_{dihedrals}\frac{V_{n}}{2}[1+\mathrm{cos}(n\phi{}-\gamma{})]\\
